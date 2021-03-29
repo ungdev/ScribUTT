@@ -33,11 +33,6 @@ Ce contenu est distribué sous licence BSD-3. **Attention l'archive dont nous pa
 <p align="center">
   <img src="deploy/rapport-1.png"/>
 </p>
-
-## Contribution
-
-Toute contribution est la bienvenue.
-
 ## Des liens utiles
 * Pour écrire des maths en LaTeX: [ici](https://fr.wikibooks.org/wiki/LaTeX/%C3%89crire_des_math%C3%A9matiques)
 * Pour mettre en forme du code avec [minted](https://github.com/gpoore/minted): [ici](https://github.com/gpoore/minted/raw/master/source/minted.pdf)
@@ -50,3 +45,6 @@ Toute contribution est la bienvenue.
 
 * "Et pour ```! Package minted Error: You must have `pygmentize' installed to use this package.``` ?"
 > On ouvre une invite de commande et on lance: `pip install Pygments`
+
+## Contribution
+Toute contribution est la bienvenue.
