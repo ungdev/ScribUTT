@@ -28,12 +28,34 @@
 \geometry{vmargin=3cm, textwidth=16cm} % Réglages des marges
 \usepackage{fancyhdr}		% Pour l'entête et les pieds de page
 \pagestyle{fancy}			% Pour l'entête et les pieds de page
+\setlength{\headheight}{85pt}% ...au moins 84.69057pt 
 \PassOptionsToPackage{hyphens}{url}\usepackage[pagebackref]{hyperref}		% Pour les liens hypertext, sommaire et références
 \usepackage[final]{pdfpages} % Pour inclure des .pdf
 \usepackage[linesnumbered,ruled,vlined]{algorithm2e} % for cool loonking algorithm
 \usepackage{ulem} % Pour souligner en couleur
 \usepackage{Ressources-graphiques/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
-\usepackage{minted} % Pour le code
+
+% pour le code
+\usepackage{minted}
+\usemintedstyle{vs}
+\usepackage{tcolorbox}
+\tcbuselibrary{minted,skins}
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+
+% Pour configurer l'affichage global de nos codes
+\setminted{
+  linenos=true,
+  autogobble, %remove leading whitespace from code
+  bgcolor=doreeFondationUTT-clair,
+  fontsize=\footnotesize,
+  fontfamily=jkptt,
+  frame=lines,
+  breaklines, % Pour empêcher les lignes de dépasser
+  breakautoindent,
+  framesep=2mm
+}
+
+%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TODO EXPLICATION
@@ -110,8 +132,14 @@
   {\color{bleuRoiUTT} \hrule width\headwidth height\footrulewidth \vskip+2mm}
 } %Changement de la couleur de la ligne de pied de page
 %Contenu de l'en-tête :
-\lhead{\textsc{\leftmark }} %Section actuelle à gauche de l'en-tête
-\chead{\includegraphics[height=1.5cm]{Ressources-graphiques/logos/sigle_UTT.pdf}} %Sigle de l'UTT au centre de l'en-tête
+\lhead{
+  \textsc{\leftmark }
+} %Section actuelle à gauche de l'en-tête
+\chead{
+  \vspace{0.5cm}
+  \includegraphics[height=1.5cm]{Ressources-graphiques/logos/sigle_UTT.pdf}
+  \vspace{0.5cm}
+} %Sigle de l'UTT au centre de l'en-tête
 \rhead{\theUE} %Code de l'UE à droite de l'en-tête
 %Contenu du pied de page :
 \cfoot{\thepage} %Numéro de page au centre

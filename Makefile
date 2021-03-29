@@ -18,12 +18,12 @@ archive:
 
 	cd build &&	zip -r ../latex-rapport-UTT.zip *
 
-# Prepare folder to be use as the content of gitlab pages
+# Prepare folder
 prepare_deploy: preview archive
 	rm -rf deploy
 	mkdir deploy
 
-	cp main.pdf latex-rapport-UTT.zip main-0.png main-1.png deploy/
+	cp main.pdf latex-rapport-UTT.zip rapport-0.png rapport-1.png deploy/
 
 # Remove all temporary files
 clean:
