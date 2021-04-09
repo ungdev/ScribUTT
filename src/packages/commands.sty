@@ -1,0 +1,133 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src/packages/commands}
+
+% Taking derivatives
+\newcommand { \dd } [ 2 ] { \dfrac { d #1 } { d #2 } }
+\newcommand { \dydx } { \dd yx }
+\newcommand { \ddx } [1] { \dd {#1} x }
+\newcommand { \ddt } [1] { \dd {#1} t }
+
+% Taking partial derivatives
+\newcommand { \pp } [ 2 ] { \frac { \partial #1 } { \partial
+#2 } }
+\newcommand { \ppx } [1] { \pp {#1} x }
+\newcommand { \ppy } [1] { \pp {#1} y }
+\newcommand { \ppz } [1] { \pp {#1} z }
+
+% evaluating anti - derivatives
+\newcommand { \eval } { \Big | }
+
+% formatting some important single letters
+\newcommand { \e } { \mbox { \large $ e $ \rule { 0 in } { 1.6 ex
+}}}
+
+% Labelling L ' Hospital ' s Rule
+\newcommand { \LH } { \stackrel { \text { LH } } { = } }
+
+% Asking if two things are equal
+\newcommand { \eq } { \stackrel { \text { ? } } { = } }
+
+% making a larger decimal point
+\newcommand { \bd } { \mbox { \Large . } }
+
+% For using in integrals , like \int\newcommand { \dx } { \ , dx }
+\newcommand { \dy } { \ , dy }
+\newcommand { \dz } { \ , dz }
+\newcommand { \dt } { \ , dt }
+\newcommand { \du } { \ , du }
+\newcommand { \dv } { \ , dv }
+\newcommand { \dtheta } { \ , d \theta }
+
+% For specially formatted fractions
+\newcommand { \textfrac } [ 2 ] { \frac { \text { #1 } } {
+\text { #2 } } }
+\newcommand { \change } [ 2 ] { \frac { \text { change in
+#1 } } { \text { change in #2 } } }
+% Better appearance for a " skinny frac "
+% like \frac 1 x
+\newcommand { \sfrac } [ 2 ] { \frac { \ #1 \ } { #2 } }
+
+% domain , image and identity functions
+\newcommand { \dom } { \mathop { \rm dom } \nolimits }
+\newcommand { \im } { \mathop { \rm im } \nolimits }
+\newcommand { \id } { \mathop { \rm id } \nolimits }
+% Real numbers , etc .
+\usepackage { amsfonts }
+\newcommand { \R } { \mathbb { R } }
+\newcommand { \Z } { \mathbb { Z } }
+\newcommand { \Q } { \mathbb { Q } }
+\newcommand { \C } { \mathbb { C } }
+
+% for " such that "
+\newcommand { \st } { : }
+% inverse functions
+\newcommand { \inv } { { -1 } }
+% Making answer blanks
+\newcommand { \blank } [ 1 ] { \underline { \hspace * { #1 } }
+}
+\usepackage { amssymb }
+% stands for " not divides "
+\newcommand { \notdiv } { \nmid }
+% for labeling parts of proofs
+\newcommand { \forwards } { ``$ \Rightarrow $ ''}
+\newcommand { \contra } { \ensuremath { \Rightarrow
+\Leftarrow } }
+\newcommand { \backwards } { ``$ \Leftarrow $ ''}
+
+
+
+%%% Quantic
+\usepackage{braket}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Fancy boxes for theorem lemma and proof
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[framemethod=TikZ]{mdframed}
+
+\newcounter{theo}[section]\setcounter{theo}{0}
+\renewcommand{\thetheo}{\arabic{section}-\arabic{theo}}
+
+\usepackage{xcolor}
+
+\newenvironment{theo}[2][]
+    {%
+        \refstepcounter{theo}%
+        \ifstrempty{#1}%
+        % DO THIS
+        {
+            \mdfsetup{%
+            frametitle={%
+                    \tikz[baseline=(current bounding box.east),outer sep=0pt]
+                    \node[anchor=east,rectangle,fill=bleuRoiUTT]
+                    {
+                        \strut {\color{white} Théorème }~\thetheo
+                    };
+                }
+            }
+        }
+        % ELSE
+        {
+            \mdfsetup{%
+                frametitle=
+                {%
+                    \tikz[baseline=(current bounding box.east),outer sep=0pt]
+                    \node[anchor=east,rectangle,fill=bleuRoiUTT]
+                    {
+                        % Ici c'est le "titre"
+                        \strut {\color{white} Théorème ~\thetheo :~ #1 }
+                    }
+                ;}
+            }%
+        }%
+            \mdfsetup{
+                innertopmargin=10pt,linecolor=bleuRoiUTT,%
+                linewidth=2pt,topline=true,%
+                frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+            }
+            \begin{mdframed}[]
+                \relax%
+            \label{#2}
+    }
+    {
+        \end{mdframed}
+    }

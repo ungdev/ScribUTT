@@ -1,3 +1,4 @@
+\NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{rUTT}
 
 \LoadClass[a4paper,12pt]{article}
@@ -33,7 +34,15 @@
 \usepackage[final]{pdfpages} % Pour inclure des .pdf
 \usepackage[linesnumbered,ruled,vlined]{algorithm2e} % for cool loonking algorithm
 \usepackage{ulem} % Pour souligner en couleur
-\usepackage{Ressources-graphiques/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
+\usepackage{src/packages/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
+
+\usepackage{ragged2e} % for justifying https://tex.stackexchange.com/questions/369549/justifying-text-in-overleaf-template
+
+\usepackage{caption}
+\usepackage{dialogue} %pour les... dialogues
+
+\usepackage[font=itshape]{quoting} % pour les citations
+\usepackage{epigraph}
 
 % pour le code
 \usepackage{minted}
@@ -55,7 +64,10 @@
   framesep=2mm
 }
 
-%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Import custom commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{src/packages/commands}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TODO EXPLICATION
@@ -66,8 +78,8 @@
 }
 \ProcessOptions\relax
 
-\renewcommand{\listoflistingscaption}{Liste des programmes} %Pour changer le titre de la liste des codes
-\renewcommand{\listingscaption}{Programme} %Pour changer la légende des codes
+\renewcommand{\listoflistingscaption}{Liste des codes sources} %Pour changer le titre de la liste des codes
+\renewcommand{\listingscaption}{Code source} %Pour changer la légende des codes
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -136,9 +148,9 @@
   \textsc{\leftmark }
 } %Section actuelle à gauche de l'en-tête
 \chead{
-  \vspace{0.5cm}
-  \includegraphics[height=1.5cm]{Ressources-graphiques/logos/sigle_UTT.pdf}
-  \vspace{0.5cm}
+  \vspace{0.3cm}
+  \includegraphics[height=2cm]{Ressources-graphiques/logos/logo_UTT.png}
+  \vspace{0.3cm}
 } %Sigle de l'UTT au centre de l'en-tête
 \rhead{\theUE} %Code de l'UE à droite de l'en-tête
 %Contenu du pied de page :
