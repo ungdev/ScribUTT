@@ -11,7 +11,7 @@
 \usepackage{titling}
 \usepackage{textcomp}
 \usepackage{lmodern}        % Pour avoir de bonnes polices en pdf
-\usepackage{graphicx}       % Indispensable pour les figures
+\usepackage{graphicx, animate}       % Indispensable pour les figures
 \usepackage{amsmath}        % Environnement pour les maths, permet du mettre du texte dans les équations
 \usepackage[headheight=61pt]{geometry}       % Utilisé pour les marges
 \usepackage{multicol}		% Pour les colonnes
@@ -158,7 +158,7 @@
 \lfoot{\theauthor} %auteur(s) à gauche
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Environements
+%Environnements
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newenvironment{myabstract}{%
   \begin{quote} \begin{center}
