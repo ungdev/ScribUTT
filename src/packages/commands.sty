@@ -85,7 +85,7 @@
 \usepackage[framemethod=TikZ]{mdframed}
 
 \newcounter{theo}[section]\setcounter{theo}{0}
-\renewcommand{\thetheo}{\arabic{section}-\arabic{theo}}
+\renewcommand{\thetheo}{\arabic{section}~-~\arabic{theo}}
 
 \usepackage{xcolor}
 
@@ -127,6 +127,53 @@
             \begin{mdframed}[]
                 \relax%
             \label{#2}
+    }
+    {
+        \end{mdframed}
+    }
+
+
+% Another
+\newenvironment{callout}[2]
+    {%
+        \ifstrempty{#1}%
+        % DO THIS
+        {
+            \mdfsetup{%
+            frametitle={%
+                    \tikz[baseline=(current bounding box.east),outer sep=0pt]
+                    \node[anchor=east,rectangle,fill=bleuRoiUTT]
+                    {
+                        \strut {}
+                    };
+                }
+            }
+        }
+        % ELSE
+        {
+            \mdfsetup{%
+                frametitle=
+                {%
+                    \tikz[baseline=(current bounding box.east),outer sep=0pt]
+                    \node[anchor=east,rectangle,fill=bleuRoiUTT]
+                    {
+                        % Ici c'est le "titre"
+                        \strut {
+                            {\color{white} #1 }
+                        }
+                    }
+                ;}
+            }%
+        }%
+            \mdfsetup{
+                innertopmargin=10pt,linecolor=bleuRoiUTT,%
+                linewidth=2pt,topline=true,%
+                frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+            }
+            \begin{mdframed}[]
+                \relax%
+            \label{
+                #2}
     }
     {
         \end{mdframed}

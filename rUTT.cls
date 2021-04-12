@@ -7,6 +7,7 @@
 \frenchbsetup{StandardLists=true} %Pour redéfinir les itemize malgré babel
 \usepackage[T1]{fontenc}    % Package pour les accentuations
 \usepackage[utf8]{inputenc}  % Français
+
 \usepackage{subfiles}
 \usepackage{titling}
 \usepackage{textcomp}
@@ -23,16 +24,22 @@
 \usepackage{todonotes}
 \usepackage{xcolor}
 \usepackage{enumitem} %For custom itemize
+
 \usepackage{tikz}			%Pour les figures et graphes
+
 \usetikzlibrary{calc}		%Pour les figures et graphes
-\usepackage[cache=false]{minted}        % Utilisé pour les scripts
+
 \geometry{vmargin=3cm, textwidth=16cm} % Réglages des marges
 \usepackage{fancyhdr}		% Pour l'entête et les pieds de page
 \pagestyle{fancy}			% Pour l'entête et les pieds de page
+
+% Text pos to position texts in absolute coords for the first page.
+\usepackage[absolute,overlay]{textpos}
+
 \setlength{\headheight}{85pt}% ...au moins 84.69057pt 
 \PassOptionsToPackage{hyphens}{url}\usepackage[pagebackref]{hyperref}		% Pour les liens hypertext, sommaire et références
 \usepackage[final]{pdfpages} % Pour inclure des .pdf
-\usepackage[linesnumbered,ruled,vlined]{algorithm2e} % for cool loonking algorithm
+
 \usepackage{ulem} % Pour souligner en couleur
 \usepackage{src/packages/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
 
@@ -45,7 +52,7 @@
 \usepackage{epigraph}
 
 % pour le code
-\usepackage{minted}
+\usepackage[cache=false]{minted}        % Utilisé pour les scripts
 \usemintedstyle{vs}
 \usepackage{tcolorbox}
 \tcbuselibrary{minted,skins}
@@ -69,6 +76,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{src/packages/commands}
 
+\newcommand{\frontpage}{\include{src/parts/frontpage.tex}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TODO EXPLICATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -87,7 +96,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\UE}[1]{\def\theUE{#1}} %Passage de l'UE en variable
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Redéfinition des niveaux de titre
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -100,7 +108,7 @@
   \makeatletter
 
   \newcommand\sectionuline{% Commande pour souligner les sections en bleuRoiUTT
-    \bgroup\markoverwith{\textcolor{bleuRoiUTT}{\rule[-0.5ex]{0.1mm}{0.5mm}}}%
+    \bgroup\markoverwith{\textcolor{grisUTT}{\rule[-0.5ex]{0.1mm}{0.5mm}}}%
     \ULon%
   }
   \renewcommand\section{\@startsection {section}{1}{\z@}% Redéfinition de la commande section (plus gros, souligné)
@@ -149,10 +157,15 @@
 } %Section actuelle à gauche de l'en-tête
 \chead{
   \vspace{0.3cm}
-  \includegraphics[height=2cm]{Ressources-graphiques/logos/logo_UTT.png}
+  \includegraphics[width=5cm]{Ressources-graphiques/logos/UTT.eps}
   \vspace{0.3cm}
 } %Sigle de l'UTT au centre de l'en-tête
-\rhead{\theUE} %Code de l'UE à droite de l'en-tête
+
+\rhead{
+  \theUE
+  ~ - ~
+  \today %Code de l'UE à droite de l'en-tête
+  } 
 %Contenu du pied de page :
 \cfoot{\thepage} %Numéro de page au centre
 \lfoot{\theauthor} %auteur(s) à gauche

@@ -5,21 +5,22 @@
 % \documentclass[noUTTcolors]{rUTT}
 
 \UE{RP01} %Nom de l'UE
-\title{TPX : Lorem ipsum}
-\author{{\sc Nom} Prénom \\ {\sc Nom} Prénom}
+\title{Projet : Lorem ipsum}
+\author{{\sc MARTIN} Azaël \\ {\sc Nom} Prénom}
 
-\setlength {\marginparwidth }{2cm}
+\newcommand{\titletext}{
+    Vous êtes probablement assez bon pour travailler dans cette entreprise pour laquelle vous pensez ne pas être assez bon.
+}
+
+
+\setlength {\marginparwidth }{2cm} % to loading the todonotes package
 
 \begin{document}
-    \import{src/parts/}{titlePage.tex}
+    \frontpage
+    \pagenumbering{arabic}
     \tableofcontents{} %Commenter/supprimer pour enlever la table des matières
 
-    % Décommenter les trois lignes ci-dessous pour sauter une page après la table des matières, et mettre celle-ci sur une page sans en-tête, pied de page et numéro (recommandé)
-
-    \thispagestyle{empty}
-    \setcounter{page}{0} % C'est pour compter les pages
-    \newpage
-
+    \clearpage
 
     \import{src/}{content.tex}
 

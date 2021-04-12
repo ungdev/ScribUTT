@@ -1,0 +1,44 @@
+\begin{titlepage}
+    \newgeometry{top=0cm,bottom=0cm,right=0cm,left=0cm}
+
+    \input{src/packages/overlay.tikz}
+
+    % Si on veut ajouter du texte au centre du carré bleu
+    \begin{textblock*}{14cm}(3.5cm,5cm)
+        \begin{Huge}
+            \makeatletter
+            \justifying
+            \begin{center}
+                \fontsize{20}{60}\textbf{\textcolor{white}{\titletext}}
+            \end{center}
+
+            \makeatother
+        \end{Huge}
+    \end{textblock*}
+
+    % Titre
+    \begin{textblock*}{19cm}(1cm,17.5cm)
+        \begin{Huge}
+            \begin{flushright}
+                \makeatletter
+                \noindent\fontsize{24}{60}\selectfont \textbf{\textcolor{bleuRoiUTT}{\thetitle}}
+                \makeatother
+            \end{flushright}
+        \end{Huge}
+    \end{textblock*}
+    
+    % Auteurs
+    \begin{textblock*}{19cm}(1cm,19cm)
+        \begin{Huge}
+            \begin{flushright}
+                \makeatletter
+                \fontsize{11}{60}\textbf{\textcolor{bleuRoiUTT}{\theauthor}}
+                \makeatother
+            \end{flushright}
+        \end{Huge}
+    \end{textblock*}
+
+    \clearpage % flushes out all floats that have been deferred
+
+\end{titlepage}
+
