@@ -1,15 +1,37 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{rUTT}
+\ProvidesClass{rUTT} % pour dire quelle classe on fournit
 
 \LoadClass[a4paper,12pt]{article}
+
+\usepackage{src/packages/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
 
 \usepackage[french]{babel} % Package babel pour le français
 \frenchbsetup{StandardLists=true} %Pour redéfinir les itemize malgré babel
 \usepackage[T1]{fontenc}    % Package pour les accentuations
 \usepackage[utf8]{inputenc}  % Français
+\usepackage{datetime}
+
+% load the microtype package with the final package option 
+% to ensure that the microtypographic features are activated 
+% even when using the draft class option.
+\usepackage[final]{microtype} % permet d'éviter le "overfull hbox" sur la bibliographie par exemple
+
+\usepackage{floatrow} % pour minted, entre autre
+\usepackage{url}
+\usepackage{bookmark} % charge hyperref 
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=bleuRoiUTT,
+    filecolor=magenta,      
+    urlcolor=bleuCielUTT,
+}
+
+\usepackage{titling} %thetitle thedate etc
+
+\usepackage{blindtext} % Pour générer des textes de test
 
 \usepackage{subfiles}
-\usepackage{titling}
 \usepackage{textcomp}
 \usepackage{lmodern}        % Pour avoir de bonnes polices en pdf
 \usepackage{graphicx, animate}       % Indispensable pour les figures
@@ -19,11 +41,19 @@
 \usepackage{multirow}       % Pour des tableaux fun
 \usepackage{mathtools}  % Typographie pour les ensembles communs
 \usepackage{amssymb}    % Typographie pour les ensembles communs
-\usepackage{float}          % Pour bien placer les figures, scripts et tableaux
 \usepackage{xspace}         % for including spaces at the end of latex macros
 \usepackage{todonotes}
-\usepackage{xcolor}
 \usepackage{enumitem} %For custom itemize
+
+\usepackage[backend=biber,style=alphabetic,citestyle=verbose,sorting=ynt]{biblatex}
+
+% "When using babel or polyglossia with biblatex, loading csquotes is recommended to ensure that quoted texts are typeset according to the rules of your main language.'
+\usepackage{csquotes}
+\addbibresource{src/parts/bibliography.bib}
+
+%\usepackage[nottoc]{tocbibind} % pour inclure la biblio directement dans le sommaire
+
+
 
 \usepackage{tikz}			%Pour les figures et graphes
 
@@ -37,11 +67,8 @@
 \usepackage[absolute,overlay]{textpos}
 
 \setlength{\headheight}{85pt}% ...au moins 84.69057pt 
-\PassOptionsToPackage{hyphens}{url}\usepackage[pagebackref]{hyperref}		% Pour les liens hypertext, sommaire et références
-\usepackage[final]{pdfpages} % Pour inclure des .pdf
 
 \usepackage{ulem} % Pour souligner en couleur
-\usepackage{src/packages/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
 
 \usepackage{ragged2e} % for justifying https://tex.stackexchange.com/questions/369549/justifying-text-in-overleaf-template
 
@@ -63,13 +90,14 @@
   linenos=true,
   autogobble, %remove leading whitespace from code
   bgcolor=doreeFondationUTT-clair,
-  fontsize=\footnotesize,
+  fontsize=\scriptsize,
   fontfamily=jkptt,
   frame=lines,
   breaklines, % Pour empêcher les lignes de dépasser
   breakautoindent,
   framesep=2mm
 }
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Import custom commands
@@ -79,18 +107,11 @@
 \newcommand{\frontpage}{\include{src/parts/frontpage.tex}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TODO EXPLICATION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\if@noUTTcolors\@noUTTcolorsfalse
 \DeclareOption{noUTTcolors}{
   \@noUTTcolorstrue
 }
 \ProcessOptions\relax
-
-\renewcommand{\listoflistingscaption}{Liste des codes sources} %Pour changer le titre de la liste des codes
-\renewcommand{\listingscaption}{Code source} %Pour changer la légende des codes
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Nouvelles variables
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -148,17 +169,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\headrulewidth}{0.5pt} %Épaisseur de la ligne d'en-tête
 \renewcommand{\footrulewidth}{1.5pt} %Épaisseur de la ligne de pied de page
+
 \renewcommand{\footrule}{%
-  {\color{bleuRoiUTT} \hrule width\headwidth height\footrulewidth \vskip+2mm}
+  {\color{bleuRoiUTT} \hrule width\headwidth height\footrulewidth \vskip+0.5mm}
 } %Changement de la couleur de la ligne de pied de page
+
 %Contenu de l'en-tête :
 \lhead{
   \textsc{\leftmark }
 } %Section actuelle à gauche de l'en-tête
 \chead{
   \vspace{0.3cm}
-  \includegraphics[width=5cm]{Ressources-graphiques/logos/UTT.eps}
-  \vspace{0.3cm}
+  \includegraphics[width=4cm]{Ressources-graphiques/logos/UTT.eps}
+  \vspace{0.5cm}
 } %Sigle de l'UTT au centre de l'en-tête
 
 \rhead{
@@ -168,7 +191,11 @@
   } 
 %Contenu du pied de page :
 \cfoot{\thepage} %Numéro de page au centre
-\lfoot{\theauthor} %auteur(s) à gauche
+
+\lfoot{
+  \small
+  \textbf{\textcolor{bleuRoiUTT}{\theauthor}}
+  } %auteur(s) à gauche
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Environnements

@@ -134,7 +134,7 @@
 
 
 % Another
-\newenvironment{callout}[2]
+\newenvironment{callout}[2][]
     {%
         \ifstrempty{#1}%
         % DO THIS
@@ -178,3 +178,8 @@
     {
         \end{mdframed}
     }
+
+%%%%%%%%%%%%%%%%%%- Unicode chars
+\DeclareUnicodeCharacter{2212}{-}
+\DeclareUnicodeCharacter{2261}{≡}
+\DeclareUnicodeCharacter{03C6}{φ}

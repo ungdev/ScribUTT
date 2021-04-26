@@ -13,7 +13,7 @@ anchor=north
     name=uttlogo,
     anchor=south
 ] at (uttlogo_anchor){
-    \includegraphics[width=5cm]{Ressources-graphiques/logos/UTT.eps}
+    \includegraphics[width=4cm]{Ressources-graphiques/logos/UTT.eps}
 };
 
 \end{tikzpicture}
