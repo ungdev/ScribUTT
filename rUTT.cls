@@ -95,7 +95,10 @@
   frame=lines,
   breaklines, % Pour empêcher les lignes de dépasser
   breakautoindent,
-  framesep=2mm
+  framesep=2mm,
+  curlyquotes=true,
+  tabsize=4,
+  stripall=true  
 }
 
 

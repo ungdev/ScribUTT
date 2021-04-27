@@ -2,7 +2,7 @@
 \subsection{Bouts de codes}
 Une version humainement lisible d'une fork bombe peut s'écrire ainsi:
 % Il ny a pas de bashcode disponible
-\begin{minted}{c}
+\begin{minted}{bash}
 #!/bin/bash
 fbomb(){
     fbomb | fbomb &
@@ -12,12 +12,15 @@ fbomb
 \end{minted}
 
 \subsubsection{Un plus gros bout de code !}
-\inputminted{python}{src/parts/code/example.py}
-\newpage
+\begin{listing}[H]
+    \inputminted{python}{src/parts/code/example.py}
+    \caption{square and multiply python code}
+    \label{cd:square_and_mult}
+\end{listing}
 
-\subsection{Une autre exemple d'inclusion de code}
-
-%\inputminted{python}{src/parts/code/example2.py}
+\subsection{Une code sur plusieurs pages}
+\inputminted{python}{src/parts/code/example2.py}
+\captionof{listing}{Some caption}
 
 
 % https://tex.stackexchange.com/questions/12428/code-spanning-over-two-pages-with-minted-inside-listing-with-caption

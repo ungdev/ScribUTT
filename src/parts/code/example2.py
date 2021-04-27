@@ -27,7 +27,7 @@ def inv(a: int, m: int, Verbose: bool = False):
 
     if ut.millerRabin(m) and m % a != 0:
         # A simple consequence of Fermat's little theorem is that if p is prime and does not divide a
-        # then a^−1 ≡ a^(p − 2) (mod p) is the multiplicative
+        # then a^−1 congruent to a^(p − 2) (mod p) is the multiplicative
         if Verbose:
             print(f"From Fermat's little theorem, because {m} is prime and does not divide {a} so: {a}^-1 = {a}^({m}-2) mod {m}")
         u = ut.square_and_multiply(a, m - 2, m)
