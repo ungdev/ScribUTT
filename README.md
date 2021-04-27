@@ -7,7 +7,7 @@
  |_____/  \___||_|   |_||_.__/  \____/    |_|      |_|   
                                                                                                
 ```
-`ScribUTT`: rapport au format UTT.
+`ScribUTT`: rapport au format [UTT](https://www.utt.fr/).
 
 ---
 
@@ -143,7 +143,7 @@ Si vous souhaitez vous plonger là-dedans, il y a un très bon pdf téléchargea
 > On ouvre une invite de commande et on lance: `pip install Pygments`
 
 # Licence
-Ce contenu est distribué sous licence BSD-3. **Attention l'archive dont nous parlons au-dessus contient des éléments graphiques dont certains sont de la propriété de l'Université de Technologie de Troyes.**
+Ce contenu est distribué sous licence BSD-3. **Attention l'archive dont nous parlons au-dessus contient des éléments graphiques dont certains sont de la propriété de l'[Université de Technologie de Troyes](https://www.utt.fr/).**
 
 # Contribution
 Toute contribution est la bienvenue.
