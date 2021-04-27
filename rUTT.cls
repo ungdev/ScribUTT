@@ -41,8 +41,11 @@
 \usepackage{graphicx, animate}       % Indispensable pour les figures
 \usepackage{amsmath}        % Environnement pour les maths, permet du mettre du texte dans les équations
 \usepackage[headheight=61pt]{geometry}       % Utilisé pour les marges
+
 \usepackage{multicol}		% Pour les colonnes
 \usepackage{multirow}       % Pour des tableaux fun
+\usepackage{longtable} % pour les longs tableaux
+
 \usepackage{mathtools}  % Typographie pour les ensembles communs
 \usepackage{amssymb}    % Typographie pour les ensembles communs
 \usepackage{xspace}         % for including spaces at the end of latex macros
