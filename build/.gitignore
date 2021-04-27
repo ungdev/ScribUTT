@@ -1,4 +1,4 @@
-rapport.*
+*.vscode
 !*.png
 !rapport.tex
 !rapport.pdf

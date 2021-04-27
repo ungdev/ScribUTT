@@ -5,8 +5,7 @@
 
 \usepackage{src/packages/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
 
-\usepackage[french]{babel} % Package babel pour le français
-\usepackage[english]{babel} % Package babel pour le français
+\usepackage[french,english]{babel} % Package babel pour le français et l'anglais
 \frenchbsetup{StandardLists=true} %Pour redéfinir les itemize malgré babel
 \usepackage[T1]{fontenc}    % Package pour les accentuations
 \usepackage[utf8]{inputenc}
