@@ -52,12 +52,14 @@ Sous un environnement Unix, vous pouvez utiliser le `MAKEFILE` pour :
 * Nettoyer votre espace de projet avec `make clean` et/ou `make clean all`.
 
 ## Architecture de votre projet
+* La classe [rUTT](rUTT.cls) est la classe mère dans laquelle est défini toutes les subtilités tel que les paramètres de [`minted`](https://ctan.org/pkg/minted?lang=en), les mises en forme du bas de page etc.
+
 * Le fichier [rapportUTT.tex](rapportUTT.tex) est la racine de votre projet, c'est ici que vous allez renseigner le titre, votre UE, les auteurs etc. **Le corps de ce document a été conçu pour aller au plus simple**, vous n'avez qu'à changer l'ordre d'import de vos parties, sauter des pages (ou non) entre chacune d'elle etc.
 
 Ensuite, on part dans la branche [src](src) : 
 
 * On placera dans le dossier [contents](src/contents) toutes les images que l'on souhaite incorporer à notre document.
-* Le dossier [packages](src/packages) contient les ajouts de commandes les plus usées ["commands.sty"](src/packages/commands.sty) ainsi que les couleurs de l'UTT [ici](src/packages/couleurs_UTT.sty). **C'est ici qu'il faut ajouter vos modules perso**. N'hésitez pas à proposer un module que vous jugez essentiel !
+* Le dossier [packages](src/packages) contient les ajouts de commandes les plus usées ["commands.sty"](src/packages/commands.sty), les couleurs de l'UTT [ici](src/packages/couleurs_UTT.sty) mais aussi et surtout la conception de la page de garde avec l'[*overlay*](src/packages/overlay.tikz) et [la disposition des éléments](src/packages/frontpage.tex). **C'est ici qu'il faut ajouter vos modules perso**. N'hésitez pas à proposer un module que vous jugez essentiel !
 * S'en suit la branche ["parts"](src/parts) dans laquelle j'ai réservé un emplacement exprès pour placer les [codes sources](src/parts/code) à afficher dans votre rapport. Ainsi que toutes les parties de votre document (e.g., ["firstPart"](src/parts/firstPart.tex)) !
 # Prévisualisation
 La page de garde a été configurée pour s'afficher ainsi :

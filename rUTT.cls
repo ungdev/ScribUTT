@@ -110,7 +110,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{src/packages/commands}
 
-\newcommand{\frontpage}{\include{src/parts/frontpage.tex}}
+\newcommand{\frontpage}{\include{src/packages/frontpage.tex}}
 
 \graphicspath{ {src/contents/} }
 
