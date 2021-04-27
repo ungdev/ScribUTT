@@ -6,9 +6,10 @@
 \usepackage{src/packages/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
 
 \usepackage[french]{babel} % Package babel pour le français
+\usepackage[english]{babel} % Package babel pour le français
 \frenchbsetup{StandardLists=true} %Pour redéfinir les itemize malgré babel
 \usepackage[T1]{fontenc}    % Package pour les accentuations
-\usepackage[utf8]{inputenc}  % Français
+\usepackage[utf8]{inputenc}
 \usepackage{datetime}
 
 % load the microtype package with the final package option 
