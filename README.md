@@ -7,18 +7,29 @@
  |_____/  \___||_|   |_||_.__/  \____/    |_|      |_|   
                                                                                                
 ```
-
 `ScribUTT`: rapport au format UTT.
-=====
-Le pdf généré est disponible [ici](rapportUTT.pdf).
+
+---
+
+Pour que les gens qui lisent vos rapports puissent réagir ainsi :
+<p align="center">
+  <img src="languageOfGods.jpg"/>
+</p>
+
+---
+
+Le pdf d'exemple généré est disponible [ici](rapportUTT.pdf).
 
 ![GitHub forks](https://img.shields.io/github/forks/n3rada/ScribUTT)
 ![GitHub stars](https://img.shields.io/github/stars/n3rada/ScribUTT)
 ![GitHub issues](https://img.shields.io/github/issues/n3rada/ScribUTT)
 
+
 # Table des matières
 - [`ScribUTT`: rapport au format UTT.](#scributt-rapport-au-format-utt)
 - [Utilisation](#utilisation)
+  - [Utilisation du make](#utilisation-du-make)
+  - [Architecture de votre projet](#architecture-de-votre-projet)
 - [Prévisualisation](#prvisualisation)
 - [Comment gérer un gros projet en LaTeX](#comment-grer-un-gros-projet-en-latex)
   - [Comment incorpore-t-on d'autres fichiers ?](#comment-incorpore-t-on-dautres-fichiers-)
@@ -33,6 +44,21 @@ Le pdf généré est disponible [ici](rapportUTT.pdf).
 **Pour une utilisation simple, ne téléchargez pas directement tout le repository !**
 Téléchargez l'archive prête à être utilisée : [ici](deploy/latex-rapport-UTT.zip) ! 
 
+## Utilisation du make
+Sous un environnement Unix, vous pouvez utiliser le `MAKEFILE` pour :
+
+* Construire le pdf de votre projet avec `make` 
+* Déployer votre rapport sous une forme dite "propre" (i.e. le pdf et un zip propre de vos ressources) avec `make deploy`. Notez qu'il invoque par lui même la construction du pdf.
+* Nettoyer votre espace de projet avec `make clean` et/ou `make clean all`.
+
+## Architecture de votre projet
+* Le fichier [rapportUTT.tex](rapportUTT.tex) est la racine de votre projet, c'est ici que vous allez renseigner le titre, votre UE, les auteurs etc. **Le corps de ce document a été conçu pour aller au plus simple**, vous n'avez qu'à changer l'ordre d'import de vos parties, sauter des pages (ou non) entre chacune d'elle etc.
+
+Ensuite, on part dans la branche [src](src) : 
+
+* On placera dans le dossier [contents](src/contents) toutes les images que l'on souhaite incorporer à notre document.
+* Le dossier [packages](src/packages) contient les ajouts de commandes les plus usées ["commands.sty"](src/packages/commands.sty) ainsi que les couleurs de l'UTT [ici](src/packages/couleurs_UTT.sty). **C'est ici qu'il faut ajouter vos modules perso**. N'hésitez pas à proposer un module que vous jugez essentiel !
+* S'en suit la branche ["parts"](src/parts) dans laquelle j'ai réservé un emplacement exprès pour placer les [codes sources](src/parts/code) à afficher dans votre rapport. Ainsi que toutes les parties de votre document (e.g., ["firstPart"](src/parts/firstPart.tex)) !
 # Prévisualisation
 La page de garde a été configurée pour s'afficher ainsi :
 <p align="center">
@@ -42,9 +68,13 @@ Voici un exemple d'une mise en page contenant un énoncé de théorème :
 <p align="center">
   <img src="examplesPNG/page.png"/>
 </p>
-Et un exemple d'insertion de code :
+Un exemple d'insertion de code :
 <p align="center">
   <img src="examplesPNG/forbombcode.png"/>
+</p>
+Et voici à quoi ressemble la bibliographie :
+<p align="center">
+  <img src="examplesPNG/bibliographie.png"/>
 </p>
 
 # Comment gérer un gros projet en LaTeX

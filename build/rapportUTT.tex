@@ -1,0 +1,76 @@
+% !TeX root = ./rapportUTT.tex
+% !BIB TS-program = biber
+
+\documentclass{rUTT}
+% Pour retirer le thème couleur UTT,
+%   Commenter la ligne précédente
+%   Décommenter la ligne dessous
+% \documentclass[noUTTcolors]{rUTT}
+
+\UE{LT01} %Nom de l'UE
+
+\title{
+    Un rapport en \texttt{LaTeX} \\
+    Ecrit avec amour.
+    }
+
+\date{\today}
+\author{
+    {\sc MARTIN} Azaël
+    \and 
+    {\sc Nom} Prénom
+    \break
+    {\sc Nom} Prénom
+    \and
+    {\sc Nom} Prénom
+    \break
+    %{\sc Nom} Prénom
+    }
+
+\newcommand{\titletext}{
+    Vous êtes probablement assez bon pour travailler dans cette entreprise pour laquelle vous pensez ne pas être assez bon.
+}
+
+
+\setlength {\marginparwidth }{2cm} % to loading the todonotes package
+
+\begin{document}
+    \frontpage
+    \pagenumbering{arabic}
+    \tableofcontents %Commenter/supprimer pour enlever la table des matières
+
+    \clearpage
+
+    % Ici on organise nos parties
+    \justifying
+
+    \import{src/parts/}{firstPart.tex}
+
+    \clearpage
+
+    \import{src/parts/}{secondPart.tex}
+
+    \clearpage
+
+    \import{src/parts/}{thirdPart.tex}
+
+    \clearpage
+
+    \import{src/parts/}{fourthPart.tex}
+
+    \medskip % grand espace vertical
+
+    % Bibliographie !
+    \[ \star \quad \star \quad \star \]
+
+    \phantomsection % hyperlinks will target the correct page
+    \addcontentsline{toc}{section}{Bibliographie}
+    \nocite{*} % pour faire apparaître tout du fichier bib
+
+    {
+    \RaggedRight % pour éviter les "underfull hbox"
+    \sloppy
+    \printbibliography[title={Bibliographie}]
+    }
+
+\end{document}

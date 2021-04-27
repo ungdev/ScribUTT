@@ -1,15 +1,19 @@
 .PHONY: default
 
-# Generate PDF
+# Generate PDF with latexmk to make it recognize biber
+# MAIN LATEXMK RULE
+# -pdf tells latexmk to generate PDF directly (instead of DVI).
+# -pdflatex="" tells latexmk to call a specific backend with specific options.
+# -use-make tells latexmk to call make for generating missing files.
+# -interactive=nonstopmode keeps the pdflatex backend from stopping at a
+# missing file reference and interactively asking you for an alternative.
 default:
-	latexmk -pdf rapportUTT.tex
-
-# Generate PNG from pdf
-preview: default
-	convert -density 150 main.pdf -quality 90 main.png
+	@echo "Building pdf file's !"
+	latexmk -pdf rapportUTT.tex -quiet
 
 # On prépare l'archive utilisable sur Overleaf (par exemple)
 archive:
+	@echo "Preparing archive !\n"
 	rm -rf build
 	mkdir build
 
@@ -18,17 +22,28 @@ archive:
 
 	cd build &&	zip -r ../latex-rapport-UTT.zip *
 
+	@echo "Archive's ready !"
+
 # Prepare folder
-prepare_deploy: preview archive
+deploy: default archive
+	@echo "Preparing deployment !"
 	rm -rf deploy
 	mkdir deploy
 
-	cp rapportUTT.pdf latex-rapport-UTT.zip deploy/
-	cp -r examplesPNG deploy/
+	cp rapportUTT.pdf deploy/
+	mv latex-rapport-UTT.zip deploy/
+	@echo "Deployment completed."
+	make clean
 
-# Remove all temporary files
+
+cleanall:
+	@echo "Cleaning ALL ..."
+	latexmk -C -bibtex
+	rm -rf build deploy *.png *.zip *.run.xml
+	@echo "Cleaned."
+
 clean:
-	latexmk -C
-	rm -rf build deploy *.png *.zip
+	@echo "Cleaning ..."
+	-latexmk -c
+	@echo "Cleaned."
 
-#rm -rf *.brf *.fls *.out *.log *.synctex.gz *.toc *.fdb_latexmk *.aux

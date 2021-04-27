@@ -1,0 +1,4 @@
+rapport.*
+!*.png
+!rapport.tex
+!rapport.pdf

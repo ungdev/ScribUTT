@@ -31,6 +31,9 @@
 
 \usepackage{blindtext} % Pour générer des textes de test
 
+\usepackage{graphicx} % pour les images
+\usepackage{placeins}
+
 \usepackage{subfiles}
 \usepackage{textcomp}
 \usepackage{lmodern}        % Pour avoir de bonnes polices en pdf
@@ -108,6 +111,8 @@
 \usepackage{src/packages/commands}
 
 \newcommand{\frontpage}{\include{src/parts/frontpage.tex}}
+
+\graphicspath{ {src/contents/} }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\if@noUTTcolors\@noUTTcolorsfalse
