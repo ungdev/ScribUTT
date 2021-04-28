@@ -66,7 +66,8 @@ Une citation c'est bien, mais bien citer c'est mieux:
 \end{dialogue}
 
 \section*{Une section non numérotée}
-\addcontentsline{toc}{section}{Une section non numérotée}
+\addcontentsline{toc}{section}{Une section non numérotée} % Si on veut qu'elle apparaisse dans le sommaire.
+On peut créer une mise en forme attirant l'attention sur un point important à expliquer :
 
 \begin{callout}[Contrôle de flux $\neq$ contrôle de congestion]{callout:flux}
     \begin{itemize}
@@ -75,11 +76,12 @@ Une citation c'est bien, mais bien citer c'est mieux:
     \end{itemize}
 \end{callout}
 
-On peut aussi afficher du "code" ou tout autre chose d'une façon "bloc note" avec ceci :
-\begin{mycodebox}
-    message :  Q     B     I     T \\
-    binary : 10000 00001 01000 10011 \\
-    Key :    11100 01011 01001 10010 \\
-    EncrB :  01100 00100 10010 00000 \\
-    EncrM :    M     I     S     A
-\end{mycodebox}
+Ou plus sobrement :
+
+\begin{myboxedtext}
+    Avoir un joli rapport $\Rightarrow$ $+50$ points de charisme.
+\end{myboxedtext}
+
+\begin{quote}
+    Ceci est une citationn comme usuellement vue sur \texttt{Notion} ou en \texttt{Markdown}.
+\end{quote}

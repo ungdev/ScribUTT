@@ -105,6 +105,44 @@
   stripall=true
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%- mdframed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[framemethod=TikZ]{mdframed} % pour de jolis "boites"
+
+
+% Pour un rounded corner et un fond gris
+\newmdenv[
+  innerlinewidth=0.5pt,
+  roundcorner=4pt,
+  linecolor=bg,
+  backgroundcolor=bg,
+  innerleftmargin=6pt,
+  innerrightmargin=6pt,
+  innertopmargin=6pt,
+  innerbottommargin=6pt
+  ]{mycodebox}
+
+\newmdenv[
+    linecolor=bleuRoiUTT,
+    outerlinewidth=2pt,
+    %roundcorner=20pt,
+    innertopmargin=4pt,
+    innerbottommargin=4pt,
+    innerrightmargin=4pt,
+    innerleftmargin=4pt,
+    leftmargin = 4pt,
+    rightmargin = 4pt
+    %backgroundcolor=gray!50!white}
+]{myboxedtext}
+
+\definecolor{blockquote-border}{RGB}{221,221,221}
+\definecolor{blockquote-text}{RGB}{119,119,119}
+
+\newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,linecolor=blockquote-border,skipabove=\parskip]{customblockquote}
+\renewenvironment{quote}{\begin{customblockquote}\list{}{\rightmargin=0em\leftmargin=0em}
+\item\relax\color{blockquote-text}\ignorespaces}{\unskip\unskip\endlist\end{customblockquote}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Import custom commands
