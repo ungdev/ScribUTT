@@ -39,7 +39,7 @@ deploy: default archive
 cleanall:
 	@echo "Cleaning ALL ..."
 	latexmk -C -bibtex
-	rm -rf build deploy *.png *.zip *.run.xml
+	rm -rf build deploy *.zip *.run.xml
 	@echo "Cleaned."
 
 clean:

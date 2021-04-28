@@ -4,26 +4,25 @@
 \LoadClass[a4paper,12pt]{article}
 
 \usepackage{src/packages/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
-
-\usepackage[french,english]{babel} % Package babel pour le français et l'anglais
-\frenchbsetup{StandardLists=true} %Pour redéfinir les itemize malgré babel
+\usepackage[english,main=french]{babel} % Package babel pour le français et l'anglais
+\frenchbsetup{StandardLists=true} % Pour redéfinir les itemize malgré babel
 \usepackage[T1]{fontenc}    % Package pour les accentuations
 \usepackage[utf8]{inputenc}
 \usepackage{datetime}
 
-% load the microtype package with the final package option 
-% to ensure that the microtypographic features are activated 
+% load the microtype package with the final package option
+% to ensure that the microtypographic features are activated
 % even when using the draft class option.
 \usepackage[final]{microtype} % permet d'éviter le "overfull hbox" sur la bibliographie par exemple
 
 \usepackage{floatrow} % pour minted, entre autre
 \usepackage{url}
-\usepackage{bookmark} % charge hyperref 
+\usepackage{bookmark} % charge hyperref
 
 \hypersetup{
     colorlinks=true,
     linkcolor=bleuRoiUTT,
-    filecolor=magenta,      
+    filecolor=magenta,
     urlcolor=bleuCielUTT,
 }
 
@@ -72,7 +71,7 @@
 % Text pos to position texts in absolute coords for the first page.
 \usepackage[absolute,overlay]{textpos}
 
-\setlength{\headheight}{85pt}% ...au moins 84.69057pt 
+\setlength{\headheight}{85pt}% ...au moins 84.69057pt
 
 \usepackage{ulem} % Pour souligner en couleur
 
@@ -104,7 +103,7 @@
   framesep=2mm,
   curlyquotes=true,
   tabsize=4,
-  stripall=true  
+  stripall=true
 }
 
 
@@ -199,7 +198,7 @@
   \theUE
   ~ - ~
   \today %Code de l'UE à droite de l'en-tête
-  } 
+  }
 %Contenu du pied de page :
 \cfoot{\thepage} %Numéro de page au centre
 
