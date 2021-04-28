@@ -61,7 +61,6 @@
 
 
 \usepackage{tikz}			%Pour les figures et graphes
-
 \usetikzlibrary{calc}		%Pour les figures et graphes
 
 \geometry{vmargin=3cm, textwidth=16cm} % Réglages des marges
@@ -88,7 +87,7 @@
 \usemintedstyle{vs}
 \usepackage{tcolorbox}
 \tcbuselibrary{minted,skins}
-\definecolor{bg}{rgb}{0.95,0.95,0.95}
+
 
 % Pour configurer l'affichage global de nos codes
 \setminted{
