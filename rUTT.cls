@@ -31,7 +31,8 @@
 \usepackage{blindtext} % Pour générer des textes de test
 
 \usepackage{graphicx} % pour les images
-\usepackage{placeins}
+\graphicspath{ {src/contents/pics/} }
+\usepackage{placeins} % pour bien positionner lesdites images
 
 \usepackage{subfiles}
 \usepackage{textcomp}
@@ -39,6 +40,9 @@
 \usepackage{graphicx, animate}       % Indispensable pour les figures
 \usepackage{amsmath}        % Environnement pour les maths, permet du mettre du texte dans les équations
 \usepackage[headheight=61pt]{geometry}       % Utilisé pour les marges
+
+\usepackage{xcolor} % pour colorer
+\usepackage{soul} % pour surligner
 
 \usepackage{multicol}		% Pour les colonnes
 \usepackage{multirow}       % Pour des tableaux fun
@@ -57,7 +61,6 @@
 \addbibresource{src/parts/bibliography.bib}
 
 %\usepackage[nottoc]{tocbibind} % pour inclure la biblio directement dans le sommaire
-
 
 
 \usepackage{tikz}			%Pour les figures et graphes
@@ -82,6 +85,12 @@
 \usepackage[font=itshape]{quoting} % pour les citations
 \usepackage{epigraph}
 
+% pour faire insérer du code en rouge sur fond gris sombre
+\definecolor{darkGray}{RGB}{60,63,65}
+\definecolor{moderateRed}{RGB}{200,81,82}
+\sethlcolor{darkGray}
+\newcommand{\incode}[1]{{\color{moderateRed}\hl{\texttt{#1}}}}
+
 % pour le code
 \usepackage[cache=false]{minted}        % Utilisé pour les scripts
 \usemintedstyle{vs}
@@ -104,6 +113,29 @@
   tabsize=4,
   stripall=true
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%- verbatim input txt file beautifuly
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fancyvrb}
+
+% redefine \VerbatimInput
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}%
+{fontsize=\tiny,
+ %
+ frame=lines,  % top and bottom rule only
+ framesep=2em, % separation between frame and text
+ rulecolor=\color{gray},
+ %
+ label=\fbox{\color{black}data.txt},
+ labelposition=topline,
+ %
+ commandchars=\|\(\), % escape character and argument delimiters for
+                      % commands within the verbatim
+ commentchar=*        % comment character
+}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%- mdframed
@@ -141,8 +173,18 @@
 \definecolor{blockquote-text}{RGB}{119,119,119}
 
 \newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,linecolor=blockquote-border,skipabove=\parskip]{customblockquote}
-\renewenvironment{quote}{\begin{customblockquote}\list{}{\rightmargin=0em\leftmargin=0em}
-\item\relax\color{blockquote-text}\ignorespaces}{\unskip\unskip\endlist\end{customblockquote}}
+\newenvironment{quoted}{
+  \begin{customblockquote}
+    \list{}{
+      \rightmargin=0em\leftmargin=0em
+      }
+    \item
+    \relax
+    \color{blockquote-text}
+    \ignorespaces
+}{
+  \unskip\unskip\endlist\end{customblockquote}
+  }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Import custom commands
@@ -151,7 +193,6 @@
 
 \newcommand{\frontpage}{\include{src/packages/frontpage.tex}}
 
-\graphicspath{ {src/contents/} }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\if@noUTTcolors\@noUTTcolorsfalse

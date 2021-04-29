@@ -50,13 +50,19 @@ Tandis qu'à l'\underline{extrême droite} on a le \href{https://rassemblementna
 
 \subsubsection{Une autre sous-sous-section}
 \paragraph{Un paragraphe}
-Une citation c'est bien, mais bien citer c'est mieux: 
+Une citation c'est bien, mais bien citer c'est mieux :
+
 \begin{quoting}
     Mais, vous savez, moi je ne crois pas qu’il y ait de bonne ou de mauvaise situation. Moi, si je devais résumer ma vie aujourd’hui avec vous, je dirais que c’est d’abord des rencontres, des gens qui m’ont tendu la main, peut-être à un moment où je ne pouvais pas, où j’étais seul chez moi. Et c’est assez curieux de se dire que les hasards, les rencontres forgent une destinée… Parce que quand on a le goût de la chose, quand on a le goût de la chose bien faite, le beau geste, parfois on ne trouve pas l’interlocuteur en face, je dirais, le miroir qui vous aide à avancer. Alors ce n’est pas mon cas, comme je le disais là, puisque moi au contraire, j’ai pu ; et je dis merci à la vie, je lui dis merci, je chante la vie, je danse la vie… Je ne suis qu’amour ! Et finalement, quand beaucoup de gens aujourd’hui me disent : « Mais comment fais-tu pour avoir cette humanité ? » Eh bien je leur réponds très simplement, je leur dis que c’est ce goût de l’amour, ce goût donc qui m’a poussé aujourd’hui à entreprendre une construction mécanique, mais demain, qui sait, peut-être simplement à me mettre au service de la communauté, à faire le don, le don de soi…
     \begin{flushright}
         --- Otis, Astérix Mission Cléopatre
-    \end{flushright} 
+    \end{flushright}
 \end{quoting}
+
+Si vous appréciez la façon "Markdown" de présenter les citations, je vous propose la même chose ici :
+\begin{quoted}
+    Ceci est une citation comme usuellement vue sur \texttt{Notion} ou en \texttt{Markdown}.
+\end{quoted}
 
 \subparagraph{Un sous-paragraphe}
 
@@ -69,7 +75,7 @@ Une citation c'est bien, mais bien citer c'est mieux:
 \addcontentsline{toc}{section}{Une section non numérotée} % Si on veut qu'elle apparaisse dans le sommaire.
 On peut créer une mise en forme attirant l'attention sur un point important à expliquer :
 
-\begin{callout}[Contrôle de flux $\neq$ contrôle de congestion]{callout:flux}
+\begin{callout}{Contrôle de flux $\neq$ contrôle de congestion}
     \begin{itemize}
         \item Le \textbf{contrôle de flux} signifie essentiellement que TCP s'assure qu'un expéditeur ne submerge pas un destinataire en envoyant des paquets plus vite qu'il ne peut les consommer. Il concerne le nœud final.
         \item Le \textbf{contrôle de congestion} vise à empêcher un nœud de submerger le réseau (c'est-à-dire les liens entre deux nœuds).
@@ -81,7 +87,3 @@ Ou plus sobrement :
 \begin{myboxedtext}
     Avoir un joli rapport $\Rightarrow$ $+50$ points de charisme.
 \end{myboxedtext}
-
-\begin{quote}
-    Ceci est une citationn comme usuellement vue sur \texttt{Notion} ou en \texttt{Markdown}.
-\end{quote}

@@ -58,8 +58,6 @@
 \newcommand { \Q } { \mathbb { Q } }
 \newcommand { \C } { \mathbb { C } }
 
-% for " such that "
-\newcommand { \st } { : }
 % inverse functions
 \newcommand { \inv } { { -1 } }
 % Making answer blanks
@@ -134,7 +132,7 @@
 
 
 % Another
-\newenvironment{callout}[2][]
+\newenvironment{callout}[1]
     {%
         \ifstrempty{#1}%
         % DO THIS
@@ -172,8 +170,6 @@
             }
             \begin{mdframed}[]
                 \relax%
-            \label{
-                #2}
     }
     {
         \end{mdframed}

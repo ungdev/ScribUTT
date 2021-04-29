@@ -19,18 +19,27 @@ fbomb
 \end{listing}
 
 \subsection{Une code sur plusieurs pages}
+
 \inputminted{python}{src/parts/code/example2.py}
+
+% https://tex.stackexchange.com/questions/12428/code-spanning-over-two-pages-with-minted-inside-listing-with-caption
 
 \subsection{Du code afficher plus simplement}
 
 On peut aussi afficher du "code" ou tout autre chose d'une façon "bloc note" avec ceci :
 \begin{mycodebox}
-    message :  Q     B     I     T \\
-    binary : 10000 00001 01000 10011 \\
-    Key :    11100 01011 01001 10010 \\
-    EncrB :  01100 00100 10010 00000 \\
-    EncrM :    M     I     S     A
+    \begin{verbatim}
+        message :  Q     B     I     T
+        binary : 10000 00001 01000 10011
+        Key :    11100 01011 01001 10010
+        EncrB :  01100 00100 10010 00000
+        EncrM :    M     I     S     A
+    \end{verbatim}
 \end{mycodebox}
 
-% https://tex.stackexchange.com/questions/12428/code-spanning-over-two-pages-with-minted-inside-listing-with-caption
+Et si on a envie d'inclure directement un fichier \texttt{.txt}, on peut le faire !
+
+\VerbatimInput{src/contents/quCR_CHSH_Measurement.txt}
+
+On peut aussi choisir d'écrire directement du code insérer en ligne. Si je veux expliquer que \incode{$x = y + 1$}, je peux.
 
