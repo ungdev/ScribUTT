@@ -178,7 +178,7 @@
 \newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,linecolor=blockquote-border,skipabove=\parskip]{customblockquote}
 
 \newenvironment{quoted}{
-  \vspace{0.3cm}
+  \vspace{1.25cm}
   \begin{customblockquote}
     \list{}{
       \rightmargin=0em\leftmargin=0em
