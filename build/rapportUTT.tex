@@ -10,7 +10,7 @@
 \UE{LT01} %Nom de l'UE
 
 \title{
-    Un rapport en \texttt{LaTeX} \\
+    Un rapport en \texttt{\LaTeX} \\
     Ecrit avec amour.
     }
 
@@ -39,6 +39,8 @@
     \frontpage
     \pagenumbering{arabic}
     \tableofcontents %Commenter/supprimer pour enlever la table des matières
+    \listoffigures
+    \listoftables
 
     \clearpage
 
@@ -57,7 +59,12 @@
 
     \clearpage
 
-    \import{src/parts/}{fourthPart.tex}
+    \import{src/parts/}{tabPart.tex}
+
+    \clearpage
+
+    \import{src/parts/}{scienticPart.tex}
+
 
     \medskip % grand espace vertical
 

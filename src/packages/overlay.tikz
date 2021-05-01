@@ -5,7 +5,7 @@
 \node [name=uttsquare,
 anchor=north
 ] at (uttbackground_anchor){
-\includegraphics[width=19.4cm, height=17cm]{Ressources-graphiques/first-page-background.png}};
+\includegraphics[width=20cm,keepaspectratio]{Ressources-graphiques/Pdg_corner.png}};
 
 % Logo UTT
 \coordinate [below=-3mm] (uttlogo_anchor) at (current page.south);

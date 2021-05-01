@@ -33,6 +33,7 @@
 \usepackage{graphicx} % pour les images
 \graphicspath{ {src/contents/pics/} }
 \usepackage{placeins} % pour bien positionner lesdites images
+\usepackage[export]{adjustbox} % pour le ratio
 
 \usepackage{subfiles}
 \usepackage{textcomp}
@@ -47,6 +48,8 @@
 \usepackage{multicol}		% Pour les colonnes
 \usepackage{multirow}       % Pour des tableaux fun
 \usepackage{longtable} % pour les longs tableaux
+\usepackage{booktabs} % pour des jolis tableaux
+\usepackage{siunitx} % pour le typage de tableaux
 
 \usepackage{mathtools}  % Typographie pour les ensembles communs
 \usepackage{amssymb}    % Typographie pour les ensembles communs
@@ -173,7 +176,9 @@
 \definecolor{blockquote-text}{RGB}{119,119,119}
 
 \newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,linecolor=blockquote-border,skipabove=\parskip]{customblockquote}
+
 \newenvironment{quoted}{
+  \vspace{0.3cm}
   \begin{customblockquote}
     \list{}{
       \rightmargin=0em\leftmargin=0em
