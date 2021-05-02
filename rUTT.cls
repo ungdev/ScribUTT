@@ -88,6 +88,10 @@
 \usepackage[font=itshape]{quoting} % pour les citations
 \usepackage{epigraph}
 
+\newcommand{\inlinequote}[2]{\textit{'#1'}\footnote{\cite{#2}}} % incorporer une citation dans une ligne
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+
 % pour faire insérer du code en rouge sur fond gris sombre
 \definecolor{darkGray}{RGB}{60,63,65}
 \definecolor{moderateRed}{RGB}{200,81,82}
@@ -178,7 +182,7 @@
 \newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,linecolor=blockquote-border,skipabove=\parskip]{customblockquote}
 
 \newenvironment{quoted}{
-  \vspace{1.25cm}
+  \vspace{0.5cm}
   \begin{customblockquote}
     \list{}{
       \rightmargin=0em\leftmargin=0em
@@ -269,15 +273,21 @@
 
 %Contenu de l'en-tête :
 \lhead{
-  \textsc{\leftmark }
+  \textsc{
+    \minipage[b]{.7\linewidth}
+    \footnotesize
+    \leftmark
+    \endminipage
+    }
 } %Section actuelle à gauche de l'en-tête
 \chead{
   \vspace{0.3cm}
   \includegraphics[width=4cm]{Ressources-graphiques/logos/UTT.eps}
-  \vspace{0.5cm}
+  \vspace{0.7cm}
 } %Sigle de l'UTT au centre de l'en-tête
 
 \rhead{
+  \small
   \theUE
   ~ - ~
   \today %Code de l'UE à droite de l'en-tête
