@@ -292,6 +292,9 @@
   ~ - ~
   \today %Code de l'UE à droite de l'en-tête
   }
+
+\addtolength{\skip\footins}{1cm} % pour ajouter un espace en bas
+
 %Contenu du pied de page :
 \cfoot{\thepage} %Numéro de page au centre
 
