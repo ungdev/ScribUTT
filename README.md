@@ -2,7 +2,7 @@
   <img src="Logo.png"/>
 </p>
 
-`ScribUTT`: rapport au format [UTT](https://www.utt.fr/).
+`ScribUTT`: rapport au format [UTT](https://www.utt.fr/) pour la rédaction de vos rapports de TPs / TDs / Projets mais aussi pour les stages (ST05,ST09,ST10,ST30).
 
 ---
 
@@ -23,10 +23,12 @@ Le pdf d'exemple généré est disponible [ici](rapportUTT.pdf).
 # Table des matières
 - [`ScribUTT`: rapport au format UTT.](#scributt-rapport-au-format-utt)
 - [Utilisation](#utilisation)
+  - [Bivalance](#bivalance)
   - [Utilisation du make](#utilisation-du-make)
   - [Architecture de votre projet](#architecture-de-votre-projet)
+  - [Commandes en plus](#commandes-en-plus)
 - [Prévisualisation](#prvisualisation)
-- [Comment gérer un gros projet en LaTeX](#comment-grer-un-gros-projet-en-latex)
+- [Comment gerer un gros projet en LaTeX](#comment-gerer-un-gros-projet-en-latex)
   - [Comment incorpore-t-on d'autres fichiers ?](#comment-incorpore-t-on-dautres-fichiers-)
 - [Bibliographie](#bibliographie)
   - [Biber et BibTex](#biber-et-bibtex)
@@ -37,7 +39,32 @@ Le pdf d'exemple généré est disponible [ici](rapportUTT.pdf).
 
 # Utilisation
 **Pour une utilisation simple, ne téléchargez pas directement tout le repository !**
-Téléchargez l'archive prête à être utilisée : [ici](deploy/latex-rapport-UTT.zip) ! 
+Téléchargez l'archive prête à être utilisée : [ici](deploy/latex-rapport-UTT.zip) !
+
+## Bivalence
+* Ce projet vous permet de rédiger **tous** vos rapports UTT !
+En ouvrant le [rapportUTT.tex](rapportUTT.tex), vous verrez que j'ai tout commenté pour que vous sachiez quoi remplir en fonction. J'ai aussi mis à disposition sur ce git le [Thésaurus de l'UTT](Ressources-graphiques/Thésaurus.pdf) de 2021 qui je pense, ne bougera que très peu dans le temps.
+
+* Si jamais vous souhaitez modifier la langue du rapport de stage, pour éviter de créer deux fichiers .tex, je vous conseille juste de vous rendre dans [frontpage_ST.tex](src/packages/frontpage_ST.tex) et de remplacer quelques variables :
+```
+    % Mots clés (Thésaurus)
+    \begin{textblock*}{7.8cm}(12cm,20cm)
+        \normalsize
+        \begin{center}
+            \textbf{\textcolor{white}{Mots clés (cf Thésaurus) :}}
+        \end{center}
+    \end{textblock*}
+```
+En
+```
+    % Mots clés (Thésaurus)
+    \begin{textblock*}{7.8cm}(12cm,20cm)
+        \normalsize
+        \begin{center}
+            \textbf{\textcolor{white}{Key words (cf Thésaurus) :}}
+        \end{center}
+    \end{textblock*}
+```
 
 ## Utilisation du make
 Sous un environnement Unix, vous pouvez utiliser le `MAKEFILE` pour :
@@ -54,12 +81,24 @@ Sous un environnement Unix, vous pouvez utiliser le `MAKEFILE` pour :
 Ensuite, on part dans la branche [src](src) : 
 
 * On placera dans le dossier [contents](src/contents) toutes les images que l'on souhaite incorporer à notre document.
-* Le dossier [packages](src/packages) contient les ajouts de commandes les plus usées ["commands.sty"](src/packages/commands.sty), les couleurs de l'UTT [ici](src/packages/couleurs_UTT.sty) mais aussi et surtout la conception de la page de garde avec l'[*overlay*](src/packages/overlay.tikz) et [la disposition des éléments](src/packages/frontpage.tex). **C'est ici qu'il faut ajouter vos modules perso**. N'hésitez pas à proposer un module que vous jugez essentiel !
+* Le dossier [packages](src/packages) contient les ajouts de commandes les plus usées ["commands.sty"](src/packages/commands.sty), les couleurs de l'UTT [ici](src/packages/couleurs_UTT.sty) mais aussi et surtout la conception de la page de garde avec l'*overlay* et [la disposition des éléments](src/packages/frontpage.tex). **C'est ici qu'il faut ajouter vos modules perso**. N'hésitez pas à proposer un module que vous jugez essentiel !
 * S'en suit la branche ["parts"](src/parts) dans laquelle j'ai réservé un emplacement exprès pour placer les [codes sources](src/parts/code) à afficher dans votre rapport. Ainsi que toutes les parties de votre document (e.g., ["firstPart"](src/parts/firstPart.tex)) !
+## Commandes en plus
+* J'ai ajouté une commande permettant d'afficher une adresse en hyperlink, permettant de cliquer directement dessus pour afficher sur une carte openstreetmap.
+```
+\newcommand{\mapAddr}[1]{\href{https://www.openstreetmap.org/search?query=#1}{#1}}
+```
+C'est utilisé pour la section "Lieu" de votre rapport de stage !
+
+* Beaucoup de commandes très utilisées sont mises dans le package [commands.sty](src/packages/commands.sty). N'hésitez pas à m'en fournir d'autres que vous souhaiteriez voir apparaitre !
 # Prévisualisation
-La page de garde a été configurée pour s'afficher ainsi :
+La page de garde des rapports (TPs,TDs,projets) a été configurée pour s'afficher ainsi :
 <p align="center">
-  <img src="examplesPNG/pdg.png"/>
+  <img src="examplesPNG/pdgR.png"/>
+</p>
+Celle pour les rapports de stage :
+<p align="center">
+  <img src="examplesPNG/pdgST_FR.png"/>
 </p>
 Voici un exemple d'une mise en page contenant un énoncé de théorème :
 <p align="center">
@@ -79,7 +118,8 @@ Et voici à quoi ressemble la bibliographie :
 </p>
 
 Je vous laisse découvrir le reste dans le [pdf de présentation](rapportUTT.pdf).
-# Comment gérer un gros projet en LaTeX
+
+# Comment gerer un gros projet en LaTeX
 ## Comment incorpore-t-on d'autres fichiers ?
 
 `\input{nom_de_fichier}` importe les commandes de `nom_de_fichier.tex` dans le fichier cible -cela équivaut à taper toutes les commandes de `nom_de_fichier.tex` directement dans le fichier courant à l'endroit de la ligne `\input`.
@@ -136,6 +176,7 @@ Si vous souhaitez vous plonger là-dedans, il y a un très bon pdf téléchargea
 * Quel police d'écriture choisir pour son code: [ici](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiZo_zqtNXvAhXaAWMBHTY8C6kQFjAFegQICxAD&url=https%3A%2F%2Fwww.latex-project.org%2Fhelp%2Fdocumentation%2Ffntguide.pdf&usg=AOvVaw045dBXCgGLgwcHtVSLxBMm)
 * Pour transposer vos tableaux Excel (et autres) en format LaTeX : [ici](https://www.tablesgenerator.com/latex_tables)
 * Pour bien intégrer des liens aussi bien vers vos fichiers que vers des URLs : [ici](https://en.wikibooks.org/wiki/LaTeX/Hyperlinks)
+* Si vous préférez coller votre code sous forme d'image, il y a ce cite qui est excellent: https://carbon.now.sh/
 # Petits soucis
 * "J'ai un problème, mon compilateur me dit : ```! LaTeX Error: File `algorithm2e.sty' not found.``` !"
 > Veillez à avoir le package `algorithm2e.sty` provenant de `texlive-science`. <br/>

@@ -10,6 +10,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage{datetime}
 
+% Pour changer les titres en I/ et en A/
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+
+
 % load the microtype package with the final package option
 % to ensure that the microtypographic features are activated
 % even when using the draft class option.
@@ -89,8 +94,6 @@
 \usepackage{epigraph}
 
 \newcommand{\inlinequote}[2]{\textit{'#1'}\footnote{\cite{#2}}} % incorporer une citation dans une ligne
-\renewcommand{\thesection}{\Roman{section}}
-\renewcommand{\thesubsection}{\Alph{subsection}}
 
 % pour faire insérer du code en rouge sur fond gris sombre
 \definecolor{darkGray}{RGB}{60,63,65}
@@ -200,7 +203,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{src/packages/commands}
 
-\newcommand{\frontpage}{\include{src/packages/frontpage.tex}}
+\newcommand{\frontpagereports}{\include{src/packages/frontpage_reports.tex}}
+\newcommand{\frontpageST}{\include{src/packages/frontpage_ST.tex}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -210,9 +214,24 @@
 }
 \ProcessOptions\relax
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Nouvelles variables
+%Variables pour le document
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\UE}[1]{\def\theUE{#1}} %Passage de l'UE en variable
+\newcommand{\RPeda}[1]{\def\theRPeda{#1}} %Passage du respo peda en variable
+\newcommand{\Semestre}[1]{\def\theSemestre{#1}} %Passage du semestre en variable
+
+% passage des mots clés en variables
+\newcommand{\Kone}[1]{\def\theKone{#1}}
+\newcommand{\Ktwo}[1]{\def\theKtwo{#1}}
+\newcommand{\Kthree}[1]{\def\theKthree{#1}}
+\newcommand{\Kfourth}[1]{\def\theKfourth{#1}}
+
+\newcommand{\Entreprise}[1]{\def\theEntreprise{#1}}
+\newcommand{\Lieu}[1]{\def\theLieu{#1}}
+\newcommand{\REntre}[1]{\def\theREntre{#1}} % responsable entreprise
+
+% On créé une variable redirigeant sur openstreetmap
+\newcommand{\mapAddr}[1]{\href{https://www.openstreetmap.org/search?query=#1}{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Redéfinition des niveaux de titre
