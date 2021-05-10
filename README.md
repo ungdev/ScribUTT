@@ -23,7 +23,7 @@ Le pdf d'exemple généré est disponible [ici](rapportUTT.pdf).
 # Table des matières
 - [`ScribUTT`: rapport au format UTT.](#scributt-rapport-au-format-utt)
 - [Utilisation](#utilisation)
-  - [Bivalance](#bivalance)
+  - [Bivalence](#bivalence)
   - [Utilisation du make](#utilisation-du-make)
   - [Architecture de votre projet](#architecture-de-votre-projet)
   - [Commandes en plus](#commandes-en-plus)
