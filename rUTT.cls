@@ -64,7 +64,7 @@
 \usepackage{todonotes}
 \usepackage{enumitem} %For custom itemize
 
-\usepackage[backend=biber,style=alphabetic,citestyle=verbose,sorting=ynt]{biblatex}
+\usepackage[backend=biber,style=alphabetic,maxnames=99,citestyle=verbose,sorting=ynt]{biblatex}
 
 % "When using babel or polyglossia with biblatex, loading csquotes is recommended to ensure that quoted texts are typeset according to the rules of your main language.'
 \usepackage{csquotes}
