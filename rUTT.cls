@@ -95,6 +95,7 @@
 \usepackage[font=itshape]{quoting} % pour les citations
 \usepackage{epigraph}
 
+\renewcommand{\thefootnote}{\roman{footnote}} % roman style
 \newcommand{\inlinequote}[2]{\textit{'#1'}\footnote{\cite{#2}}} % incorporer une citation dans une ligne
 
 % pour faire insérer du code en rouge sur fond gris sombre
