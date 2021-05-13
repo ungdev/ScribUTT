@@ -31,6 +31,8 @@
     urlcolor=bleuCielUTT,
 }
 
+\newcommand{\shortUrl}[1]{\href{#1}{(short.url)}}
+
 \usepackage{titling} %thetitle thedate etc
 
 \usepackage{blindtext} % Pour générer des textes de test
