@@ -64,8 +64,7 @@
 \usepackage{todonotes}
 \usepackage{enumitem} %For custom itemize
 
-\usepackage[backend=biber,style=alphabetic,maxnames=99,citestyle=verbose,sorting=ynt]{biblatex}
-
+\usepackage[backend=biber,maxnames=99,style=alphabetic,citestyle=verbose,sorting=ynt]{biblatex}
 % "When using babel or polyglossia with biblatex, loading csquotes is recommended to ensure that quoted texts are typeset according to the rules of your main language.'
 \usepackage{csquotes}
 \addbibresource{src/parts/bibliography.bib}
@@ -95,8 +94,7 @@
 \usepackage[font=itshape]{quoting} % pour les citations
 \usepackage{epigraph}
 
-\renewcommand{\thefootnote}{\roman{footnote}} % roman style
-\newcommand{\inlinequote}[2]{\textit{'#1'}\footnote{\cite{#2}}} % incorporer une citation dans une ligne
+\newcommand{\inlinequote}[2]{\textit{`#1`}\footnote{\cite{#2}}} % incorporer une citation dans une ligne
 
 % pour faire insérer du code en rouge sur fond gris sombre
 \definecolor{darkGray}{RGB}{60,63,65}
@@ -316,6 +314,8 @@
   }
 
 \addtolength{\skip\footins}{1cm} % pour ajouter un espace en bas
+\interfootnotelinepenalty=10000 % Pour éviter que les notes de bas de pages se propagent
+\renewcommand{\thefootnote}{\roman{footnote}} % roman style
 
 %Contenu du pied de page :
 \cfoot{\thepage} %Numéro de page au centre
