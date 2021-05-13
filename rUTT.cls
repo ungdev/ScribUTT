@@ -10,6 +10,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{datetime}
 
+
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+
 % Pour changer les titres en I/ et en A/
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\Alph{subsection}}
