@@ -47,7 +47,16 @@ En ouvrant le [rapportUTT.tex](rapportUTT.tex), vous verrez que j'ai tout commen
 
 Pour passer d'une page de garde à l'autre, veillez à bien commenter / dé-commenter le bon appel de la page de garde correspondante. Dans [rapportUTT.tex](rapportUTT.tex) à la ligne 55 :
 ```
+\setlength {\marginparwidth }{2cm} % to loading the todonotes package
 
+\begin{document}
+    \selectlanguage{french}
+
+    %%%% - Choix de la page de garde
+    \frontpagereports % Pour le modèle rapports de TDs / TPs / Projets
+    %\frontpageST % Pour le modèle rapports de Stages
+
+    \pagenumbering{arabic}
 
 ```
 
