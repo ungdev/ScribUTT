@@ -85,7 +85,6 @@
 
 %\usepackage[nottoc]{tocbibind} % pour inclure la biblio directement dans le sommaire
 
-
 \usepackage{tikz}			%Pour les figures et graphes
 \usetikzlibrary{calc}		%Pour les figures et graphes
 
@@ -325,7 +324,8 @@
   \today
 }
 
-\addtolength{\skip\footins}{1cm} % pour ajouter un espace en bas
+\usepackage[bottom]{footmisc} % Pour éviter que les notes de bas de page soient "collées" à notre texte
+\addtolength{\skip\footins}{0.5cm} % pour ajouter un espace en bas
 \interfootnotelinepenalty=10000 % Pour éviter que les notes de bas de pages se propagent
 \renewcommand{\thefootnote}{\roman{footnote}} % roman style
 
