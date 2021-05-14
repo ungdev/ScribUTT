@@ -55,10 +55,10 @@
     \frontpagereports % Pour le modèle rapports de TDs / TPs / Projets
     %\frontpageST % Pour le modèle rapports de Stages
 
+    % Le Sommaire
+    \shorttoc{Sommaire}{2}
+    \addcontentsline{toc}{section}{Sommaire}
     \pagenumbering{arabic}
-    \tableofcontents %Commenter/supprimer pour enlever la table des matières
-    \listoffigures
-    \listoftables
 
     \clearpage
 
@@ -77,26 +77,33 @@
 
     \clearpage
 
-    \import{src/parts/}{tabPart.tex}
+    \import{src/parts/}{scienticPart.tex}
 
     \clearpage
 
-    \import{src/parts/}{scienticPart.tex}
+    % Annexes !
+    \import{src/parts/Annexes/}{Annexes.tex}
 
-
-    \medskip % grand espace vertical
+    \clearpage
 
     % Bibliographie !
     \[ \star \quad \star \quad \star \]
 
-    \phantomsection % hyperlinks will target the correct page
-    \addcontentsline{toc}{section}{Bibliographie}
-    \nocite{*} % pour faire apparaître tout du fichier bib
-
     {
+    \phantomsection % hyperlinks will target the correct page
     \RaggedRight % pour éviter les "underfull hbox"
     \sloppy
-    \printbibliography[title={Bibliographie}]
+    \nocite{*} % pour faire apparaître tout du fichier bib
+    \printbibliography[title={Bibliographie},heading=bibintoc]
     }
+
+    \clearpage
+    % Toujours avoir la table des matières en dernier ! 
+    % Ici figure tout, même les annexes
+    % Commenter/supprimer pour enlever la table des matières
+    \setcounter{tocdepth}{5} % Profondeur de la table des matières
+    \tableofcontents
+    %\listoffigures
+    %\listoftables
 
 \end{document}

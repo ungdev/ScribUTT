@@ -2,6 +2,7 @@
 \ProvidesClass{rUTT} % pour dire quelle classe on fournit
 
 \LoadClass[a4paper,12pt]{article}
+\usepackage{emptypage}
 
 \usepackage{src/packages/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
 \usepackage[english,main=french]{babel} % Package babel pour le français et l'anglais
@@ -83,7 +84,12 @@
 \usepackage{csquotes}
 \addbibresource{src/parts/bibliography.bib}
 
-%\usepackage[nottoc]{tocbibind} % pour inclure la biblio directement dans le sommaire
+\usepackage{shorttoc} % pour faire des sommaires
+\usepackage[page,header]{appendix}
+\usepackage{etoc} % Pour avoir des tables de matières personnalisées
+
+
+%\usepackage[nottoc,numbib]{tocbibind} % pour inclure la biblio directement dans le sommaire
 
 \usepackage{tikz}			%Pour les figures et graphes
 \usetikzlibrary{calc}		%Pour les figures et graphes

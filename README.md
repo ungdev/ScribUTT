@@ -26,6 +26,7 @@ Le pdf d'exemple généré est disponible [ici](rapportUTT.pdf).
   - [Bivalence](#bivalence)
   - [Utilisation du make](#utilisation-du-make)
   - [Architecture de votre projet](#architecture-de-votre-projet)
+    - [Sommaire et Table des matières](#sommaire-et-table-des-matières)
   - [Commandes en plus](#commandes-en-plus)
 - [Prévisualisation](#prvisualisation)
 - [Comment gerer un gros projet en LaTeX](#comment-gerer-un-gros-projet-en-latex)
@@ -97,7 +98,13 @@ Ensuite, on part dans la branche [src](src) :
 
 * On placera dans le dossier [contents](src/contents) toutes les images que l'on souhaite incorporer à notre document.
 * Le dossier [packages](src/packages) contient les ajouts de commandes les plus usées ["commands.sty"](src/packages/commands.sty), les couleurs de l'UTT [ici](src/packages/couleurs_UTT.sty) mais aussi et surtout la conception de la page de garde avec l'*overlay* et [la disposition des éléments](src/packages/frontpage.tex). **C'est ici qu'il faut ajouter vos modules perso**. N'hésitez pas à proposer un module que vous jugez essentiel !
-* S'en suit la branche ["parts"](src/parts) dans laquelle j'ai réservé un emplacement exprès pour placer les [codes sources](src/parts/code) à afficher dans votre rapport. Ainsi que toutes les parties de votre document (e.g., ["firstPart"](src/parts/firstPart.tex)) !
+* S'en suit la branche ["parts"](src/parts) dans laquelle j'ai réservé un emplacement exprès pour placer les [codes sources](src/parts/code) à afficher dans votre rapport. Ainsi que toutes les parties de votre document (e.g., ["firstPart"](src/parts/firstPart.tex)) et les [annexes](src/parts/Annexes/)!
+
+### Sommaire et Table des matières
+Selon les règles d'organisation d'un document en français, un sommaire et une table des matières sont **deux choses bien différentes**.
+* La Table des matières donne **le détail de tous les chapitres, sections, sous-sections, etc.** Elle se place **en toute fin de document (après la bibliographie)** pour être facilement accessible. C'est elle qui **porte les numéros de pages et mentionne ce qu'on appelle l'appareil de référence (annexes, tables, index, bibliographie, etc.)**
+
+* Le Sommaire quant à lui se place juste avant le début du texte principal et ne que **donne** que **des informations sommaires, à savoir les parties, chapitres et grandes subdivisions du mémoire ou rapport (de stage)**. Le sommaire doit apparaître après votre résumé ou vos remerciements, mais avant vos listes des illustrations/abréviations et le glossaire, ou juste avant l'introduction
 ## Commandes en plus
 * J'ai ajouté une commande permettant d'afficher une adresse en hyperlink, permettant de cliquer directement dessus pour afficher sur une carte openstreetmap.
 ```
