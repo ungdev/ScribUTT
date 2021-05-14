@@ -23,7 +23,7 @@ Le pdf d'exemple généré est disponible [ici](rapportUTT.pdf).
 # Table des matières
 - [`ScribUTT`: rapport au format UTT.](#scributt-rapport-au-format-utt)
 - [Utilisation](#utilisation)
-  - [Bivalance](#bivalance)
+  - [Bivalence](#bivalence)
   - [Utilisation du make](#utilisation-du-make)
   - [Architecture de votre projet](#architecture-de-votre-projet)
   - [Commandes en plus](#commandes-en-plus)
@@ -44,6 +44,12 @@ Téléchargez l'archive prête à être utilisée : [ici](deploy/latex-rapport-U
 ## Bivalence
 * Ce projet vous permet de rédiger **tous** vos rapports UTT !
 En ouvrant le [rapportUTT.tex](rapportUTT.tex), vous verrez que j'ai tout commenté pour que vous sachiez quoi remplir en fonction. J'ai aussi mis à disposition sur ce git le [Thésaurus de l'UTT](Ressources-graphiques/Thésaurus.pdf) de 2021 qui je pense, ne bougera que très peu dans le temps.
+
+Pour passer d'une page de garde à l'autre, veillez à bien commenter / dé-commenter le bon appel de la page de garde correspondante. Dans [rapportUTT.tex](rapportUTT.tex) à la ligne 55 :
+```
+
+
+```
 
 * Si jamais vous souhaitez modifier la langue du rapport de stage, pour éviter de créer deux fichiers .tex, je vous conseille juste de vous rendre dans [frontpage_ST.tex](src/packages/frontpage_ST.tex) et de remplacer quelques variables :
 ```

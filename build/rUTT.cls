@@ -10,6 +10,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{datetime}
 
+
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+
 % Pour changer les titres en I/ et en A/
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\Alph{subsection}}
@@ -31,6 +34,8 @@
     urlcolor=bleuCielUTT,
 }
 
+\newcommand{\shortUrl}[1]{\href{#1}{(short.url)}}
+
 \usepackage{titling} %thetitle thedate etc
 
 \usepackage{blindtext} % Pour générer des textes de test
@@ -45,7 +50,8 @@
 \usepackage{lmodern}        % Pour avoir de bonnes polices en pdf
 \usepackage{graphicx, animate}       % Indispensable pour les figures
 \usepackage{amsmath}        % Environnement pour les maths, permet du mettre du texte dans les équations
-\usepackage[headheight=61pt]{geometry}       % Utilisé pour les marges
+
+\usepackage[headheight=70pt]{geometry}       % Utilisé pour les marges
 
 \usepackage{xcolor} % pour colorer
 \usepackage{soul} % pour surligner
@@ -62,8 +68,17 @@
 \usepackage{todonotes}
 \usepackage{enumitem} %For custom itemize
 
-\usepackage[backend=biber,style=alphabetic,citestyle=verbose,sorting=ynt]{biblatex}
-
+\usepackage[
+  backend=biber,
+  dateera=secular, % pour avoir des Avant l'Ere Commune et plus av JC
+  dateeraauto=100, % Si on le passe à 1000, 1969 deviendra 1970 EC
+  maxnames=99,
+  style=alphabetic,
+  citestyle=verbose,
+  sortlocale=auto,
+  seconds=true,
+  bibencoding=auto,
+  sorting=ynt]{biblatex}
 % "When using babel or polyglossia with biblatex, loading csquotes is recommended to ensure that quoted texts are typeset according to the rules of your main language.'
 \usepackage{csquotes}
 \addbibresource{src/parts/bibliography.bib}
@@ -93,7 +108,7 @@
 \usepackage[font=itshape]{quoting} % pour les citations
 \usepackage{epigraph}
 
-\newcommand{\inlinequote}[2]{\textit{'#1'}\footnote{\cite{#2}}} % incorporer une citation dans une ligne
+\newcommand{\inlinequote}[2]{\textit{`#1`}\footnote{\cite{#2}}} % incorporer une citation dans une ligne
 
 % pour faire insérer du code en rouge sur fond gris sombre
 \definecolor{darkGray}{RGB}{60,63,65}
@@ -293,7 +308,7 @@
 %Contenu de l'en-tête :
 \lhead{
   \textsc{
-    \minipage[b]{.7\linewidth}
+    \minipage[b]{.8\linewidth}
     \footnotesize
     \leftmark
     \endminipage
@@ -305,14 +320,14 @@
   \vspace{0.7cm}
 } %Sigle de l'UTT au centre de l'en-tête
 
-\rhead{
+\rhead{ %en-tête droite
   \small
-  \theUE
-  ~ - ~
-  \today %Code de l'UE à droite de l'en-tête
-  }
+  \today
+}
 
 \addtolength{\skip\footins}{1cm} % pour ajouter un espace en bas
+\interfootnotelinepenalty=10000 % Pour éviter que les notes de bas de pages se propagent
+\renewcommand{\thefootnote}{\roman{footnote}} % roman style
 
 %Contenu du pied de page :
 \cfoot{\thepage} %Numéro de page au centre
@@ -320,7 +335,12 @@
 \lfoot{
   \small
   \textbf{\textcolor{bleuRoiUTT}{\theauthor}}
-  } %auteur(s) à gauche
+} %auteur(s) à gauche
+
+\rfoot{
+  \small
+  \textcolor{bleuRoiUTT}{\theUE}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Environnements
