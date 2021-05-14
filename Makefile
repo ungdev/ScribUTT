@@ -17,7 +17,7 @@ archive:
 	rm -rf build
 	mkdir build
 
-	cp rUTT.cls rapportUTT.tex LICENSE README.md .gitignore .latexmkrc Makefile build/
+	cp rUTT.cls rapportUTT.tex build/
 	cp -r src Ressources-graphiques build/
 
 	cd build &&	zip -r ../latex-rapport-UTT.zip *
@@ -44,6 +44,7 @@ cleanall:
 
 clean:
 	@echo "Cleaning ..."
+	rm -rf build
 	-latexmk -c
 	@echo "Cleaned."
 
