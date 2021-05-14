@@ -107,7 +107,9 @@
 \usepackage[font=itshape]{quoting} % pour les citations
 \usepackage{epigraph}
 
-\newcommand{\inlinequote}[2]{\textit{`#1`}\footnote{\cite{#2}}} % incorporer une citation dans une ligne
+% incorporer une citation dans une ligne
+\newcommand{\inlinequote}[1]{\textit{`#1`}}  % Sans référence bibliographique
+\newcommand{\inlinequoteRef}[2]{\textit{`#1`}\footnote{\cite{#2}}} % Avec référence bibliographique
 
 % pour faire insérer du code en rouge sur fond gris sombre
 \definecolor{darkGray}{RGB}{60,63,65}
@@ -313,10 +315,11 @@
     \endminipage
     }
 } %Section actuelle à gauche de l'en-tête
+
 \chead{
   \vspace{0.3cm}
   \includegraphics[width=4cm]{Ressources-graphiques/logos/UTT.eps}
-  \vspace{0.7cm}
+  \vspace{0.8cm}
 } %Sigle de l'UTT au centre de l'en-tête
 
 \rhead{ %en-tête droite
