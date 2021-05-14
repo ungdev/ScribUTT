@@ -329,6 +329,9 @@
 \interfootnotelinepenalty=10000 % Pour éviter que les notes de bas de pages se propagent
 \renewcommand{\thefootnote}{\roman{footnote}} % roman style
 
+\usepackage{perpage} %the perpage package
+\MakePerPage{footnote} %the perpage package command => pour avoir des notes de bas de page actualisé par page
+
 %Contenu du pied de page :
 \cfoot{\thepage} %Numéro de page au centre
 
