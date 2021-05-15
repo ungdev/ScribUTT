@@ -55,12 +55,11 @@
     \frontpagereports % Pour le modèle rapports de TDs / TPs / Projets
     %\frontpageST % Pour le modèle rapports de Stages
 
-    \pagenumbering{arabic}
-
     % Le Sommaire
     \shorttoc{Sommaire}{2}
-
     \clearpage
+
+    \pagenumbering{arabic}
 
     % Ici on organise nos parties
     \justifying
@@ -90,6 +89,7 @@
     \clearpage
 
     \[ \star \quad \star \quad \star \]
+    \pagenumbering{Roman} % On numérote en romain pour les annexes
 
     % Annexes !
     \import{src/parts/Annexes/}{Annexes.tex}
@@ -117,6 +117,7 @@
     % Toujours avoir la table des matières en dernier !
     % Ici figure tout, même les annexes
     % Commenter/supprimer pour enlever la table des matières
+    \thispagestyle{empty}
     \setcounter{tocdepth}{10} % Profondeur de la table des matières
     \tableofcontents
 

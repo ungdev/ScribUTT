@@ -300,7 +300,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %En-tête et pied de page
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{lastpage}
 
 \usepackage[
 a4paper,
@@ -355,8 +354,8 @@ footskip=1cm
 %Contenu du pied de page :
 \fancyfoot[C]{
   \large
-  $\frac{\thepage}{\pageref{LastPage}}$
-  } %Numéro de page au centre
+  $\thepage$
+} %Numéro de page au centre
 
 \fancyfoot[L]{
   \small
