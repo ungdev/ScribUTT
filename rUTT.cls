@@ -52,7 +52,7 @@
 \usepackage{graphicx, animate}       % Indispensable pour les figures
 \usepackage{amsmath}        % Environnement pour les maths, permet du mettre du texte dans les équations
 
-\usepackage[headheight=85pt,footskip=-85pt]{geometry}       % Utilisé pour les marges
+\usepackage[headheight=85pt]{geometry}       % Utilisé pour les marges
 
 \usepackage{xcolor} % pour colorer
 \usepackage{soul} % pour surligner
@@ -322,9 +322,9 @@
 } %Section actuelle à gauche de l'en-tête
 
 \chead{
-  \vspace{1.4cm}
+  \vspace{1.2cm}
   \includegraphics[width=4cm]{Ressources-graphiques/logos/UTT.eps}
-  \vspace{0.8cm}
+  \vspace{0.7cm}
 } %Sigle de l'UTT au centre de l'en-tête
 
 \rhead{ %en-tête droite
