@@ -107,8 +107,8 @@
 \usepackage{epigraph}
 
 % incorporer une citation dans une ligne
-\newcommand{\inlinequote}[1]{\textit{`#1`}}  % Sans référence bibliographique
-\newcommand{\inlinequoteRef}[2]{\textit{`#1`}\footnote{\cite{#2}}} % Avec référence bibliographique
+\newcommand{\inlinequote}[1]{\textit{``#1``}}  % Sans référence bibliographique
+\newcommand{\inlinequoteRef}[2]{\textit{``#1``}\footnote{\cite{#2}}} % Avec référence bibliographique
 
 % pour séparer les idées
 \newcommand{\ideaEnd}{\[ \star \]}
