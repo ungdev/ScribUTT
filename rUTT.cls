@@ -110,6 +110,10 @@
 \newcommand{\inlinequote}[1]{\textit{`#1`}}  % Sans référence bibliographique
 \newcommand{\inlinequoteRef}[2]{\textit{`#1`}\footnote{\cite{#2}}} % Avec référence bibliographique
 
+% pour séparer les idées
+\newcommand{\ideaEnd}{\[ \star \]}
+\newcommand{\tripleS}{\[ \star \quad \star \quad \star \]}
+
 % pour faire insérer du code en rouge sur fond gris sombre
 \definecolor{darkGray}{RGB}{60,63,65}
 \definecolor{moderateRed}{RGB}{200,81,82}
@@ -222,7 +226,6 @@
 
 \newcommand{\frontpagereports}{\include{src/packages/frontpage_reports.tex}}
 \newcommand{\frontpageST}{\include{src/packages/frontpage_ST.tex}}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\if@noUTTcolors\@noUTTcolorsfalse
