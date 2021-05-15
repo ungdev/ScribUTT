@@ -52,8 +52,6 @@
 \usepackage{graphicx, animate}       % Indispensable pour les figures
 \usepackage{amsmath}        % Environnement pour les maths, permet du mettre du texte dans les équations
 
-\usepackage[headheight=85pt]{geometry}       % Utilisé pour les marges
-
 \usepackage{xcolor} % pour colorer
 \usepackage{soul} % pour surligner
 
@@ -80,6 +78,8 @@
   seconds=true,
   bibencoding=auto,
   sorting=ynt]{biblatex}
+
+
 % "When using babel or polyglossia with biblatex, loading csquotes is recommended to ensure that quoted texts are typeset according to the rules of your main language.'
 \usepackage{csquotes}
 \addbibresource{src/parts/bibliography.bib}
@@ -93,10 +93,6 @@
 
 \usepackage{tikz}			%Pour les figures et graphes
 \usetikzlibrary{calc}		%Pour les figures et graphes
-
-\geometry{vmargin=3cm, textwidth=16cm} % Réglages des marges
-\usepackage{fancyhdr}		% Pour l'entête et les pieds de page
-\pagestyle{fancy}			% Pour l'entête et les pieds de page
 
 % Text pos to position texts in absolute coords for the first page.
 \usepackage[absolute,overlay]{textpos}
@@ -304,6 +300,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %En-tête et pied de page
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{lastpage}
+
+\usepackage[
+a4paper,
+%showframe, % show the page layout
+%includeheadfoot, % la zone de texte inclut le header et le footer
+textwidth=16cm,
+headheight=8cm,
+headsep=0.5cm,
+top=3.5cm,
+bottom=3cm,
+footskip=1cm
+]{geometry}   % Utilisé pour les marges
+
+\usepackage{fancyhdr}		% Pour l'entête et les pieds de page
+\pagestyle{fancy}			% Pour l'entête et les pieds de page
+
 \renewcommand{\headrulewidth}{0.5pt} %Épaisseur de la ligne d'en-tête
 \renewcommand{\footrulewidth}{1.5pt} %Épaisseur de la ligne de pied de page
 
@@ -312,22 +325,21 @@
 } %Changement de la couleur de la ligne de pied de page
 
 %Contenu de l'en-tête :
-\lhead{
+\fancyhead[L]{
   \textsc{
     \minipage[b]{.8\linewidth}
-    \footnotesize
-    \leftmark
+      \footnotesize
+      \leftmark % Contient le nom de la section
     \endminipage
     }
 } %Section actuelle à gauche de l'en-tête
 
-\chead{
-  \vspace{1cm}
+\fancyhead[C]{
   \includegraphics[width=4cm]{Ressources-graphiques/logos/UTT.eps}
   \vspace{0.7cm}
 } %Sigle de l'UTT au centre de l'en-tête
 
-\rhead{ %en-tête droite
+\fancyhead[R]{ %en-tête droite
   \small
   \today
 }
@@ -341,14 +353,17 @@
 \MakePerPage{footnote} %the perpage package command => pour avoir des notes de bas de page actualisé par page
 
 %Contenu du pied de page :
-\cfoot{\thepage} %Numéro de page au centre
+\fancyfoot[C]{
+  \large
+  $\frac{\thepage}{\pageref{LastPage}}$
+  } %Numéro de page au centre
 
-\lfoot{
+\fancyfoot[L]{
   \small
   \textbf{\textcolor{bleuRoiUTT}{\theauthor}}
 } %auteur(s) à gauche
 
-\rfoot{
+\fancyfoot[R]{
   \small
   \textcolor{bleuRoiUTT}{\theUE}
 }
