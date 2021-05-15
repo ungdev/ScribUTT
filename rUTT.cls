@@ -322,7 +322,7 @@
 } %Section actuelle à gauche de l'en-tête
 
 \chead{
-  \vspace{1.2cm}
+  \vspace{1cm}
   \includegraphics[width=4cm]{Ressources-graphiques/logos/UTT.eps}
   \vspace{0.7cm}
 } %Sigle de l'UTT au centre de l'en-tête
