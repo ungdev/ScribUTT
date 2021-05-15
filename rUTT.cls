@@ -39,6 +39,14 @@
 
 \usepackage{titling} %thetitle thedate etc
 
+\usepackage{afterpage} % Pour ajouter une page blanche
+\newcommand\myemptypage{
+    \null
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage
+}
+
 \usepackage{blindtext} % Pour générer des textes de test
 
 \usepackage{graphicx} % pour les images
