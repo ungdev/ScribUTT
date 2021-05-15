@@ -57,13 +57,20 @@
 
     % Le Sommaire
     \shorttoc{Sommaire}{2}
-    \addcontentsline{toc}{section}{Sommaire}
     \pagenumbering{arabic}
 
     \clearpage
 
     % Ici on organise nos parties
     \justifying
+
+    \import{src/parts/}{Remerciements.tex}
+    
+    \clearpage
+
+    \import{src/parts/}{Introduction.tex}
+
+    \clearpage
 
     \import{src/parts/}{firstPart.tex}
 
@@ -81,13 +88,14 @@
 
     \clearpage
 
+    \[ \star \quad \star \quad \star \]
+
     % Annexes !
     \import{src/parts/Annexes/}{Annexes.tex}
 
     \clearpage
 
     % Bibliographie !
-    \[ \star \quad \star \quad \star \]
 
     {
     \phantomsection % hyperlinks will target the correct page
@@ -95,15 +103,21 @@
     \sloppy
     \nocite{*} % pour faire apparaître tout du fichier bib
     \printbibliography[title={Bibliographie},heading=bibintoc]
+
+    \clearpage
+
+    \listoffigures
+    \addcontentsline{toc}{section}{\listfigurename}
+    \listoftables
+    \addcontentsline{toc}{section}{\listtablename}
     }
+
 
     \clearpage
     % Toujours avoir la table des matières en dernier ! 
     % Ici figure tout, même les annexes
     % Commenter/supprimer pour enlever la table des matières
-    \setcounter{tocdepth}{5} % Profondeur de la table des matières
+    \setcounter{tocdepth}{10} % Profondeur de la table des matières
     \tableofcontents
-    %\listoffigures
-    %\listoftables
 
 \end{document}
