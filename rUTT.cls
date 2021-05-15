@@ -52,7 +52,7 @@
 \usepackage{graphicx, animate}       % Indispensable pour les figures
 \usepackage{amsmath}        % Environnement pour les maths, permet du mettre du texte dans les équations
 
-\usepackage[headheight=70pt]{geometry}       % Utilisé pour les marges
+\usepackage[headheight=85pt,footskip=-85pt]{geometry}       % Utilisé pour les marges
 
 \usepackage{xcolor} % pour colorer
 \usepackage{soul} % pour surligner
@@ -84,9 +84,9 @@
 \usepackage{csquotes}
 \addbibresource{src/parts/bibliography.bib}
 
-\usepackage{shorttoc} % pour faire des sommaires
 \usepackage[page,header]{appendix}
 \usepackage{etoc} % Pour avoir des tables de matières personnalisées
+\usepackage{shorttoc} % pour faire des sommaires
 
 
 %\usepackage[nottoc,numbib]{tocbibind} % pour inclure la biblio directement dans le sommaire
@@ -100,9 +100,6 @@
 
 % Text pos to position texts in absolute coords for the first page.
 \usepackage[absolute,overlay]{textpos}
-
-\setlength{\headheight}{85pt}% ...au moins 84.69057pt
-
 \usepackage{ulem} % Pour souligner en couleur
 
 \usepackage{ragged2e} % for justifying https://tex.stackexchange.com/questions/369549/justifying-text-in-overleaf-template
@@ -145,6 +142,8 @@
   tabsize=4,
   stripall=true
 }
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%- verbatim input txt file beautifuly
@@ -323,7 +322,7 @@
 } %Section actuelle à gauche de l'en-tête
 
 \chead{
-  \vspace{0.3cm}
+  \vspace{1.4cm}
   \includegraphics[width=4cm]{Ressources-graphiques/logos/UTT.eps}
   \vspace{0.8cm}
 } %Sigle de l'UTT au centre de l'en-tête
