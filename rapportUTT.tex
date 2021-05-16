@@ -55,18 +55,21 @@
     \frontpagereports % Pour le modèle rapports de TDs / TPs / Projets
     %\frontpageST % Pour le modèle rapports de Stages
 
-    % Le Sommaire
-    \shorttoc{Sommaire}{2}
-    \clearpage
-
-    \pagenumbering{arabic}
-
     % Ici on organise nos parties
     \justifying
 
-    \import{src/parts/}{Remerciements.tex}
+    \import{src/parts/}{Remerciements.tex} % Toujours avant le sommaire !
 
     \clearpage
+
+
+
+    % Le Sommaire
+    \shorttoc{Sommaire}{2}
+
+    \clearpage
+
+    \pagenumbering{arabic}
 
     \import{src/parts/}{Introduction.tex}
 
@@ -120,5 +123,9 @@
     \thispagestyle{empty}
     \setcounter{tocdepth}{10} % Profondeur de la table des matières
     \tableofcontents
+    
+    % On laisse une page blanche à la fin pour l'impression, c'est plus joli
+    \clearpage
+    \myemptypage
 
 \end{document}

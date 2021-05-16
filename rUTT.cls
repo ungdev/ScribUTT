@@ -325,7 +325,7 @@ footskip=1cm
 ]{geometry}   % Utilisé pour les marges
 
 \usepackage{fancyhdr}		% Pour l'entête et les pieds de page
-\pagestyle{fancy}			% Pour l'entête et les pieds de page
+\pagestyle{fancy} % Pour que notre document utilise ce style
 
 \renewcommand{\headrulewidth}{0.5pt} %Épaisseur de la ligne d'en-tête
 \renewcommand{\footrulewidth}{1.5pt} %Épaisseur de la ligne de pied de page
@@ -354,14 +354,6 @@ footskip=1cm
   \today
 }
 
-\usepackage[bottom]{footmisc} % Pour éviter que les notes de bas de page soient "collées" à notre texte
-\addtolength{\skip\footins}{0.5cm} % pour ajouter un espace en bas
-\interfootnotelinepenalty=10000 % Pour éviter que les notes de bas de pages se propagent
-\renewcommand{\thefootnote}{\roman{footnote}} % roman style
-
-\usepackage{perpage} %the perpage package
-\MakePerPage{footnote} %the perpage package command => pour avoir des notes de bas de page actualisé par page
-
 %Contenu du pied de page :
 \fancyfoot[C]{
   \large
@@ -377,6 +369,21 @@ footskip=1cm
   \small
   \textcolor{bleuRoiUTT}{\theUE}
 }
+
+%% redéfinition des styles de pages
+% Très important !
+\fancypagestyle{plain}{} % Pour redéfinir le style de page "plain" comme celui de "fancy"
+% Parce que parfois la première page d'un doc dans l'article si un \maketitle est utilisé change le style de page
+
+%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[bottom]{footmisc} % Pour éviter que les notes de bas de page soient "collées" à notre texte
+\addtolength{\skip\footins}{0.5cm} % pour ajouter un espace en bas
+\interfootnotelinepenalty=10000 % Pour éviter que les notes de bas de pages se propagent
+\renewcommand{\thefootnote}{\roman{footnote}} % roman style
+
+\usepackage{perpage} %the perpage package
+\MakePerPage{footnote} %the perpage package command => pour avoir des notes de bas de page actualisé par page
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Environnements
