@@ -6,12 +6,14 @@
 
 \usepackage{src/packages/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
 
-\usepackage[english,main=french]{babel} % Package babel pour le français et l'anglais
-\frenchbsetup{StandardLists=true} % Pour redéfinir les itemize malgré babel
+% Package babel pour le français et l'anglais,
+% main = language pour tout ce qui est titre etc
+\usepackage[english,main=french]{babel}
+
 
 \usepackage[T1]{fontenc}    % Package pour les accentuations
 \usepackage[utf8]{inputenc}
-\usepackage{datetime}
+\usepackage{datetime2} % datetime2 replaces the datetime package
 
 
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
