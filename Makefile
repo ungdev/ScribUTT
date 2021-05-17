@@ -20,7 +20,7 @@ archive:
 	cp rUTT.cls rapportUTT.tex .latexmkrc Makefile build/
 	cp -r src Ressources-graphiques build/
 
-	cd build &&	zip -r ../latex-rapport-UTT.zip *
+	cd build &&	zip -r ../latex-rapport-UTT.zip ./
 
 	@echo "Archive's ready !"
 
