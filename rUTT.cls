@@ -379,6 +379,18 @@ explicit % Permet de choisir on l'on place l'argument
 {6pt}                  % Below
 
 
+% Pour le titre de l'Abstract
+\newenvironment{myabstract}{%
+  \begin{center}
+  {\normalfont\LARGE\bfseries
+  \color{bleuRoiUTT}Abstract}
+  \bigbreak
+  \normalfont \normalsize \justify
+}
+{
+  \end{center}
+}
+
 
 % Pour changer les titres en I/ et en A/
 \renewcommand{\thesection}{\Roman{section}}
@@ -460,11 +472,3 @@ footskip=1cm
 
 \usepackage{perpage} %the perpage package
 \MakePerPage{footnote} %the perpage package command => pour avoir des notes de bas de page actualisé par page
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Environnements
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newenvironment{myabstract}{%
-  \begin{quote} \begin{center}
-    \bf}
-  {\end{center} \end{quote}}
