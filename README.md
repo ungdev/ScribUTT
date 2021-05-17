@@ -122,6 +122,10 @@ Celle pour les rapports de stage :
 <p align="center">
   <img src="examplesPNG/pdgST_FR.png"/>
 </p>
+La numérotation de page diffère en fonction des annexes et du contenu propre du document :
+<p align="center">
+  <img src="examplesPNG/sommaire.png"/>
+</p>
 Voici un exemple d'une mise en page contenant un énoncé de théorème :
 <p align="center">
   <img src="examplesPNG/page.png"/>

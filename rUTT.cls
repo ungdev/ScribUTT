@@ -5,18 +5,16 @@
 \usepackage{emptypage}
 
 \usepackage{src/packages/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
+
 \usepackage[english,main=french]{babel} % Package babel pour le français et l'anglais
 \frenchbsetup{StandardLists=true} % Pour redéfinir les itemize malgré babel
+
 \usepackage[T1]{fontenc}    % Package pour les accentuations
 \usepackage[utf8]{inputenc}
 \usepackage{datetime}
 
 
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
-
-% Pour changer les titres en I/ et en A/
-\renewcommand{\thesection}{\Roman{section}}
-\renewcommand{\thesubsection}{\Alph{subsection}}
 
 
 % load the microtype package with the final package option
@@ -73,7 +71,25 @@
 \usepackage{amssymb}    % Typographie pour les ensembles communs
 \usepackage{xspace}         % for including spaces at the end of latex macros
 \usepackage{todonotes}
-\usepackage{enumitem} %For custom itemize
+
+%%%% For custom itemize
+\usepackage{enumitem}
+
+\setlist{noitemsep}
+\setlist{labelindent=\parindent, leftmargin=*, align=left}
+
+\setlist[itemize,2]{label=$\triangleright$}
+\setlist[enumerate,1]{label=(\roman{enumi})}
+
+\SetEnumitemKey{twocol}{
+  itemsep = 1\itemsep,
+  parsep = 1\parsep,
+  before = \raggedcolumns\begin{multicols}{2},
+  after = \end{multicols}
+}
+
+
+%%%%
 
 \usepackage[
   backend=biber,
@@ -93,8 +109,11 @@
 \addbibresource{src/parts/bibliography.bib}
 
 \usepackage[page,header]{appendix}
+\usepackage{tocloft} % pour gérer l'espace entre les titres dans la toc
 \usepackage{etoc} % Pour avoir des tables de matières personnalisées
 \usepackage{shorttoc} % pour faire des sommaires
+
+\setlength\cftsecnumwidth{2em} % Espace entre numéro de section et titre dans la toc
 
 
 %\usepackage[nottoc,numbib]{tocbibind} % pour inclure la biblio directement dans le sommaire
@@ -262,8 +281,13 @@
 \newcommand{\mapAddr}[1]{\href{https://www.openstreetmap.org/search?query=#1}{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Redéfinition des niveaux de titre
+% Redéfinition des niveaux de titre
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Pour changer les titres en I/ et en A/
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+
 \if@noUTTcolors
   \definecolor{bleuRoiUTT}{RGB}{0,0,0} % On enlève toute trace d'une autre couleur
 \else
@@ -276,11 +300,13 @@
     \bgroup\markoverwith{\textcolor{grisUTT}{\rule[-0.5ex]{0.1mm}{0.5mm}}}%
     \ULon%
   }
+
   \renewcommand\section{\@startsection {section}{1}{\z@}% Redéfinition de la commande section (plus gros, souligné)
     {-3.5ex \@plus -1ex \@minus -.2ex}%
     {2.3ex \@plus .2ex}%
     {\normalfont\LARGE\bfseries\sectionuline}%
   }
+
   \renewcommand\subsection{\@startsection {subsection}{2}{1em}% Redéfinition de la commande subsection (plus gros, en gris UTT)
     {-3ex \@plus -0.8ex \@minus -.2ex}%
     {1.8ex \@plus .2ex}%
@@ -356,8 +382,8 @@ footskip=1cm
 
 %Contenu du pied de page :
 \fancyfoot[C]{
-  \large
-  $\thepage$
+  %\large
+  \textbf{\thepage}
 } %Numéro de page au centre
 
 \fancyfoot[L]{
