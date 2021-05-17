@@ -80,7 +80,9 @@
 \setlist{noitemsep}
 \setlist{labelindent=\parindent, leftmargin=*, align=left}
 
+\setlist[itemize,1]{label=$\bullet$}
 \setlist[itemize,2]{label=$\triangleright$}
+\setlist[itemize,3]{label=$\square$}
 \setlist[enumerate,1]{label=(\roman{enumi})}
 
 \SetEnumitemKey{twocol}{
