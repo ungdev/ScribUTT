@@ -8,7 +8,7 @@
 \usepackage{setspace} % Pour les interlignes
 \singlespacing % a commenter si vous voulez un interligne word
 
-% pour avoir le même interligne que sur Word, 
+% pour avoir le même interligne que sur Word,
 % car un "line skip" a un facteur de 1.2 donc 1.2*1.25=1.5
 %\linespread{1.25}
 
@@ -17,13 +17,13 @@
 
 \usepackage{src/packages/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
 
-% Package babel pour le français et l'anglais,
-% main = language pour tout ce qui est titre etc
-\usepackage[english,main=french]{babel}
-
-
 \usepackage[T1]{fontenc}    % Package pour les accentuations
 \usepackage[utf8]{inputenc}
+
+% Package babel pour le français et l'anglais,
+% main = language pour tout ce qui est titre etc
+\usepackage[main=french,english]{babel}
+
 \usepackage{datetime2} % datetime2 replaces the datetime package
 
 
@@ -83,13 +83,20 @@
 \usepackage{mathtools}  % Typographie pour les ensembles communs
 \usepackage{amssymb}    % Typographie pour les ensembles communs
 \usepackage{xspace}         % for including spaces at the end of latex macros
+
 \usepackage{todonotes}
+\setlength {\marginparwidth }{2cm} % to loading the todonotes package
 
 %%%% For custom itemize
 \usepackage{enumitem}
 
-\setlist{noitemsep}
-\setlist{labelindent=\parindent, leftmargin=*, align=left}
+
+\setlist{
+  noitemsep,
+  labelindent=\parindent,
+  leftmargin=*,
+  align=left
+}
 
 \setlist[itemize,1]{label=\color{bleuRoiUTT} $\bullet$}
 \setlist[itemize,2]{label=\color{bleuRoiUTT}$\triangleright$}
@@ -118,9 +125,6 @@
   bibencoding=auto,
   sorting=ynt]{biblatex}
 
-
-% "When using babel or polyglossia with biblatex, loading csquotes is recommended to ensure that quoted texts are typeset according to the rules of your main language.'
-\usepackage{csquotes}
 \addbibresource{src/parts/bibliography.bib}
 
 \usepackage[page,header]{appendix}
@@ -140,7 +144,12 @@
 \usepackage[absolute,overlay]{textpos}
 \usepackage{ulem} % Pour souligner en couleur
 
+%%%%%%%%%%%%%
+% Si vous autorisez un étirement (ragged) arbitraire,
+% vous pouvez obtenir un texte très irrégulier qui peut généralement être amélioré en limitant l'irrégularité.
 \usepackage{ragged2e} % for justifying https://tex.stackexchange.com/questions/369549/justifying-text-in-overleaf-template
+\raggedright
+%%%%%%%%%%%%
 
 \usepackage{caption}
 \usepackage{dialogue} %pour les... dialogues
@@ -185,7 +194,9 @@
   stripall=true
 }
 
-
+% "When using babel or polyglossia with biblatex, loading csquotes is recommended to ensure that quoted texts are typeset according to the rules of your main language.'
+% load csquotes AFTER minted
+\usepackage{csquotes}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%- verbatim input txt file beautifuly
@@ -227,7 +238,7 @@
   innerrightmargin=6pt,
   innertopmargin=6pt,
   innerbottommargin=6pt
-  ]{mycodebox}
+]{mycodebox}
 
 \newmdenv[
     linecolor=bleuRoiUTT,
@@ -296,13 +307,20 @@
 \newcommand{\mapAddr}[1]{\href{https://www.openstreetmap.org/search?query=#1}{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Redéfinition des niveaux de titre
+% Gestion des titres
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[sf,sl,outermarks,explicit]{titlesec}
+\usepackage[
+sf, % Serif text
+sl, % Slanted text
+outermarks,
+explicit % Permet de choisir on l'on place l'argument
+]{titlesec}
+
 
 %%% Section
 \titleformat{\section} % command
-{\normalfont\LARGE\bfseries\color{bleuRoiUTT}} % format
+[hang] % shape (hang is normal shape, it was just for remember)
+{\normalfont\LARGE\bfseries\raggedright\color{bleuRoiUTT}} % format
 {\thesection} % label
 {0.5em} % Spacing between label and title
 {\uline{#1}} % before code
@@ -314,7 +332,7 @@
 
 %%% Subsection
 \titleformat{\subsection} % command
-{\normalfont\Large\bfseries\color{bleuCielUTT}} % format
+{\normalfont\Large\bfseries\raggedright\color{bleuCielUTT}} % format
 {\thesubsection} % label
 {0.5em} % Spacing between label and title
 {#1} % before code
@@ -326,12 +344,36 @@
 
 %%% Subsubsection
 \titleformat{\subsubsection} % command
-{\normalfont\large\bfseries\color{grisUTT}} % format
+{\normalfont\large\bfseries\raggedright\color{grisUTT}} % format
 {\thesubsubsection} % label
 {0.5em} % Spacing between label and title
 {#1} % before code
 
 \titlespacing{\subsubsection} % Set the spacing around the title
+{0pt}                  % Left
+{18pt}                  % Above
+{6pt}                  % Below
+
+%%% paragraph
+\titleformat{\paragraph} % command
+{\normalfont\large\bfseries\raggedright\color{bleuRoiUTT}} % format
+{\theparagraph} % label
+{0.5em} % Spacing between label and title
+{#1} % before code
+
+\titlespacing{\paragraph} % Set the spacing around the title
+{0pt}                  % Left
+{18pt}                  % Above
+{6pt}                  % Below
+
+%%% subparagraph
+\titleformat{\subparagraph} % command
+{\normalfont\bfseries\raggedright\color{bleuRoiUTT}} % format
+{\thesubparagraph} % label
+{0.5em} % Spacing between label and title
+{#1} % before code
+
+\titlespacing{\paragraph} % Set the spacing around the title
 {0pt}                  % Left
 {18pt}                  % Above
 {6pt}                  % Below
