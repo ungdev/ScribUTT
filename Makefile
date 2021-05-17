@@ -10,6 +10,7 @@
 default:
 	@echo "Building pdf file's !"
 	latexmk -pdf rapportUTT.tex -quiet
+	make cleanall
 
 # On prépare l'archive utilisable sur Overleaf (par exemple)
 archive:
@@ -33,20 +34,20 @@ deploy: default archive
 	cp rapportUTT.pdf deploy/
 	mv latex-rapport-UTT.zip deploy/
 	@echo "Deployment completed."
-	make clean
+	make cleanall
 
 
 cleanall:
 	@echo "Cleaning ALL ..."
 	latexmk -C -bibtex
 	rm -rf build deploy *.zip *.run.xml
+	rm -f *.{aux,bbl,maf,mtc*,ptc}
+	rm -f src/packages/*.{aux,bbl,maf,mtc*,ptc}
 	@echo "Cleaned."
 
 clean:
 	@echo "Cleaning ..."
 	rm -rf build
 	-latexmk -c
-	rm -f *.{aux,bbl,maf,mtc*,ptc}
-	rm -f src/packages/*.{aux,bbl,maf,mtc*,ptc}
 	@echo "Cleaned."
 

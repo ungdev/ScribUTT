@@ -1,0 +1,136 @@
+% !TeX root = ./rapportUTT.tex
+% !BIB TS-program = biber
+
+\documentclass{rUTT}
+% Pour retirer le thème couleur UTT,
+%   Commenter la ligne précédente
+%   Décommenter la ligne dessous
+% \documentclass[noUTTcolors]{rUTT}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Si on est on mode rapport de stage :
+\RPeda{{\sc VIGIER} Thibault} % Responsable pédagogique
+
+\Entreprise{ComplORG}
+\Lieu{12 Rue Marie Curie, 10300 Troyes}
+\REntre{Pr. Didier Raoult}
+
+% Mots clés du Thésaurus
+\Kone{Complot} % Nature de l'activité
+\Ktwo{Transport et Télécommunications} % Branche d'activité économique
+\Kthree{Informatique} % Domaines technologiques
+\Kfourth{Produits chimiques} % Application Physique directe
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\Semestre{Printemps 2021}
+%\UE{LT01} %Nom de l'UE OU nom complet de la branche si en mode rapport de stage !
+\UE{Matériaux : Technologie et Economie}
+
+% Le titre de votre rapport OU le résumé de votre stage si en mode stage
+%\title{Un rapport en \LaTeX \\ écrit avec amour}
+
+\title{La tyrannie sociale, souvent écrasante et funeste, ne présente pas ce caractère de violence impérative, de despotisme légalisé qui distingue l’autorité de l’État. Elle ne s’impose pas comme une loi à laquelle tout individu est forcé de se soumettre sous peine d’encourir un châtiment juridique. Son action est plus douce, plus insinuante, plus imperceptible, mais d’autant plus puissante que celle de l’autorité de l’État. Elle domine les hommes par les coutumes, par les mœurs, par la masse des sentiments, des préjugés et des habitudes tant de la vie matérielle que de l’esprit et du cœur et qui constituent ce que nous appelons l’opinion publique. Elle enveloppe l’homme dès sa naissance, le transperce, le pénètre, et forme la base même de sa propre existence individuelle ; de sorte que chacun en est en quelque sorte le complice contre lui-même, plus ou moins, et le plus souvent sans s’en douter lui-même. - Bakounine}
+
+\date{\today}
+
+\author{{\sc MARTIN} Azaël
+% \and
+% {\sc Nom} Prénom
+% \break
+% {\sc Nom} Prénom
+% \and
+% {\sc Nom} Prénom
+% \break
+% {\sc Nom} Prénom
+}
+
+% Texte affiché sur le carré bleu
+%\newcommand{\titletext}{Vous êtes probablement assez bon pour travailler dans cette entreprise pour laquelle vous pensez ne pas être assez bon.}
+
+\newcommand{\titletext}{Ingénieur Télécom \\ Etude de la propagation de la Covid-19 \\ à l'aide du standard 5G}
+
+% n'oubliez pas de changer le language principal dans rUTT.cls
+% en options du package babel !
+\selectlanguage{french}
+
+\begin{document}
+    %%%% - Choix de la page de garde
+    %\frontpagereports % Pour le modèle rapports de TDs / TPs / Projets
+    \frontpageST % Pour le modèle rapports de Stages
+
+    \myemptypage % page blanche après page de garde pour impression recto verso
+
+    % Ici on organise nos parties
+    \justify % on justifie notre texte via ragged2e
+
+    \import{src/parts/}{Remerciements.tex} % Toujours avant le sommaire !
+
+    \clearpage
+
+
+
+    % Le Sommaire
+    \shorttoc{Sommaire}{2}
+
+    \clearpage
+
+    \pagenumbering{arabic}
+
+    \import{src/parts/}{Introduction.tex}
+
+    \clearpage
+
+    \import{src/parts/}{firstPart.tex}
+
+    \clearpage
+
+    \import{src/parts/}{secondPart.tex}
+
+    \clearpage
+
+    \import{src/parts/}{thirdPart.tex}
+
+    \clearpage
+
+    \import{src/parts/}{scienticPart.tex}
+
+    \clearpage
+
+    \tripleS
+    \pagenumbering{Roman} % On numérote en romain pour les annexes
+
+    % Annexes !
+    \import{src/parts/Annexes/}{Annexes.tex}
+
+    \clearpage
+
+    % Bibliographie !
+
+    {
+    \phantomsection % hyperlinks will target the correct page
+    \raggedright % pour éviter certaines erreurs rares d'affichage
+    \sloppy
+    \nocite{*} % pour faire apparaître tout du fichier bib
+    \printbibliography[title={Bibliographie},heading=bibintoc]
+
+    \clearpage
+
+    \listoffigures
+    \addcontentsline{toc}{section}{\listfigurename}
+    \listoftables
+    \addcontentsline{toc}{section}{\listtablename}
+    }
+
+    \clearpage
+    % Toujours avoir la table des matières en dernier !
+    % Ici figure tout, même les annexes
+    % Commenter/supprimer pour enlever la table des matières
+    \thispagestyle{empty}
+    \setcounter{tocdepth}{10} % Profondeur de la table des matières
+    \tableofcontents
+
+    % On laisse une page blanche à la fin pour l'impression, c'est plus joli
+    \clearpage
+    \myemptypage
+
+\end{document}

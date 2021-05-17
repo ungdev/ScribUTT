@@ -1,0 +1,75 @@
+\begin{titlepage}
+    \thispagestyle{empty}
+
+    \input{src/packages/overlay_reports.tikz}
+
+    % Si on veut ajouter du texte au carré bleu
+    \begin{textblock*}{14cm}(3.5cm,3cm)
+        \begin{LARGE}
+            \makeatletter
+            \justifying
+
+            \begin{center}
+                \textbf{\textcolor{white}{\titletext}}
+            \end{center}
+
+            \makeatother
+        \end{LARGE}
+    \end{textblock*}
+
+    % Semestre
+    \begin{textblock*}{10cm}(0.5cm,10.25cm)
+        \begin{flushleft}
+            \makeatletter
+            \Large
+            \selectfont
+            \textbf{
+                \textcolor{white}{\theSemestre}
+                }
+            \makeatother
+        \end{flushleft}
+    \end{textblock*}
+
+    % UE
+    \begin{textblock*}{4cm}(16cm,10.25cm)
+        \begin{flushright}
+            \makeatletter
+            \Large
+            \selectfont
+            \textbf{
+                \textcolor{white}{\theUE}
+                }
+            \makeatother
+        \end{flushright}
+    \end{textblock*}
+
+
+    % Titre
+    \begin{textblock*}{20.5cm}(0cm,12cm)
+        \Huge
+        \selectfont
+        \begin{center}
+            \textbf{\textcolor{bleuRoiUTT}{\thetitle}}
+        \end{center}
+    \end{textblock*}
+
+    % Auteurs
+    \begin{textblock*}{20.5cm}(0cm,18cm)
+        \centering
+        \Large
+        \textbf{\textcolor{bleuRoiUTT}{\theauthor}}
+
+    \end{textblock*}
+
+    % Pour mettre la date au dessus de l'icône de l'UTT !
+    \begin{textblock*}{5cm}(9cm,24cm)
+        \begin{Huge}
+            \raggedleft
+            \fontsize{14}{14}\textbf{\textcolor{bleuRoiUTT}{\thedate}}
+            \makeatother
+        \end{Huge}
+    \end{textblock*}
+
+\end{titlepage}
+
+\clearpage % flushes out all floats that have been deferred
