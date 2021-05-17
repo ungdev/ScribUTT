@@ -4,6 +4,17 @@
 \LoadClass[a4paper,12pt]{article}
 \usepackage{emptypage}
 
+%%%%%%%%% Les interlignes
+\usepackage{setspace} % Pour les interlignes
+\singlespacing % a commenter si vous voulez un interligne word
+
+% pour avoir le même interligne que sur Word, 
+% car un "line skip" a un facteur de 1.2 donc 1.2*1.25=1.5
+%\linespread{1.25}
+
+%%%%%%%%
+
+
 \usepackage{src/packages/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
 
 % Package babel pour le français et l'anglais,
@@ -61,7 +72,7 @@
 \usepackage{amsmath}        % Environnement pour les maths, permet du mettre du texte dans les équations
 
 \usepackage{xcolor} % pour colorer
-\usepackage{soul} % pour surligner
+\usepackage{ulem} % pour surligner
 
 \usepackage{multicol}		% Pour les colonnes
 \usepackage{multirow}       % Pour des tableaux fun
@@ -80,9 +91,9 @@
 \setlist{noitemsep}
 \setlist{labelindent=\parindent, leftmargin=*, align=left}
 
-\setlist[itemize,1]{label=$\bullet$}
-\setlist[itemize,2]{label=$\triangleright$}
-\setlist[itemize,3]{label=$\square$}
+\setlist[itemize,1]{label=\color{bleuRoiUTT} $\bullet$}
+\setlist[itemize,2]{label=\color{bleuRoiUTT}$\triangleright$}
+\setlist[itemize,3]{label=\color{bleuRoiUTT}$\square$}
 \setlist[enumerate,1]{label=(\roman{enumi})}
 
 \SetEnumitemKey{twocol}{
@@ -287,56 +298,49 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Redéfinition des niveaux de titre
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[sf,sl,outermarks,explicit]{titlesec}
+
+%%% Section
+\titleformat{\section} % command
+{\normalfont\LARGE\bfseries\color{bleuRoiUTT}} % format
+{\thesection} % label
+{0.5em} % Spacing between label and title
+{\uline{#1}} % before code
+
+\titlespacing{\section} % Set the spacing around the title
+{0pt}                  % Left
+{18pt}                  % Above
+{6pt}                  % Below
+
+%%% Subsection
+\titleformat{\subsection} % command
+{\normalfont\Large\bfseries\color{bleuCielUTT}} % format
+{\thesubsection} % label
+{0.5em} % Spacing between label and title
+{#1} % before code
+
+\titlespacing{\subsection} % Set the spacing around the title
+{0pt}                  % Left
+{18pt}                  % Above
+{6pt}                  % Below
+
+%%% Subsubsection
+\titleformat{\subsubsection} % command
+{\normalfont\large\bfseries\color{grisUTT}} % format
+{\thesubsubsection} % label
+{0.5em} % Spacing between label and title
+{#1} % before code
+
+\titlespacing{\subsubsection} % Set the spacing around the title
+{0pt}                  % Left
+{18pt}                  % Above
+{6pt}                  % Below
+
+
 
 % Pour changer les titres en I/ et en A/
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\Alph{subsection}}
-
-\if@noUTTcolors
-  \definecolor{bleuRoiUTT}{RGB}{0,0,0} % On enlève toute trace d'une autre couleur
-\else
-  \renewcommand{\labelitemi}{\color{bleuRoiUTT}$\bullet$} %Changement des puces itemize de niveau 1
-  \renewcommand{\labelitemii}{\color{bleuRoiUTT}$\bullet$} %Changement des puces itemize de niveau 2
-
-  \makeatletter
-
-  \newcommand\sectionuline{% Commande pour souligner les sections en bleuRoiUTT
-    \bgroup\markoverwith{\textcolor{grisUTT}{\rule[-0.5ex]{0.1mm}{0.5mm}}}%
-    \ULon%
-  }
-
-  \renewcommand\section{\@startsection {section}{1}{\z@}% Redéfinition de la commande section (plus gros, souligné)
-    {-3.5ex \@plus -1ex \@minus -.2ex}%
-    {2.3ex \@plus .2ex}%
-    {\normalfont\LARGE\bfseries\sectionuline}%
-  }
-
-  \renewcommand\subsection{\@startsection {subsection}{2}{1em}% Redéfinition de la commande subsection (plus gros, en gris UTT)
-    {-3ex \@plus -0.8ex \@minus -.2ex}%
-    {1.8ex \@plus .2ex}%
-    {\normalfont\Large\bfseries\color{bleuRoiUTT}}%
-  }
-
-  \renewcommand\subsubsection{\@startsection {subsubsection}{3}{2em}% Redéfinition de la commande subsubsection (plus gros, en gris UTT)
-    {-2.5ex \@plus -0.6ex \@minus -.2ex}%
-    {1.8ex \@plus .2ex}%
-    {\normalfont\large\bfseries\color{bleuRoiUTT}}%
-  }
-
-  \renewcommand\paragraph{\@startsection {paragraph}{4}{3em}% Redéfinition de la commande paragraph (plus gros en gris clair UTT)
-    {-2ex \@plus -0.4ex \@minus -.2ex}%
-    {1.3ex \@plus .2ex}%
-    {\normalfont\large\bfseries\color{bleuRoiUTT}}%
-  }
-
-  \renewcommand\subparagraph{\@startsection {subparagraph}{5}{4em}% Redéfinition de la commande subparagraph (en gris clair UTT)
-    {-1.5ex \@plus -0.2ex \@minus -.2ex}%
-    {.8ex \@plus .2ex}%
-    {\normalfont\bfseries\color{bleuRoiUTT}}%
-  }
-
-  \makeatother
-\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %En-tête et pied de page
