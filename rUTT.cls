@@ -373,7 +373,7 @@ explicit % Permet de choisir on l'on place l'argument
 {0.5em} % Spacing between label and title
 {#1} % before code
 
-\titlespacing{\paragraph} % Set the spacing around the title
+\titlespacing{\subparagraph} % Set the spacing around the title
 {0pt}                  % Left
 {18pt}                  % Above
 {6pt}                  % Below
