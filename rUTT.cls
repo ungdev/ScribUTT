@@ -403,9 +403,9 @@ explicit % Permet de choisir on l'on place l'argument
 
 
 % On paramètre ce qui se passe après
-\renewcommand{\cftaftertoctitle}{\fancyhead[L]{TOC}}
-\renewcommand{\cftafterloftitle}{\fancyhead[L]{LOF}}
-\renewcommand{\cftafterlottitle}{\fancyhead[L]{LOT}}
+%\renewcommand{\cftaftertoctitle}{\markboth{TOC}{}}
+%\renewcommand{\cftafterloftitle}{\markboth{LOT}{}}
+%\renewcommand{\cftafterlottitle}{\markboth{LOF}{}}
 %%
 
 \usepackage{etoc} % Pour avoir des tables de matières personnalisées

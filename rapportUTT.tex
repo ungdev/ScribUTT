@@ -99,6 +99,7 @@
     %\tripleS
     \pagenumbering{Roman} % On numérote en romain pour les annexes
 
+    \fancyhead[L]{~}
     % Annexes !
     \import{src/parts/Annexes/}{Annexes.tex}
 
@@ -108,7 +109,7 @@
 
     {
     \phantomsection % hyperlinks will target the correct page
-    \fancyhead[L]{Bibliographie}
+    \markboth{Bibliographie}{}
     \raggedright % pour éviter certaines erreurs rares d'affichage
     \sloppy
     \nocite{*} % pour faire apparaître tout du fichier bib
@@ -120,7 +121,6 @@
     \listoftables
     \addcontentsline{toc}{section}{\listtablename}
     }
-
     \clearpage
     % Toujours avoir la table des matières en dernier !
     % Ici figure tout, même les annexes
