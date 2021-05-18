@@ -72,7 +72,8 @@
 \usepackage{amsmath}        % Environnement pour les maths, permet du mettre du texte dans les équations
 
 \usepackage{xcolor} % pour colorer
-\usepackage{ulem} % pour surligner
+\usepackage[normalem]{ulem} % pour surligner
+% On charge "normalem" pour éviter de changer l'emphasize des bibliographies par exemple !
 
 \usepackage{multicol}		% Pour les colonnes
 \usepackage{multirow}       % Pour des tableaux fun
@@ -142,7 +143,6 @@
 
 % Text pos to position texts in absolute coords for the first page.
 \usepackage[absolute,overlay]{textpos}
-\usepackage{ulem} % Pour souligner en couleur
 
 %%%%%%%%%%%%%
 % Si vous autorisez un étirement (ragged) arbitraire,
@@ -382,10 +382,11 @@ explicit % Permet de choisir on l'on place l'argument
 % Pour le titre de l'Abstract
 \newenvironment{myabstract}{%
   \begin{center}
-  {\normalfont\LARGE\bfseries
+  {\normalfont\Large\bfseries
   \color{bleuRoiUTT}Abstract}
-  \bigbreak
+  \\
   \normalfont \normalsize \justify
+  \bfseries
 }
 {
   \end{center}
