@@ -96,7 +96,7 @@
 
     \clearpage
 
-    \tripleS
+    %\tripleS
     \pagenumbering{Roman} % On numérote en romain pour les annexes
 
     % Annexes !
@@ -108,13 +108,13 @@
 
     {
     \phantomsection % hyperlinks will target the correct page
+    \fancyhead[L]{Bibliographie}
     \raggedright % pour éviter certaines erreurs rares d'affichage
     \sloppy
     \nocite{*} % pour faire apparaître tout du fichier bib
     \printbibliography[title={Bibliographie},heading=bibintoc]
 
     \clearpage
-
     \listoffigures
     \addcontentsline{toc}{section}{\listfigurename}
     \listoftables

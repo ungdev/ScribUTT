@@ -128,14 +128,6 @@
 
 \addbibresource{src/parts/bibliography.bib}
 
-\usepackage[page,header]{appendix}
-\usepackage{tocloft} % pour gérer l'espace entre les titres dans la toc
-\usepackage{etoc} % Pour avoir des tables de matières personnalisées
-\usepackage{shorttoc} % pour faire des sommaires
-
-\setlength\cftsecnumwidth{2em} % Espace entre numéro de section et titre dans la toc
-
-
 %\usepackage[nottoc,numbib]{tocbibind} % pour inclure la biblio directement dans le sommaire
 
 \usepackage{tikz}			%Pour les figures et graphes
@@ -309,6 +301,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Gestion des titres
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Pour changer les titres en I/ et en A/
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+
 \usepackage[
 sf, % Serif text
 sl, % Slanted text
@@ -378,7 +375,6 @@ explicit % Permet de choisir on l'on place l'argument
 {18pt}                  % Above
 {6pt}                  % Below
 
-
 % Pour le titre de l'Abstract
 \newenvironment{myabstract}{%
   \begin{center}
@@ -392,10 +388,31 @@ explicit % Permet de choisir on l'on place l'argument
   \end{center}
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Gestion des TOC / LOF / LOT (Table Of Contents, List Of Figures, List Of Tables )
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[page,header]{appendix}
 
-% Pour changer les titres en I/ et en A/
-\renewcommand{\thesection}{\Roman{section}}
-\renewcommand{\thesubsection}{\Alph{subsection}}
+%%
+\usepackage{tocloft}
+
+% On définit le style des titres pour les Z
+\renewcommand{\cfttoctitlefont}{\color{bleuRoiUTT}\Large\bfseries}
+\renewcommand{\cftloftitlefont}{\color{bleuRoiUTT}\Large\bfseries}
+\renewcommand{\cftlottitlefont}{\color{bleuRoiUTT}\Large\bfseries}
+
+
+% On paramètre ce qui se passe après
+\renewcommand{\cftaftertoctitle}{\fancyhead[L]{TOC}}
+\renewcommand{\cftafterloftitle}{\fancyhead[L]{LOF}}
+\renewcommand{\cftafterlottitle}{\fancyhead[L]{LOT}}
+%%
+
+\usepackage{etoc} % Pour avoir des tables de matières personnalisées
+\usepackage{shorttoc} % pour faire des sommaires
+
+\setlength\cftsecnumwidth{2em} % Espace entre numéro de section et titre dans la toc
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %En-tête et pied de page
