@@ -75,6 +75,34 @@
 \usepackage[normalem]{ulem} % pour surligner
 % On charge "normalem" pour éviter de changer l'emphasize des bibliographies par exemple !
 
+%%%%%% On définit des modes pour surligner
+\definecolor{bluelight}{cmyk}{0.15,0.01,0.01,0.0}
+\definecolor{pinklight}{cmyk}{0.12,0.15,0.0,0.0}
+\definecolor{greenlight}{cmyk}{0.10,0.01,0.29,0.0}
+\definecolor{darkGrey}{cmyk}{8,3,0,75}
+
+\newcommand*\highlightdp{-.8ex}
+\newcommand*\highlightwd{0.1ex} % Largeur surlignage
+\newcommand*\highlightht{2.8ex} % Hauteur du surlignage
+
+\newcommand\highlightcommon[1]{\bgroup\markoverwith{\textcolor{#1}{\smash{\rule[\highlightdp]{\highlightwd}{\highlightht}}}}\ULon}
+
+
+\def\bluehl{\highlightcommon{bluelight}}
+\def\greenhl{\highlightcommon{greenlight}}
+\def\pinkhl{\highlightcommon{pinklight}}
+\def\darkGreyhl{\highlightcommon{darkGrey}}
+\def\yellowhl{\highlightcommon{yellow}}
+
+
+% pour faire insérer du code en rouge sur fond gris sombre
+\definecolor{moderateRed}{RGB}{200,81,82}
+
+\newcommand{\incode}[1]{{\textcolor{moderateRed}{\darkGreyhl{#1}}}}
+
+%%%
+
+
 \usepackage{multicol}		% Pour les colonnes
 \usepackage{multirow}       % Pour des tableaux fun
 \usepackage{longtable} % pour les longs tableaux
@@ -130,6 +158,7 @@
 
 %\usepackage[nottoc,numbib]{tocbibind} % pour inclure la biblio directement dans le sommaire
 
+\usepackage{rotating} % pour tourner les figures
 \usepackage{tikz}			%Pour les figures et graphes
 \usetikzlibrary{calc}		%Pour les figures et graphes
 
@@ -157,16 +186,10 @@
 \newcommand{\ideaEnd}{\[ \star \]}
 \newcommand{\tripleS}{\[ \star \quad \star \quad \star \]}
 
-% pour faire insérer du code en rouge sur fond gris sombre
-\definecolor{darkGray}{RGB}{60,63,65}
-\definecolor{moderateRed}{RGB}{200,81,82}
-\sethlcolor{darkGray}
-\newcommand{\incode}[1]{{\color{moderateRed}\hl{\texttt{#1}}}}
-
 % pour le code
 \usepackage[cache=false]{minted}        % Utilisé pour les scripts
 \usemintedstyle{vs}
-\usepackage{tcolorbox}
+\usepackage[skins,minted,breakable]{tcolorbox}
 \tcbuselibrary{minted,skins}
 
 
@@ -177,6 +200,7 @@
   bgcolor=doreeFondationUTT-clair,
   fontsize=\scriptsize,
   fontfamily=jkptt,
+  baselinestretch=1.0,
   frame=lines,
   breaklines, % Pour empêcher les lignes de dépasser
   breakautoindent,
