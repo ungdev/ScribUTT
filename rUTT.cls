@@ -79,7 +79,6 @@
 \definecolor{bluelight}{cmyk}{0.15,0.01,0.01,0.0}
 \definecolor{pinklight}{cmyk}{0.12,0.15,0.0,0.0}
 \definecolor{greenlight}{cmyk}{0.10,0.01,0.29,0.0}
-\definecolor{darkGrey}{cmyk}{8,3,0,75}
 
 \newcommand*\highlightdp{-.8ex}
 \newcommand*\highlightwd{0.1ex} % Largeur surlignage
@@ -91,14 +90,11 @@
 \def\bluehl{\highlightcommon{bluelight}}
 \def\greenhl{\highlightcommon{greenlight}}
 \def\pinkhl{\highlightcommon{pinklight}}
-\def\darkGreyhl{\highlightcommon{darkGrey}}
+\def\greyhl{\highlightcommon{lightgray}}
 \def\yellowhl{\highlightcommon{yellow}}
 
 
-% pour faire insérer du code en rouge sur fond gris sombre
-\definecolor{moderateRed}{RGB}{200,81,82}
-
-\newcommand{\incode}[1]{{\textcolor{moderateRed}{\darkGreyhl{#1}}}}
+\newcommand{\incode}[1]{{\textcolor{red}{\greyhl{#1}}}}
 
 %%%
 
@@ -118,7 +114,6 @@
 
 %%%% For custom itemize
 \usepackage{enumitem}
-
 
 \setlist{
   noitemsep,
@@ -163,7 +158,6 @@
 \usetikzlibrary{calc}		%Pour les figures et graphes
 \usepackage{subcaption} % pour les sous figures
 
-
 % Text pos to position texts in absolute coords for the first page.
 \usepackage[absolute,overlay]{textpos}
 
@@ -190,7 +184,6 @@
 
 % pour le code
 \usepackage[cache=false]{minted}        % Utilisé pour les scripts
-\usemintedstyle{vs}
 \usepackage[skins,minted,breakable]{tcolorbox}
 \tcbuselibrary{minted,skins}
 
@@ -203,6 +196,7 @@
   fontsize=\scriptsize,
   fontfamily=jkptt,
   baselinestretch=1.0,
+  style=vs,
   frame=lines,
   breaklines, % Pour empêcher les lignes de dépasser
   breakautoindent,
