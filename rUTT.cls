@@ -452,6 +452,7 @@ footskip=1cm
 
 \usepackage{fancyhdr}		% Pour l'entête et les pieds de page
 \pagestyle{fancy} % Pour que notre document utilise ce style
+\fancyhf{} % Clear header/footer
 
 \renewcommand{\headrulewidth}{0.5pt} %Épaisseur de la ligne d'en-tête
 \renewcommand{\footrulewidth}{1.5pt} %Épaisseur de la ligne de pied de page
@@ -494,6 +495,12 @@ footskip=1cm
 \fancyfoot[R]{
   \small
   \textcolor{bleuRoiUTT}{\theUE}
+}
+
+% New fancy page style
+\fancypagestyle{noTitledHeader}{
+  \pagestyle{fancy}% Duplicate fancy page style
+  \fancyhead[L]{ ~ }% Update components of fancy
 }
 
 %% redéfinition des styles de pages
