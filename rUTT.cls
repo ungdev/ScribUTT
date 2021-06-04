@@ -200,6 +200,7 @@
   style=vs,
   frame=lines,
   breaklines, % Pour empêcher les lignes de dépasser
+  breakanywhere, % Pour couper partout
   breakautoindent,
   framesep=2mm,
   curlyquotes=true,
