@@ -143,7 +143,7 @@
   dateera=secular, % pour avoir des Avant l'Ere Commune et plus av JC
   dateeraauto=100, % Si on le passe à 1000, 1969 deviendra 1970 EC
   maxnames=99,
-  style=alphabetic,
+  style=numeric,
   citestyle=verbose,
   sortlocale=auto,
   seconds=true,
