@@ -7,6 +7,11 @@
 %   Décommenter la ligne dessous
 % \documentclass[noUTTcolors]{rUTT}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Quelques trucs à savoir pour modifier en paix :
+% TOC = Table of Contents
+% LOF / LOT = List Of Figures / List Of Tables
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Si on est on mode rapport de stage :
 \RPeda{{\sc VIGIER} Thibault} % Responsable pédagogique
@@ -31,7 +36,9 @@
 
 \title{La tyrannie sociale, souvent écrasante et funeste, ne présente pas ce caractère de violence impérative, de despotisme légalisé qui distingue l’autorité de l’État. Elle ne s’impose pas comme une loi à laquelle tout individu est forcé de se soumettre sous peine d’encourir un châtiment juridique. Son action est plus douce, plus insinuante, plus imperceptible, mais d’autant plus puissante que celle de l’autorité de l’État. Elle domine les hommes par les coutumes, par les mœurs, par la masse des sentiments, des préjugés et des habitudes tant de la vie matérielle que de l’esprit et du cœur et qui constituent ce que nous appelons l’opinion publique. Elle enveloppe l’homme dès sa naissance, le transperce, le pénètre, et forme la base même de sa propre existence individuelle ; de sorte que chacun en est en quelque sorte le complice contre lui-même, plus ou moins, et le plus souvent sans s’en douter lui-même. - Bakounine}
 
-\date{\today}
+%% En mode Année - Mois - Jour
+%\date{\today} % Pour la date de compilation
+\date{2038-01-19}
 
 \author{{\sc MARTIN} Azaël
 % \and
@@ -99,7 +106,6 @@
     %\tripleS
     \pagenumbering{Roman} % On numérote en romain pour les annexes
 
-    \fancyhead[L]{~}
     % Annexes !
     \import{src/parts/Annexes/}{Annexes.tex}
 

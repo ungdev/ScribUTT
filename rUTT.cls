@@ -114,6 +114,7 @@
 
 %%%% For custom itemize
 \usepackage{enumitem}
+\usepackage{pifont} % pour avoir d'autres caractères
 
 \setlist{
   noitemsep,
@@ -315,6 +316,8 @@
 \newcommand{\Lieu}[1]{\def\theLieu{#1}}
 \newcommand{\REntre}[1]{\def\theREntre{#1}} % responsable entreprise
 
+\newcommand{\DDate}[1]{\def\theDDate{#1}} % pour propager notre date dans tout le document
+
 % On créé une variable redirigeant sur openstreetmap
 \newcommand{\mapAddr}[1]{\href{https://www.openstreetmap.org/search?query=#1}{#1}}
 
@@ -478,7 +481,7 @@ footskip=1cm
 
 \fancyhead[R]{ %en-tête droite
   \small
-  \today
+  \thedate
 }
 
 %Contenu du pied de page :
