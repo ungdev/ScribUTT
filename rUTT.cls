@@ -181,8 +181,7 @@
 
 % pour séparer les idées
 \newcommand{\ideaEnd}{\[ \star \]}
-\newcommand{\tripleS}{\[ \star \quad \star \quad \star \]}
-
+\newcommand{\tripleS}{\[ \star \quad \star \quad \star \] \\}
 % pour le code
 \usepackage[cache=false]{minted}        % Utilisé pour les scripts
 \usepackage[skins,minted,breakable]{tcolorbox}
