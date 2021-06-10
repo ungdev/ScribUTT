@@ -290,8 +290,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{src/packages/commands}
 
-\newcommand{\frontpagereports}{\include{src/packages/frontpage_reports.tex}}
-\newcommand{\frontpageST}{\include{src/packages/frontpage_ST.tex}}
+\newcommand{\frontpagereports}{\import{src/packages/}{frontpage_reports.tex}}
+\newcommand{\frontpageST}{\import{src/packages/}{frontpage_ST.tex}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\if@noUTTcolors\@noUTTcolorsfalse
