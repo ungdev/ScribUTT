@@ -40,6 +40,7 @@ cleanall:
 	@echo "Cleaning ALL ..."
 	latexmk -C -bibtex
 	rm -rf build deploy *.zip *.run.xml
+	rm -rf __latexindent_temp.*
 	@echo "Cleaned."
 
 clean:

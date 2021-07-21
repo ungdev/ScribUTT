@@ -1,0 +1,33 @@
+\begin{tikzpicture}[remember picture,overlay]
+
+    % Fond UTT
+    \coordinate [right=10mm, below=2mm] (uttbackground_anchor) at (current page.north);
+    \node [name=uttsquare,
+    anchor=north
+    ] at (uttbackground_anchor){
+    \includegraphics[width=20cm,keepaspectratio]{Ressources-graphiques/Pdg_corner.png}};
+
+    % Logo UTT
+    \coordinate (uttlogo_anchor) at ($(current page.south west)+(6mm,2cm)$);
+    \node [
+        name=uttlogo,
+        anchor=south west,
+        inner sep=0pt, %pas de marge
+        outer sep=0pt, %pas de marge
+    ] at (uttlogo_anchor){
+        \includegraphics[width=6cm]{Ressources-graphiques/logos/UTT.eps}
+    };
+
+    % Logo company
+    \coordinate (companylogo_anchor) at ($(current page.south east)+(-6mm,2cm)$);
+    \node [name=companylogo,
+    anchor=south east,
+    inner sep=0pt, %pas de marge
+    outer sep=0pt, %pas de marge
+    ] at (companylogo_anchor){
+    \includegraphics[width=6cm]{Ressources-graphiques/logos/entreprise.png}};
+
+    % square         (depuis bord gauche, depuis en haut)           (depuis bord droit, depuis en bas)
+    \draw ($(current page.north west)+(5.5cm,-20.1cm)$) rectangle  ($(current page.south east)+(-5.5cm,6.15cm)$) ;
+
+\end{tikzpicture}

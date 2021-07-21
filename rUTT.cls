@@ -291,7 +291,8 @@
 \usepackage{src/packages/commands}
 
 \newcommand{\frontpagereports}{\import{src/packages/}{frontpage_reports.tex}}
-\newcommand{\frontpageST}{\import{src/packages/}{frontpage_ST.tex}}
+\newcommand{\frontpageSTB}{\import{src/packages/}{frontpage_STB.tex}}
+\newcommand{\frontpageSTC}{\import{src/packages/}{frontpage_STC.tex}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\if@noUTTcolors\@noUTTcolorsfalse
