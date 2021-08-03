@@ -71,6 +71,8 @@
     % Ici on organise nos parties
     \justify % on justifie notre texte via ragged2e
 
+
+    \pagenumbering{gobble} % on n'affiche pas les numéros de page
     \import{src/parts/}{Remerciements.tex} % Toujours avant le sommaire !
 
     \clearpage
@@ -113,7 +115,7 @@
     % Bibliographie !
 
     {
-    \pagenumbering{gobble}
+    \pagenumbering{gobble} % On n'affiche pas les numéros de page
     \phantomsection % hyperlinks will target the correct page
     \markboth{Bibliographie}{}
     \raggedright % pour éviter certaines erreurs rares d'affichage
