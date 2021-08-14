@@ -12,19 +12,7 @@
 % car un "line skip" a un facteur de 1.2 donc 1.2*1.25=1.5
 %\linespread{1.25}
 
-%%%%%%%% Les méta-données
-% Auteur : pdfauthor = {{Prénom Nom}}
-% Titre : pdftitle = {{Titre du document}}
-% Sujet : pdfsubject = {{Sujet du document}}
-% Mots-clés (Thésaurus ?) : pdfkeywords = {{mots-clés}}
-% Créateur/Outil pour créer le pdf : pdfcreator = {{Scrib'UTT}}
-\usepackage[pdfauthor = {{MARTIN Azael}}, pdftitle = {{Rapport de stage STXX}}, pdfcreator = {{Scrib'UTT}}]{hyperref}
-% Pour plus de méta-données différentes, allez voir la documentation de hyperref : https://ctan.gutenberg.eu.org/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf#subsection.3.7
-
-%%%%%%%%
-
 \usepackage{src/packages/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
-
 \usepackage[T1]{fontenc}    % Package pour les accentuations
 \usepackage[utf8]{inputenc}
 
@@ -33,6 +21,33 @@
 \usepackage[main=french,english]{babel}
 
 \usepackage{datetime2} % datetime2 replaces the datetime package
+
+
+%%%%%%%% Les méta-données
+\usepackage{hyperxmp} % hyperxmp charge les métadonées de base via \author etc.
+\usepackage{bookmark} % charge hyperref
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=bleuRoiUTT,
+    filecolor=magenta,
+    urlcolor=bleuCielUTT,
+    pdfcenterwindow=true, % position the document window in the center of the screen
+    pdfdisplaydoctitle=true, % display the document title in the pdf file
+    pdfpagetransition=Dissolve, % use a "dissolve" transition for page transitions
+    unicode=true, % pour les caractères accentués,
+    naturalnames=true, % use LATEX-computed names for links
+    pdfcreator={ScribUTT}, % creator of the pdf file
+}
+
+% Auteur : pdfauthor = {{Prénom Nom}}
+% Titre : pdftitle = {{Titre du document}}
+% Sujet : pdfsubject = {{Sujet du document}}
+% Mots-clés (Thésaurus ?) : pdfkeywords = {{mots-clés}}
+% Créateur/Outil pour créer le pdf : pdfcreator = {{Scrib'UTT}}
+% Pour plus de méta-données différentes, allez voir la documentation de hyperref : https://ctan.gutenberg.eu.org/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf#subsection.3.7
+
+%%%%%%%%
 
 
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
@@ -45,14 +60,7 @@
 
 \usepackage{floatrow} % pour minted, entre autre
 \usepackage{url}
-\usepackage{bookmark} % charge hyperref
 
-\hypersetup{
-    colorlinks=true,
-    linkcolor=bleuRoiUTT,
-    filecolor=magenta,
-    urlcolor=bleuCielUTT,
-}
 
 \newcommand{\shortUrl}[1]{\href{#1}{(short.url)}}
 
