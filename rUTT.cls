@@ -35,7 +35,6 @@
     pdfcenterwindow=true, % position the document window in the center of the screen
     pdfdisplaydoctitle=true, % display the document title in the pdf file
     pdfpagetransition=Dissolve, % use a "dissolve" transition for page transitions
-    unicode=true, % pour les caractères accentués,
     naturalnames=true, % use LATEX-computed names for links
     pdfcreator={Scrib'UTT}, % creator of the pdf file
 }
