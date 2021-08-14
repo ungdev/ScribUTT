@@ -37,15 +37,8 @@
     pdfpagetransition=Dissolve, % use a "dissolve" transition for page transitions
     unicode=true, % pour les caractères accentués,
     naturalnames=true, % use LATEX-computed names for links
-    pdfcreator={ScribUTT}, % creator of the pdf file
+    pdfcreator={Scrib'UTT}, % creator of the pdf file
 }
-
-% Auteur : pdfauthor = {{Prénom Nom}}
-% Titre : pdftitle = {{Titre du document}}
-% Sujet : pdfsubject = {{Sujet du document}}
-% Mots-clés (Thésaurus ?) : pdfkeywords = {{mots-clés}}
-% Créateur/Outil pour créer le pdf : pdfcreator = {{Scrib'UTT}}
-% Pour plus de méta-données différentes, allez voir la documentation de hyperref : https://ctan.gutenberg.eu.org/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf#subsection.3.7
 
 %%%%%%%%
 
