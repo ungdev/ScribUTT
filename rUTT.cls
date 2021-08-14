@@ -24,7 +24,7 @@
 
 
 %%%%%%%% Les méta-données
-\usepackage{hyperxmp} % hyperxmp charge les métadonées de base via \author etc.
+% \usepackage{hyperxmp} % hyperxmp charge les métadonées de base via \author etc.
 \usepackage{bookmark} % charge hyperref
 
 \hypersetup{
