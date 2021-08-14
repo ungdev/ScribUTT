@@ -19,6 +19,7 @@
 % Mots-clés (Thésaurus ?) : pdfkeywords = {{mots-clés}}
 % Créateur/Outil pour créer le pdf : pdfcreator = {{Scrib'UTT}}
 \usepackage[pdfauthor = {{MARTIN Azael}}, pdftitle = {{Rapport de stage STXX}}, pdfcreator = {{Scrib'UTT}}]{hyperref}
+% Pour plus de méta-données différentes, allez voir la documentation de hyperref : https://ctan.gutenberg.eu.org/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf#subsection.3.7
 
 %%%%%%%%
 
