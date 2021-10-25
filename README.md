@@ -104,7 +104,7 @@ Ensuite, on part dans la branche [src](src) :
 Selon les règles d'organisation d'un document en français, un sommaire et une table des matières sont **deux choses bien différentes**.
 * La Table des matières donne **le détail de tous les chapitres, sections, sous-sections, etc.** Elle se place **en toute fin de document (après la bibliographie)** pour être facilement accessible. C'est elle qui **porte les numéros de pages et mentionne ce qu'on appelle l'appareil de référence (annexes, tables, index, bibliographie, etc.)**
 
-* Le Sommaire quant à lui se place juste avant le début du texte principal et ne que **donne** que **des informations sommaires, à savoir les parties, chapitres et grandes subdivisions du mémoire ou rapport (de stage)**. Le sommaire doit apparaître après votre résumé ou vos remerciements, mais avant vos listes des illustrations/abréviations et le glossaire, ou juste avant l'introduction
+* Le Sommaire quant à lui se place juste avant le début du texte principal et ne **donne** que **des informations sommaires, à savoir les parties, chapitres et grandes subdivisions du mémoire ou rapport (de stage)**. Le sommaire doit apparaître après votre résumé ou vos remerciements, mais avant vos listes des illustrations/abréviations et le glossaire, ou juste avant l'introduction
 ## Commandes en plus
 * J'ai ajouté une commande permettant d'afficher une adresse en hyperlink, permettant de cliquer directement dessus pour afficher sur une carte openstreetmap.
 ```
@@ -208,7 +208,7 @@ Si vous souhaitez vous plonger là-dedans, il y a un très bon pdf téléchargea
 > Veillez à avoir le package `algorithm2e.sty` provenant de `texlive-science`. <br/>
 
 * "Et pour ```! Package minted Error: You must have `pygmentize' installed to use this package.``` ?"
-> On ouvre une invite de commande et on lance: `pip install Pygments`
+> On ouvre une invite de commande et on lance: `pip3 install Pygments`
 
 # Licence
 Ce contenu est distribué sous licence BSD-3. **Attention l'archive dont nous parlons au-dessus contient des éléments graphiques dont certains sont de la propriété de l'[Université de Technologie de Troyes](https://www.utt.fr/).**
