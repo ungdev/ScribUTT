@@ -210,6 +210,8 @@ Si vous souhaitez vous plonger là-dedans, il y a un très bon pdf téléchargea
 * "Et pour ```! Package minted Error: You must have `pygmentize' installed to use this package.``` ?"
 > On ouvre une invite de commande et on lance: `pip3 install Pygments`
 
+* L'erreur `minted Error: You must invoke LaTeX with the `-shell-escape` flag`
+> Ce souci est présent sur TeXStudio et est résolvable en faisant les changements indiqués [ici](https://tex.stackexchange.com/questions/99475/how-to-invoke-latex-with-the-shell-escape-flag-in-texstudio-former-texmakerx), où pour les plus pressés, rendez-vous dans `Options > Configure TeXStudio > Build` et dans la boite de dialogue **User Commands** cliquez sur `+Add` et nommé votre commande puis mettez respectivement `user:graphviz-pdflatex` et `txs:///pdflatex/[--shell-escape]`.
 # Licence
 Ce contenu est distribué sous licence BSD-3. **Attention l'archive dont nous parlons au-dessus contient des éléments graphiques dont certains sont de la propriété de l'[Université de Technologie de Troyes](https://www.utt.fr/).**
 
