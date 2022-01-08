@@ -46,20 +46,9 @@ Téléchargez l'archive prête à être utilisée : [ici](deploy/latex-rapport-U
 * Ce projet vous permet de rédiger **tous** vos rapports UTT !
 En ouvrant le [rapportUTT.tex](rapportUTT.tex), vous verrez que j'ai tout commenté pour que vous sachiez quoi remplir en fonction. J'ai aussi mis à disposition sur ce git le [Thésaurus de l'UTT](Ressources-graphiques/Thésaurus.pdf) de 2021 qui je pense, ne bougera que très peu dans le temps.
 
-Pour passer d'une page de garde à l'autre, veillez à bien commenter / dé-commenter le bon appel de la page de garde correspondante. Dans [rapportUTT.tex](rapportUTT.tex) à la ligne 55 :
-```
-\setlength {\marginparwidth }{2cm} % to loading the todonotes package
+Pour passer d'une page de garde à l'autre, veillez à bien commenter / dé-commenter le bon appel de la page de garde correspondante (dans [rapportUTT.tex](rapportUTT.tex)).
 
-\begin{document}
-    \selectlanguage{french}
 
-    %%%% - Choix de la page de garde
-    \frontpagereports % Pour le modèle rapports de TDs / TPs / Projets
-    %\frontpageST % Pour le modèle rapports de Stages
-
-    \pagenumbering{arabic}
-
-```
 
 * Si jamais vous souhaitez modifier la langue du rapport de stage, pour éviter de créer deux fichiers .tex, je vous conseille juste de vous rendre dans [frontpage_ST.tex](src/packages/frontpage_ST.tex) et de remplacer quelques variables :
 ```
@@ -81,11 +70,10 @@ En
         \end{center}
     \end{textblock*}
 ```
-
 ## Utilisation du make
 Sous un environnement Unix, vous pouvez utiliser le `MAKEFILE` pour :
 
-* Construire le pdf de votre projet avec `make` 
+* Construire le pdf de votre projet avec `make`
 * Déployer votre rapport sous une forme dite "propre" (i.e. le pdf et un zip propre de vos ressources) avec `make deploy`. Notez qu'il invoque par lui même la construction du pdf.
 * Nettoyer votre espace de projet avec `make clean` et/ou `make clean all`.
 
@@ -94,7 +82,7 @@ Sous un environnement Unix, vous pouvez utiliser le `MAKEFILE` pour :
 
 * Le fichier [rapportUTT.tex](rapportUTT.tex) est la racine de votre projet, c'est ici que vous allez renseigner le titre, votre UE, les auteurs etc. **Le corps de ce document a été conçu pour aller au plus simple**, vous n'avez qu'à changer l'ordre d'import de vos parties, sauter des pages (ou non) entre chacune d'elle etc.
 
-Ensuite, on part dans la branche [src](src) : 
+Ensuite, on part dans la branche [src](src) :
 
 * On placera dans le dossier [contents](src/contents) toutes les images que l'on souhaite incorporer à notre document.
 * Le dossier [packages](src/packages) contient les ajouts de commandes les plus usées ["commands.sty"](src/packages/commands.sty), les couleurs de l'UTT [ici](src/packages/couleurs_UTT.sty) mais aussi et surtout la conception de la page de garde avec l'*overlay* et [la disposition des éléments](src/packages/frontpage.tex). **C'est ici qu'il faut ajouter vos modules perso**. N'hésitez pas à proposer un module que vous jugez essentiel !
@@ -104,7 +92,8 @@ Ensuite, on part dans la branche [src](src) :
 Selon les règles d'organisation d'un document en français, un sommaire et une table des matières sont **deux choses bien différentes**.
 * La Table des matières donne **le détail de tous les chapitres, sections, sous-sections, etc.** Elle se place **en toute fin de document (après la bibliographie)** pour être facilement accessible. C'est elle qui **porte les numéros de pages et mentionne ce qu'on appelle l'appareil de référence (annexes, tables, index, bibliographie, etc.)**
 
-* Le Sommaire quant à lui se place juste avant le début du texte principal et ne **donne** que **des informations sommaires, à savoir les parties, chapitres et grandes subdivisions du mémoire ou rapport (de stage)**. Le sommaire doit apparaître après votre résumé ou vos remerciements, mais avant vos listes des illustrations/abréviations et le glossaire, ou juste avant l'introduction
+* Le Sommaire quant à lui se place juste avant le début du texte principal et ne **donne** que **des informations sommaires, à savoir les parties, chapitres et grandes subdivisions du mémoire ou rapport (de stage)**. Le sommaire doit apparaître après votre résumé ou vos remerciements, mais avant vos listes des illustrations/abréviations et le glossaire, ou juste avant l'introduction.
+
 ## Commandes en plus
 * J'ai ajouté une commande permettant d'afficher une adresse en hyperlink, permettant de cliquer directement dessus pour afficher sur une carte openstreetmap.
 ```
@@ -122,25 +111,15 @@ Celle pour les rapports de stage :
 <p align="center">
   <img src="examplesPNG/pdgST_FR.png"/>
 </p>
-La numérotation de page diffère en fonction des annexes et du contenu propre du document :
-<p align="center">
-  <img src="examplesPNG/sommaire.png"/>
-</p>
+
 Voici un exemple d'une mise en page contenant un énoncé de théorème :
 <p align="center">
   <img src="examplesPNG/page.png"/>
 </p>
-Un exemple d'insertion de code :
+
+Et un exemple d'une page comportant une censure (avec le texte réellement caché, ce n'est pas qu'un carré noir) pour les rapports confidentiels :
 <p align="center">
-  <img src="examplesPNG/forbombcode.png"/>
-</p>
-Un exemple d'insertion d'un long tableau:
-<p align="center">
-  <img src="examplesPNG/longtab.png"/>
-</p>
-Et voici à quoi ressemble la bibliographie :
-<p align="center">
-  <img src="examplesPNG/bibliographie.png"/>
+  <img src="examplesPNG/censure.png"/>
 </p>
 
 Je vous laisse découvrir le reste dans le [pdf de présentation](rapportUTT.pdf).
@@ -158,7 +137,7 @@ C'est très utile lorsqu'on a un gros projet sur un ordinateur lent - **changer 
 
 ---
 
-Concernant quand les utiliser, `\include` est généralement utilisé pour placer chaque chapitre d'un livre / d'une thèse / d'un devoir dans son propre fichier ! 
+Concernant quand les utiliser, `\include` est généralement utilisé pour placer chaque chapitre d'un livre / d'une thèse / d'un devoir dans son propre fichier !
 
 On ne peut pas "précompiler" des parties. Néanmoins, on peut utiliser `\includeonly` pour s'assurer que nos références croisées et nos numéros de pages restent corrects tout en choisissant de n'inclure que certaines parties de nos sources.
 
@@ -203,6 +182,25 @@ Si vous souhaitez vous plonger là-dedans, il y a un très bon pdf téléchargea
 * Pour transposer vos tableaux Excel (et autres) en format LaTeX : [ici](https://www.tablesgenerator.com/latex_tables)
 * Pour bien intégrer des liens aussi bien vers vos fichiers que vers des URLs : [ici](https://en.wikibooks.org/wiki/LaTeX/Hyperlinks)
 * Si vous préférez coller votre code sous forme d'image, il y a ce cite qui est excellent: https://carbon.now.sh/
+
+# Installation
+On essaie de regrouper ici toutes les installations au propre pour chaque cas.
+Merci de faire parvenir via une pull-request ou en envoyant un message privé les erreurs ou ajouts.
+
+* Pour Debian et OpenSUSE
+```
+# openSUSE
+
+## zypper option : `--no-recommends` (for minimum dependencies installed)
+## `sudo ln -sf /usr/bin/python3.8 /usr/bin/python` (was required for me with Pygments)
+## `texlive-texcount` for a function of VimTex vim latex plugin
+## `texlive-chktex` for diagnostics of latex file with neovim and null-ls plugin
+
+`texlive-latexmk` (which brings the texlive-latex metapackage)
+
+`texlive-emptypage texlive-setspace texlive-soul texlive-datetime2 texlive-bookmark texlive-microtype texlive-floatrow texlive-titling texlive-blindtext texlive-adjustbox texlive-subfiles texlive-animate texlive-ulem texlive-multirow texlive-mathtools texlive-todonotes texlive-enumitem texlive-psnfss texlive-textpos texlive-frankenstein texlive-quoting texlive-epigraph texlive-minted texlive-tcolorbox texlive-csquotes texlive-mdframed texlive-braket texlive-titlesec texlive-appendix texlive-tocloft texlive-etoc texlive-shorttoc texlive-fancyhdr texlive-bigfoot texlive-biber-bin texlive-babel-french texlive-babel-english`
+```
+
 # Petits soucis
 * "J'ai un problème, mon compilateur me dit : ```! LaTeX Error: File `algorithm2e.sty' not found.``` !"
 > Veillez à avoir le package `algorithm2e.sty` provenant de `texlive-science`. <br/>
