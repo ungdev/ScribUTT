@@ -2,7 +2,7 @@
   <img src="Logo.png"/>
 </p>
 
-`ScribUTT`: Template LaTeX **perfectionniste** au format [UTT](https://www.utt.fr/) pour la rédaction de vos rapports de TPs / TDs / Projets mais aussi pour les stages (ST05,ST09,ST10,ST30).
+`ScribUTT`: Template LaTeX **perfectionniste** au format [UTT](https://www.utt.fr/) pour la rédaction de vos rapports de TPs / TDs / Projets mais aussi pour les stages (ST05,ST09,ST10,ST30). Parce qu'un ingénieur ne devrait pas avoir à se soucier de la forme de son rapport :mage: !
 
 ---
 
@@ -11,29 +11,33 @@ Pour que les gens qui lisent vos rapports puissent réagir ainsi :
   <img src="languageOfGods.jpg"/>
 </p>
 
+Laissez une étoile sur ce projet s'il vous a servi :star: ![GitHub stars](https://img.shields.io/github/stars/n3rada/ScribUTT) :star:
+
 ---
 
 Le pdf d'exemple généré est disponible [ici](rapportUTT.pdf).
 
-![GitHub forks](https://img.shields.io/github/forks/n3rada/ScribUTT)
-![GitHub stars](https://img.shields.io/github/stars/n3rada/ScribUTT)
-![GitHub issues](https://img.shields.io/github/issues/n3rada/ScribUTT)
+![GitHub forks](https://img.shields.io/github/forks/n3rada/ScribUTT) ![GitHub issues](https://img.shields.io/github/issues/n3rada/ScribUTT)
 
 
 # Table des matières
-- [`ScribUTT`: rapport au format UTT.](#scributt-rapport-au-format-utt)
+
+Générée avec l'outil en ligne : https://ecotrust-canada.github.io/markdown-toc/
+
 - [Utilisation](#utilisation)
-  - [Bivalence](#bivalence)
-  - [Utilisation du make](#utilisation-du-make)
-  - [Architecture de votre projet](#architecture-de-votre-projet)
-    - [Sommaire et Table des matières](#sommaire-et-table-des-matières)
-  - [Commandes en plus](#commandes-en-plus)
-- [Prévisualisation](#prvisualisation)
+  * [Bivalence](#bivalence)
+  * [Utilisation du make](#utilisation-du-make)
+  * [Architecture de votre projet](#architecture-de-votre-projet)
+    + [Sommaire et Table des matières](#sommaire-et-table-des-mati-res)
+  * [Commandes en plus](#commandes-en-plus)
+- [Prévisualisation](#pr-visualisation)
 - [Comment gerer un gros projet en LaTeX](#comment-gerer-un-gros-projet-en-latex)
-  - [Comment incorpore-t-on d'autres fichiers ?](#comment-incorpore-t-on-dautres-fichiers-)
+  * [Comment incorpore-t-on d'autres fichiers ?](#comment-incorpore-t-on-d-autres-fichiers--)
+    + [Le package `import`](#le-package--import-)
 - [Bibliographie](#bibliographie)
-  - [Biber et BibTex](#biber-et-bibtex)
+  * [Biber et BibTex](#biber-et-bibtex)
 - [Des liens utiles](#des-liens-utiles)
+- [Installation](#installation)
 - [Petits soucis](#petits-soucis)
 - [Licence](#licence)
 - [Contribution](#contribution)
