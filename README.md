@@ -2,7 +2,7 @@
   <img src="Logo.png"/>
 </p>
 
-`ScribUTT`: Template LaTeX **perfectionniste** au format [UTT](https://www.utt.fr/) pour la rédaction de vos rapports de TPs / TDs / Projets mais aussi pour les stages (ST05,ST09,ST10,ST30). Parce qu'un ingénieur ne devrait pas avoir à se soucier de la forme de son rapport :mage: !
+`ScribUTT`: Template LaTeX **perfectionniste** au format [UTT](https://www.utt.fr/) pour la rédaction de vos rapports de TPs / TDs / Projets mais aussi pour les stages (ST05,ST09,ST10,ST30). Parce qu'un ingénieur ne devrait pas avoir à se soucier de la forme de son rapport :bangbang:
 
 ---
 
@@ -11,7 +11,7 @@ Pour que les gens qui lisent vos rapports puissent réagir ainsi :
   <img src="languageOfGods.jpg"/>
 </p>
 
-Laissez une étoile sur ce projet s'il vous a servi :star: ![GitHub stars](https://img.shields.io/github/stars/n3rada/ScribUTT) :star:
+:star: Laissez une étoile sur ce projet s'il vous a servi ! :arrow_right: ![GitHub stars](https://img.shields.io/github/stars/n3rada/ScribUTT) :arrow_left:
 
 ---
 
@@ -44,7 +44,7 @@ Générée avec l'outil en ligne : https://ecotrust-canada.github.io/markdown-to
 
 # Utilisation
 **Pour une utilisation simple, ne téléchargez pas directement tout le repository !**
-Téléchargez l'archive prête à être utilisée : [ici](deploy/latex-rapport-UTT.zip) !
+Téléchargez l'archive prête à être utilisée : [ici](deploy/latex-rapport-UTT.zip) :red_circle:
 
 ## Bivalence
 * Ce projet vous permet de rédiger **tous** vos rapports UTT !
