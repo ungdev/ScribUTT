@@ -71,11 +71,8 @@
 }
 
 %%%%%%%
-
 % n'oubliez pas de changer le language principal dans rUTT.cls
 % en options du package babel !
-\selectlanguage{french}
-
 
 \begin{document}
     %%%% - Choix de la page de garde
@@ -83,8 +80,10 @@
     \frontpageSTB % Pour le modèle rapports de Stages
     %\frontpageSTC % Pour le modèle rapports de Stages des TC
 
-    \myemptypage % page blanche après page de garde pour impression recto verso
+    \myILB
+    % page blanche après page de garde pour impression recto verso
 
+    \pagestyle{UTT} % Pour que notre document utilise ce style
     % Ici on organise nos parties
     \justify % on justifie notre texte via ragged2e
 
