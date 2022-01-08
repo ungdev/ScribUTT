@@ -13,8 +13,9 @@
 %\linespread{1.25}
 
 \usepackage{src/packages/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
-\usepackage[T1]{fontenc}    % Package pour les accentuations
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{censor}
 
 % Package babel pour le français et l'anglais,
 % main = language pour tout ce qui est titre etc
@@ -42,7 +43,6 @@
 %%%%%%%%
 
 % Pour avoir plusieurs langues dans le document
-
 \newcommand{\declarelanguage}{\@dblarg\@declarelanguage}
 \def\@declarelanguage[#1]#2{%
   \long\@namedef{#2}{%

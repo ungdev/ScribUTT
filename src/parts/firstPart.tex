@@ -43,7 +43,29 @@ Une liste sur deux colonnes :
 
 
 \subsection{Une autre sous-section}
-Pour savoir comment faire de longs tableaux, vous pouvez vous référer à l'Annexe \ref{longtab}
+Si votre rapport est confidentiel, vous pouvez cachez les éléments importants comme ce qui va suivre.
+La recette du bonheur c'est \censor{un peu de sel}, de l'amour et un peu \censor{d'amitié}.
+
+Le missile \censor{Liberty}, avec un diamètre de charge (CD) de
+\censor{80}~mm, a révélé une capacité de pénétration dans le blindage
+en acier.
+\begin{table}[ht]
+    \begin{center}
+        \textbf{Table 1. \censor{Liberty} Missile Test Data}\\
+        \censorbox{%
+            \small\begin{tabular}{cc}
+                Standoff & Penetration \\
+                (CD) & (CD) \\
+                \hline
+                5.0 & 1.30 \\
+                6.0 & 1.19 \\
+                6.8 & 1.37\\
+            \end{tabular}%
+        }
+        \end{center}
+\end{table}
+
+
 \subsubsection{Une sous-sous-section}
 Un excellent professeur proclama un jour:
 \begin{center}
