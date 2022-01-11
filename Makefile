@@ -10,6 +10,7 @@
 default:
 	@echo "Building pdf file's !"
 	latexmk -pdf rapportUTT.tex -quiet
+	latexmk -c -pdf rapportUTT.tex -quiet
 
 # On prépare l'archive utilisable sur Overleaf (par exemple)
 archive:
@@ -40,6 +41,7 @@ cleanall:
 	@echo "Cleaning ALL ..."
 	latexmk -C -bibtex
 	rm -rf build deploy *.zip *.run.xml
+	rm -rf rapportUTT.{aux,bbl,blg,log,out,pdf,toc}
 	find . -name '__latexindent_temp.*' -delete
 	@echo "Cleaned."
 

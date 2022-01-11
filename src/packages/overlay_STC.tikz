@@ -8,7 +8,7 @@
     \includegraphics[width=20cm,keepaspectratio]{Ressources-graphiques/Pdg_corner.png}};
 
     % Logo UTT
-    \coordinate (uttlogo_anchor) at ($(current page.south west)+(6mm,2cm)$);
+    \coordinate (uttlogo_anchor) at ($(current page.south west)+(6mm,1.25cm)$);
     \node [
         name=uttlogo,
         anchor=south west,
@@ -19,7 +19,7 @@
     };
 
     % Logo company
-    \coordinate (companylogo_anchor) at ($(current page.south east)+(-6mm,2cm)$);
+    \coordinate (companylogo_anchor) at ($(current page.south east)+(-6mm,1.25cm)$);
     \node [name=companylogo,
     anchor=south east,
     inner sep=0pt, %pas de marge
@@ -28,6 +28,6 @@
     \includegraphics[width=6cm]{Ressources-graphiques/logos/entreprise.png}};
 
     % square         (depuis bord gauche, depuis en haut)           (depuis bord droit, depuis en bas)
-    \draw ($(current page.north west)+(5.5cm,-20.1cm)$) rectangle  ($(current page.south east)+(-5.5cm,6.15cm)$) ;
+    \draw ($(current page.north west)+(5.5cm,-21.75cm)$) rectangle  ($(current page.south east)+(-5.5cm,4.5cm)$) ;
 
 \end{tikzpicture}

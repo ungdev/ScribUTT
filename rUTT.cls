@@ -13,8 +13,9 @@
 %\linespread{1.25}
 
 \usepackage{src/packages/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
-\usepackage[T1]{fontenc}    % Package pour les accentuations
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{censor}
 
 % Package babel pour le français et l'anglais,
 % main = language pour tout ce qui est titre etc
@@ -41,6 +42,20 @@
 
 %%%%%%%%
 
+% Pour avoir plusieurs langues dans le document
+\newcommand{\declarelanguage}{\@dblarg\@declarelanguage}
+\def\@declarelanguage[#1]#2{%
+  \long\@namedef{#2}{%
+    \edef\@temp{\string#1}%
+    \ifx\@temp\languagename
+      \expandafter\@firstofone
+    \else
+      \expandafter\@gobble
+   \fi}%
+}
+\declarelanguage[english]{EN} % Utilisable avec \EN{English text}
+\declarelanguage[french]{FR} % Utilisable avec \FR{French text}
+
 
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
 
@@ -59,9 +74,16 @@
 \usepackage{titling} %thetitle thedate etc
 
 \usepackage{afterpage} % Pour ajouter une page blanche
+
 \newcommand\myemptypage{
     \null
     \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage
+}
+\newcommand\myILB{
+    \null
+    \thispagestyle{ILB}
     \addtocounter{page}{-1}
     \newpage
 }
@@ -463,56 +485,70 @@ footskip=1cm
 ]{geometry}   % Utilisé pour les marges
 
 \usepackage{fancyhdr}		% Pour l'entête et les pieds de page
-\pagestyle{fancy} % Pour que notre document utilise ce style
-\fancyhf{} % Clear header/footer
+\renewcommand{\headrulewidth}{0pt} % pas de tiret en haut de page
 
-\renewcommand{\headrulewidth}{0.5pt} %Épaisseur de la ligne d'en-tête
-\renewcommand{\footrulewidth}{1.5pt} %Épaisseur de la ligne de pied de page
+%%% Définition des entêtes et pieds de page
+\fancypagestyle{UTT}{
+  \renewcommand{\headrulewidth}{0.5pt} %Épaisseur de la ligne d'en-tête
+  \renewcommand{\footrulewidth}{1.5pt} %Épaisseur de la ligne de pied de page
 
-\renewcommand{\footrule}{%
-  {\color{bleuRoiUTT} \hrule width\headwidth height\footrulewidth \vskip+0.5mm}
-} %Changement de la couleur de la ligne de pied de page
+  \renewcommand{\footrule}{%
+    {\color{bleuRoiUTT} \hrule width\headwidth height\footrulewidth \vskip+0.5mm}
+  } %Changement de la couleur de la ligne de pied de page
 
-%Contenu de l'en-tête :
-\fancyhead[L]{
-  \textsc{
-    \minipage[b]{.8\linewidth}
-      \footnotesize
-      \leftmark % Contient le nom de la section
-    \endminipage
-    }
-} %Section actuelle à gauche de l'en-tête
+  \fancyhf{} % Clear header/footer
 
-\fancyhead[C]{
-  \includegraphics[width=4cm]{Ressources-graphiques/logos/UTT.eps}
-  \vspace{0.7cm}
-} %Sigle de l'UTT au centre de l'en-tête
+  %Contenu de l'en-tête :
+  \fancyhead[L]{
+    \textsc{
+      \minipage[b]{.8\linewidth}
+        \footnotesize
+        \leftmark % Contient le nom de la section
+      \endminipage
+      }
+  } %Section actuelle à gauche de l'en-tête
 
-\fancyhead[R]{ %en-tête droite
-  \small
-  \thedate
-}
+  \fancyhead[C]{
+    \includegraphics[width=5cm]{Ressources-graphiques/logos/UTT.eps}
+    \vspace{0.7cm}
+  } %Sigle de l'UTT au centre de l'en-tête
 
-%Contenu du pied de page :
-\fancyfoot[C]{
-  %\large
-  \textbf{\thepage}
-} %Numéro de page au centre
+  \fancyhead[R]{ %en-tête droite
+    \small
+    \thedate
+  }
 
-\fancyfoot[L]{
-  \small
-  \textbf{\textcolor{bleuRoiUTT}{\theauthor}}
-} %auteur(s) à gauche
+  %Contenu du pied de page :
+  \fancyfoot[C]{
+    %\large
+    \textbf{\thepage}
+  } %Numéro de page au centre
 
-\fancyfoot[R]{
-  \small
-  \textcolor{bleuRoiUTT}{\theUE}
+  \fancyfoot[L]{
+    \small
+    \textbf{\textcolor{bleuRoiUTT}{\theauthor}}
+  } %auteur(s) à gauche
+
+  \fancyfoot[R]{
+    \small
+    \textcolor{bleuRoiUTT}{\theUE}
+  }
 }
 
 % New fancy page style
 \fancypagestyle{noTitledHeader}{
-  \pagestyle{fancy}% Duplicate fancy page style
-  \fancyhead[L]{ ~ }% Update components of fancy
+  \pagestyle{UTT}% Duplicate plain page style
+  \fancyhead[L]{ ~ }
+}
+
+% New page style for ILB
+\fancypagestyle{ILB}{
+  \fancyhf{} % Clear header/footer
+  \fancyfoot[C]{
+    \bfseries
+    \FR{Page laissée intentionnellement vide}
+    \EN{Intentionnaly left blank}
+  }
 }
 
 %% redéfinition des styles de pages
