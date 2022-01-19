@@ -191,26 +191,25 @@ Si vous souhaitez vous plonger là-dedans, il y a un très bon pdf téléchargea
 On essaie de regrouper ici toutes les installations au propre pour chaque cas.
 Merci de faire parvenir via une pull-request ou en envoyant un message privé les erreurs ou ajouts.
 
-* Pour Debian et OpenSUSE
+## Dépendance Python
+* Pour éviter l'erreur : ```! Package minted Error: You must have `pygmentize' installed to use this package.```
+> On ouvre une invite de commande et on lance: `pip3 install Pygments`
+
+## openSUSE
+
+1. On utilise `zypper` avec l'option `--no-recommends` pour installer le moins de dépendances possible.
+2. On crée un lien symbolique pour `Pygments`: `sudo ln -sf /usr/bin/python3.8 /usr/bin/python`
+3. On procède à l'installation de LaTeX et ses dépendances (320~):
+```sh
+`sudo zypper in --no-recommends texlive-latexmk texlive-emptypage texlive-setspace texlive-soul texlive-datetime2 texlive-bookmark texlive-microtype texlive-floatrow texlive-titling texlive-blindtext texlive-adjustbox texlive-subfiles texlive-animate texlive-ulem texlive-multirow texlive-mathtools texlive-todonotes texlive-enumitem texlive-psnfss texlive-textpos texlive-frankenstein texlive-quoting texlive-epigraph texlive-minted texlive-tcolorbox texlive-csquotes texlive-mdframed texlive-braket texlive-titlesec texlive-appendix texlive-tocloft texlive-etoc texlive-shorttoc texlive-fancyhdr texlive-bigfoot texlive-biber-bin texlive-babel-french texlive-babel-english texlive-censor texlive-hyperxmp`
 ```
-# openSUSE
-
-## zypper option : `--no-recommends` (for minimum dependencies installed)
-## `sudo ln -sf /usr/bin/python3.8 /usr/bin/python` (was required for me with Pygments)
-## `texlive-texcount` for a function of VimTex vim latex plugin
-## `texlive-chktex` for diagnostics of latex file with neovim and null-ls plugin
-
-`texlive-latexmk` (which brings the texlive-latex metapackage)
-
-`texlive-emptypage texlive-setspace texlive-soul texlive-datetime2 texlive-bookmark texlive-microtype texlive-floatrow texlive-titling texlive-blindtext texlive-adjustbox texlive-subfiles texlive-animate texlive-ulem texlive-multirow texlive-mathtools texlive-todonotes texlive-enumitem texlive-psnfss texlive-textpos texlive-frankenstein texlive-quoting texlive-epigraph texlive-minted texlive-tcolorbox texlive-csquotes texlive-mdframed texlive-braket texlive-titlesec texlive-appendix texlive-tocloft texlive-etoc texlive-shorttoc texlive-fancyhdr texlive-bigfoot texlive-biber-bin texlive-babel-french texlive-babel-english`
-```
+4. Si vous utilisez `vim` ou `neovim` :
+  * On installe `texlive-texcount` pour compter le nombres de mots avec le plugin [VimTeX](https://github.com/lervag/vimtex)
+  * On peut aussi installer `texlive-chktex` pour des diagnostiques LSP en utilisant le plugin [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim) (`neovim` seulement)
 
 # Petits soucis
 * "J'ai un problème, mon compilateur me dit : ```! LaTeX Error: File `algorithm2e.sty' not found.``` !"
 > Veillez à avoir le package `algorithm2e.sty` provenant de `texlive-science`. <br/>
-
-* "Et pour ```! Package minted Error: You must have `pygmentize' installed to use this package.``` ?"
-> On ouvre une invite de commande et on lance: `pip3 install Pygments`
 
 * L'erreur `minted Error: You must invoke LaTeX with the `-shell-escape` flag`
 > Ce souci est présent sur TeXStudio et est résolvable en faisant les changements indiqués [ici](https://tex.stackexchange.com/questions/99475/how-to-invoke-latex-with-the-shell-escape-flag-in-texstudio-former-texmakerx), où pour les plus pressés, rendez-vous dans `Options > Configure TeXStudio > Build` et dans la boite de dialogue **User Commands** cliquez sur `+Add` et nommé votre commande puis mettez respectivement `user:graphviz-pdflatex` et `txs:///pdflatex/[--shell-escape]`.
