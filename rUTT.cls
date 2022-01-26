@@ -487,6 +487,7 @@ footskip=1cm
 \usepackage{fancyhdr}		% Pour l'entête et les pieds de page
 \renewcommand{\headrulewidth}{0pt} % pas de tiret en haut de page
 
+
 %%% Définition des entêtes et pieds de page
 \fancypagestyle{UTT}{
   \renewcommand{\headrulewidth}{0.5pt} %Épaisseur de la ligne d'en-tête
