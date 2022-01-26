@@ -54,26 +54,8 @@ Pour passer d'une page de garde à l'autre, veillez à bien commenter / dé-comm
 
 
 
-* Si jamais vous souhaitez modifier la langue du rapport de stage, pour éviter de créer deux fichiers .tex, je vous conseille juste de vous rendre dans [frontpage_ST.tex](src/packages/frontpage_ST.tex) et de remplacer quelques variables :
-```
-    % Mots clés (Thésaurus)
-    \begin{textblock*}{7.8cm}(12cm,20cm)
-        \normalsize
-        \begin{center}
-            \textbf{\textcolor{white}{Mots clés (cf Thésaurus) :}}
-        \end{center}
-    \end{textblock*}
-```
-En
-```
-    % Mots clés (Thésaurus)
-    \begin{textblock*}{7.8cm}(12cm,20cm)
-        \normalsize
-        \begin{center}
-            \textbf{\textcolor{white}{Key words (cf Thésaurus) :}}
-        \end{center}
-    \end{textblock*}
-```
+* Si jamais vous souhaitez modifier la langue du rapport de stage, pour éviter de créer deux fichiers .tex, je vous conseille juste de vous rendre dans [frontpage_ST.tex](src/packages/frontpage_ST.tex) et de remplacer les variables adéquates.
+
 ## Utilisation du make
 Sous un environnement Unix, vous pouvez utiliser le `MAKEFILE` pour :
 
