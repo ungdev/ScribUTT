@@ -28,7 +28,7 @@
     \includegraphics[width=6cm]{Ressources-graphiques/logos/entreprise.png}};
 
     % keywords panel
-    \coordinate (keywords_panel_anchor) at ($(current page.south east)+(-6mm,4.5cm)$);
+    \coordinate (keywords_panel_anchor) at ($(current page.south east)+(-6mm,4cm)$);
     \node [name=keywords_panel,
     anchor=south east,
     inner sep=0pt, %pas de marge
@@ -37,6 +37,6 @@
     \includegraphics[width=9cm]{Ressources-graphiques/keywords-panel.png}};
 
     % square         (depuis bord gauche, depuis en haut)           (depuis bord droit, depuis en bas)
-    \draw ($(current page.north west)+(6mm,-21.75cm)$) rectangle  ($(current page.south east)+(-11.4cm,4.5cm)$) ;
+    \draw ($(current page.north west)+(6mm,-22.25cm)$) rectangle  ($(current page.south east)+(-11.5cm,4cm)$) ;
 
 \end{tikzpicture}

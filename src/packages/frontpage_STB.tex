@@ -4,7 +4,7 @@
     \input{src/packages/overlay_STB.tikz}
 
     % L'intitulé du stage
-    \begin{textblock*}{14cm}(3.5cm,2.5cm)
+    \begin{textblock*}{15cm}(3cm,1.75cm)
         \begin{LARGE}
             \makeatletter
             \justifying
@@ -20,7 +20,7 @@
     \end{textblock*}
 
     % Nom Prénom
-    \begin{textblock*}{10cm}(1cm,7cm)
+    \begin{textblock*}{10cm}(1cm,6cm)
         \begin{flushleft}
             \large
             \textbf{\textcolor{white}{NOM Prénom :}}
@@ -30,7 +30,7 @@
     \end{textblock*}
 
     % Responsable Pédagogique
-    \begin{textblock*}{9cm}(1cm,9.5cm)
+    \begin{textblock*}{9cm}(1cm,8.5cm)
         \begin{flushleft}
             \large
             \textbf{\textcolor{white}{Responsable Pédagogique :}}
@@ -41,7 +41,7 @@
 
 
     % Branche
-    \begin{textblock*}{7cm}(13cm,7cm)
+    \begin{textblock*}{7cm}(13cm,6cm)
         \begin{flushleft}
             \large
             \textbf{\textcolor{white}{Branche :}}
@@ -51,7 +51,7 @@
     \end{textblock*}
 
     % Semestre
-    \begin{textblock*}{7cm}(13cm,9.5cm)
+    \begin{textblock*}{7cm}(13cm,8.5cm)
         \begin{flushleft}
             \large
             \textbf{\textcolor{white}{Semestre :}}
@@ -60,64 +60,62 @@
         \end{flushleft}
     \end{textblock*}
 
-    % Résumé du stage
-    \begin{textblock*}{16cm}(2.5cm,11.5cm)
-        \makeatletter
-        \noindent
-        \normalsize
-        \selectfont
+    % Titre du résumé du stage
+    \begin{textblock*}{18cm}(1.5cm,11cm)
         \begin{center}
+            \normalsize
             \textbf{\textcolor{bleuRoiUTT}{Résumé (150 mots)}}
         \end{center}
-        \begin{flushleft}
-            \justifying
+    \end{textblock*}
+
+    % Résumé du stage
+    \begin{textblock*}{18cm}(1.5cm,12.5cm)
+        {
+            \normalsize
+            \setlength{\parindent}{0pt}
             \titletext
-        \end{flushleft}
-        \makeatother
+        }
     \end{textblock*}
 
     % Mots clés (Thésaurus)
-    \begin{textblock*}{7.8cm}(12cm,21.75cm)
+    \begin{textblock*}{9cm}(11cm,22.5cm)
         \normalsize
-        \begin{center}
-            \textbf{\textcolor{white}{Mots clés (cf Thésaurus) :}}
-        \end{center}
+        \centering
+        \textbf{\textcolor{white}{Mots clés (cf Thésaurus) :}}
     \end{textblock*}
 
-    \begin{textblock*}{10cm}(12cm,22cm)
+    \begin{textblock*}{10cm}(10.5cm,22.5cm)
         \small
-        \begin{flushleft}
-            \textcolor{white}{
-                \begin{itemize}[label=\textcolor{white}{\textbullet}]
-                    \item \textbf{\theKone}
-                    \item \textbf{\theKtwo}
-                    \item \textbf{\theKthree}
-                    \item \textbf{\theKfourth}
-                \end{itemize}
-            }
-        \end{flushleft}
+        \textcolor{white}{
+            \begin{itemize}[label=\textcolor{white}{\textbullet}]
+                \item \textbf{\theKone}
+                \item \textbf{\theKtwo}
+                \item \textbf{\theKthree}
+                \item \textbf{\theKfourth}
+            \end{itemize}
+        }
     \end{textblock*}
 
     % Entreprise / Lieu / Responsable
-    \begin{textblock*}{8cm}(1cm,21.75cm)
+    \begin{textblock*}{8.5cm}(0.75cm,21.75cm)
         \normalsize
-        \begin{flushleft}
-            \textbf{\textcolor{bleuRoiUTT}{Entreprise :} \theEntreprise}
-        \end{flushleft}
+        \raggedright
+        \justify
+        \textbf{\textcolor{bleuRoiUTT}{Entreprise :} \theEntreprise}
     \end{textblock*}
 
-    \begin{textblock*}{8cm}(1cm,22.5cm)
+    \begin{textblock*}{8.5cm}(0.75cm,22.75cm)
         \normalsize
-        \begin{flushleft}
-            \textbf{\textcolor{bleuRoiUTT}{Lieu :} \textit{\mapAddr{\theLieu}}}
-        \end{flushleft}
+        \raggedright
+        \justify
+        \textbf{\textcolor{bleuRoiUTT}{Lieu :} \textit{\mapAddr{\theLieu}}}
     \end{textblock*}
 
-    \begin{textblock*}{8cm}(1cm,23.75cm)
+    \begin{textblock*}{8.5cm}(0.75cm,23.75cm)
         \normalsize
-        \begin{flushleft}
-            \textbf{\textcolor{bleuRoiUTT}{Responsable :} \theREntre}
-        \end{flushleft}
+        \raggedright
+        \justify
+        \textbf{\textcolor{bleuRoiUTT}{Responsable :} \theREntre}
     \end{textblock*}
 
 \end{titlepage}

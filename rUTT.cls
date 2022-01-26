@@ -4,9 +4,6 @@
 \LoadClass[a4paper,12pt]{article}
 \usepackage{emptypage}
 
-%%%%%%%%% Les interlignes
-\usepackage{setspace} % Pour les interlignes
-\singlespacing % a commenter si vous voulez un interligne word
 
 % pour avoir le même interligne que sur Word,
 % car un "line skip" a un facteur de 1.2 donc 1.2*1.25=1.5
@@ -20,6 +17,14 @@
 % Package babel pour le français et l'anglais,
 % main = language pour tout ce qui est titre etc
 \usepackage[main=french,english]{babel}
+\usepackage{setspace} % Pour les interlignes
+
+\singlespacing
+% \onehalfspacing % interligne 1.5cm
+\usepackage{indentfirst} % pour indenter en début de paragraphe suivant un début de section
+\setlength{\parindent}{1.27cm} % espace d'indentation recommandé par la norme APA
+\setlength{\parskip}{1em} % espacement entre les paragraphes
+
 
 \usepackage{datetime2} % datetime2 replaces the datetime package
 
@@ -146,9 +151,14 @@
 \usepackage{enumitem}
 \usepackage{pifont} % pour avoir d'autres caractères
 
+% https://tex.stackexchange.com/questions/300340/topsep-itemsep-partopsep-parsep-what-do-they-each-mean-and-what-about
+
 \setlist{
-  noitemsep,
-  labelindent=\parindent,
+  %noitemsep,
+  topsep=0pt,
+  parsep=0pt,
+  partopsep=0pt,
+  labelindent=1.27cm,
   leftmargin=*,
   align=left
 }
@@ -164,7 +174,6 @@
   before = \raggedcolumns\begin{multicols}{2},
   after = \end{multicols}
 }
-
 
 %%%%
 
@@ -196,7 +205,7 @@
 % Si vous autorisez un étirement (ragged) arbitraire,
 % vous pouvez obtenir un texte très irrégulier qui peut généralement être amélioré en limitant l'irrégularité.
 \usepackage{ragged2e} % for justifying https://tex.stackexchange.com/questions/369549/justifying-text-in-overleaf-template
-\raggedright
+% https://fr.overleaf.com/learn/latex/Text_alignment#Using_the_package_ragged2e
 %%%%%%%%%%%%
 
 \usepackage{caption}
@@ -361,10 +370,10 @@
 \renewcommand{\thesubsection}{\Alph{subsection}}
 
 \usepackage[
-sf, % Serif text
-sl, % Slanted text
-outermarks,
-explicit % Permet de choisir on l'on place l'argument
+  sf, % Serif text
+  sl, % Slanted text
+  outermarks,
+  explicit % Permet de choisir on l'on place l'argument
 ]{titlesec}
 
 
@@ -473,15 +482,17 @@ explicit % Permet de choisir on l'on place l'argument
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[
-a4paper,
-%showframe, % show the page layout
-%includeheadfoot, % la zone de texte inclut le header et le footer
-textwidth=16cm,
-headheight=8cm,
-headsep=0.5cm,
-top=3.5cm,
-bottom=3cm,
-footskip=1cm
+  a4paper,
+  %showframe, % show the page layout
+  %includeheadfoot, % la zone de texte inclut le header et le footer
+  textwidth=16cm,
+  headheight=8cm,
+  headsep=0.5cm,
+  top=3.5cm,
+  bottom=3cm,
+  left=2.54cm,
+  right=2.54cm,
+  footskip=1cm
 ]{geometry}   % Utilisé pour les marges
 
 \usepackage{fancyhdr}		% Pour l'entête et les pieds de page
