@@ -20,44 +20,42 @@
     \end{textblock*}
 
     % Nom Prénom
-    \begin{textblock*}{10cm}(1cm,6cm)
-        \begin{flushleft}
-            \large
-            \textbf{\textcolor{white}{NOM Prénom :}}
-            \\
-            \textbf{\textcolor{white}{\theauthor}}
-        \end{flushleft}
+    \begin{textblock*}{10cm}(1cm,7cm)
+        \raggedright
+        \large
+        \textbf{\textcolor{white}{NOM Prénom :}}
+        \\
+        \textbf{\textcolor{white}{\theauthor}}
     \end{textblock*}
 
     % Responsable Pédagogique
-    \begin{textblock*}{9cm}(1cm,8.5cm)
-        \begin{flushleft}
-            \large
-            \textbf{\textcolor{white}{Responsable Pédagogique :}}
-            \\
-            \textbf{\textcolor{white}{\theRPeda}}
-        \end{flushleft}
+    \begin{textblock*}{10cm}(1cm,9cm)
+        \raggedright
+        \large
+        \textbf{\textcolor{white}{Responsable Pédagogique :}}
+        \\
+        \textbf{\textcolor{white}{\theRPeda}}
     \end{textblock*}
 
 
     % Branche
-    \begin{textblock*}{7cm}(13cm,6cm)
-        \begin{flushleft}
-            \large
-            \textbf{\textcolor{white}{Branche :}}
-            \\
+    \begin{textblock*}{10cm}(12cm,7cm)
+        \raggedright
+        \large
+        \textbf{\textcolor{white}{Branche :}}
+        \\
+        \begin{raggedleft}
             \textcolor{white}{\theUE}
-        \end{flushleft}
+        \end{raggedleft}
     \end{textblock*}
 
     % Semestre
-    \begin{textblock*}{7cm}(13cm,8.5cm)
-        \begin{flushleft}
-            \large
-            \textbf{\textcolor{white}{Semestre :}}
-            \\
-            \textcolor{white}{\theSemestre}
-        \end{flushleft}
+    \begin{textblock*}{10cm}(12cm,9cm)
+        \large
+        \raggedright
+        \textbf{\textcolor{white}{Semestre :}}
+        \\
+        \textcolor{white}{\theSemestre}
     \end{textblock*}
 
     % Titre du résumé du stage
@@ -72,6 +70,7 @@
     \begin{textblock*}{18cm}(1.5cm,12.5cm)
         {
             \normalsize
+            \makeatletter
             \setlength{\parindent}{0pt}
             \titletext
         }

@@ -573,7 +573,7 @@
 \usepackage[bottom]{footmisc} % Pour éviter que les notes de bas de page soient "collées" à notre texte
 \addtolength{\skip\footins}{0.5cm} % pour ajouter un espace en bas
 \interfootnotelinepenalty=10000 % Pour éviter que les notes de bas de pages se propagent
-\renewcommand{\thefootnote}{\roman{footnote}} % roman style
+\renewcommand{\thefootnote}{\arabic{footnote}} % notes de bas de page en arabe
 
 \usepackage{perpage} %the perpage package
 \MakePerPage{footnote} %the perpage package command => pour avoir des notes de bas de page actualisé par page

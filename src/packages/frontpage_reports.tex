@@ -4,43 +4,39 @@
     \input{src/packages/overlay_reports.tikz}
 
     % Si on veut ajouter du texte au carré bleu
-    \begin{textblock*}{14cm}(3.5cm,3cm)
+    \begin{textblock*}{15cm}(3cm,1.75cm)
         \begin{LARGE}
             \makeatletter
             \justifying
-
             \begin{center}
                 \textbf{\textcolor{white}{\thetitle}}
             \end{center}
-
             \makeatother
         \end{LARGE}
     \end{textblock*}
 
     % Semestre
-    \begin{textblock*}{10cm}(0.5cm,10.25cm)
-        \begin{flushleft}
-            \makeatletter
-            \Large
-            \selectfont
-            \textbf{
-                \textcolor{white}{\theSemestre}
-                }
-            \makeatother
-        \end{flushleft}
+    \begin{textblock*}{10cm}(1cm,10.25cm)
+        \raggedright
+        \makeatletter
+        \Large
+        \selectfont
+        \textbf{
+            \textcolor{white}{\theSemestre}
+            }
+        \makeatother
     \end{textblock*}
 
     % UE
-    \begin{textblock*}{4cm}(16cm,10.25cm)
-        \begin{flushright}
-            \makeatletter
-            \Large
-            \selectfont
-            \textbf{
-                \textcolor{white}{\theUE}
-                }
-            \makeatother
-        \end{flushright}
+    \begin{textblock*}{5cm}(15cm,10.25cm)
+        \raggedleft
+        \makeatletter
+        \Large
+        \selectfont
+        \textbf{
+            \textcolor{white}{\theUE}
+            }
+        \makeatother
     \end{textblock*}
 
 
