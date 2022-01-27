@@ -1,7 +1,9 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{rUTT} % pour dire quelle classe on fournit
 
-\LoadClass[a4paper,12pt]{article}
+\LoadClass[a4paper,12pt]{report}
+% Il serait intéressant de regarder ce package un jour : https://ctan.org/pkg/memoir
+
 \usepackage{emptypage}
 
 
@@ -176,7 +178,7 @@
 }
 
 %%%%
-
+% https://www.overleaf.com/learn/latex/Biblatex_citation_styles
 \usepackage[
   backend=biber,
   dateera=secular, % pour avoir des Avant l'Ere Commune et plus av JC
@@ -187,7 +189,8 @@
   sortlocale=auto,
   seconds=true,
   bibencoding=auto,
-  sorting=ynt]{biblatex}
+  sorting=nty % Sorting by name, title and years
+]{biblatex}
 
 \addbibresource{src/parts/bibliography.bib}
 
@@ -365,6 +368,7 @@
 % Gestion des titres
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 % Pour changer les titres en I/ et en A/
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\Alph{subsection}}
@@ -375,6 +379,21 @@
   outermarks,
   explicit % Permet de choisir on l'on place l'argument
 ]{titlesec}
+
+%%% Chapter
+% https://borntocode.fr/latex-personnaliser-les-titres-chapter/ => ?
+\titleformat{\chapter} % command
+[hang] % shape (hang is normal shape, it was just for remember)
+{\normalfont\Huge\bfseries\raggedright\color{bleuRoiUTT}} % format
+{\thechapter} % label
+{0.5em} % Spacing between label and title
+{\uline{#1}} % before code
+
+\titlespacing{\chapter} % Set the spacing around the title
+{0pt}                  % Left
+{18pt}                  % Above
+{6pt}                  % Below\ŧit
+
 
 
 %%% Section
@@ -515,7 +534,8 @@
     \textsc{
       \minipage[b]{.8\linewidth}
         \footnotesize
-        \leftmark % Contient le nom de la section
+        % \leftmark % Contient le nom du haut niveau (chapitre)
+        \rightmark % Contient le nom du bas niveau (section)
       \endminipage
       }
   } %Section actuelle à gauche de l'en-tête
