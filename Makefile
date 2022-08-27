@@ -19,7 +19,7 @@ archive:
 	mkdir build
 
 	cp rUTT.cls rapportUTT.tex .latexmkrc Makefile build/
-	cp -r src Ressources-graphiques build/
+	cp -r latex-files ressources-graphiques build/
 
 	cd build &&	zip -r ../latex-rapport-UTT.zip ./
 
@@ -50,5 +50,5 @@ clean:
 	rm -rf build
 	-latexmk -c
 	rm -f *.{aux,bbl,maf,mtc*,ptc}
-	rm -f src/packages/*.{aux,bbl,maf,mtc*,ptc}
+	rm -f packages/*.{aux,bbl,maf,mtc*,ptc}
 	@echo "Cleaned."

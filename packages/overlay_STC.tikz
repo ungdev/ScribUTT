@@ -5,7 +5,7 @@
     \node [name=uttsquare,
     anchor=north
     ] at (uttbackground_anchor){
-    \includegraphics[width=20cm,keepaspectratio]{Ressources-graphiques/Pdg_corner.png}};
+    \includegraphics[width=20cm,keepaspectratio]{ressources-graphiques/Pdg_corner.png}};
 
     % Logo UTT
     \coordinate (uttlogo_anchor) at ($(current page.south west)+(6mm,1.25cm)$);
@@ -15,7 +15,7 @@
         inner sep=0pt, %pas de marge
         outer sep=0pt, %pas de marge
     ] at (uttlogo_anchor){
-        \includegraphics[width=6cm]{Ressources-graphiques/logos/UTT.eps}
+        \includegraphics[width=6cm]{ressources-graphiques/logos/UTT.eps}
     };
 
     % Logo company
@@ -25,7 +25,7 @@
     inner sep=0pt, %pas de marge
     outer sep=0pt, %pas de marge
     ] at (companylogo_anchor){
-    \includegraphics[width=6cm]{Ressources-graphiques/logos/entreprise.png}};
+    \includegraphics[width=6cm]{ressources-graphiques/logos/entreprise.png}};
 
     % square         (depuis bord gauche, depuis en haut)           (depuis bord droit, depuis en bas)
     \draw ($(current page.north west)+(5.5cm,-21.75cm)$) rectangle  ($(current page.south east)+(-5.5cm,4.5cm)$) ;

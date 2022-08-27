@@ -16,20 +16,20 @@
 % Si on est on mode rapport de stage :
 % Pour la confidentialité
 
-\RPeda{{\sc VIGIER} Thibault} % Responsable pédagogique
+\RPeda{{\sc PLOIX} Alain} % Responsable pédagogique
 
-\Entreprise{Ministère de la Vérité} % Nom de l'entreprise / organisme / institution
+\Entreprise{Aperture Science} % Nom de l'entreprise / organisme / institution
 \Lieu{12 Rue Marie Curie, 10300 Troyes}
-\REntre{Pr. Didier Raoult}
+\REntre{GLaDOS}
 
 % Mots clés du Thésaurus ou mots clés pour les metadatas du pdf
-\Kone{Complot} % Nature de l'activité
+\Kone{Recherche fondamentale} % Nature de l'activité
 \Ktwo{Transport et Télécommunications} % Branche d'activité économique
 \Kthree{Informatique} % Domaines technologiques
 \Kfourth{Produits chimiques} % Application Physique directe
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\Semestre{Printemps 2021}
+\Semestre{Printemps 2038}
 %\UE{LT01} %Nom de l'UE OU nom complet de la branche si en mode rapport de stage !
 \UE{Matériaux : Technologie et Economie}
 
@@ -37,24 +37,26 @@
 % \newcommand{\titletext}{Un rapport en \LaTeX \\ écrit avec amour}
 
 \newcommand{\titletext}{
-    Ce stage s'est déroulé dans l'entreprise xxx, au sein du service yyy. Il a consisté à étudier les matériels destinés à la maintenance et aux grands travaux de 
-    l'infrastructure ferroviaire (installations fixes de la SNCF), dans le but de fournir, aux agents du 
-    territoire, une démarche de gestion des ressources locales.
+
+    Ce stage s'est déroulé dans l'entreprise Aperture Science, au sein du
+    service Recherche et Développement. Il a consisté à travailler en
+    coopération avec un groupe d'ingénieur sur un dispositif à effet tunnel
+    quantique, dans le but de fournir, aux cobayes, un outil leur permettant de
+    placer deux portails où des objets peuvent passer au travers.
 
     Les différentes phases de travail successivement réalisées sont :
 
     \begin{itemize}
-        \item Déterminer les critères dimensionnant d'un stock au niveau local
-        \item Regrouper des produits en vue de déterminer différentes stratégies de stockage
-        \item Rédiger une démarche conduisant aux choix des méthodes de gestion des stocks par niveaux. 
+        \item Déterminer les besoins et les technologies à utiliser
+        \item Réaliser des tests en laboratoire afin de confirmer l'efficacité des portails
+        \item Observer le comportement d'un cobaye lors de l'utilisation du ASHPoD
     \end{itemize}
 
 
-    L'étude s'appuie sur les facteurs économiques, logistiques et techniques de l'ensemble des produits de 
-    maintenance.
+    L'étude s'appuie sur des technologies de pointes et l'expérimentation quantique.
 
-    L'enjeu est une réduction notable de la masse financière immobilisée, sans détériorer ni la sécurité, ni 
-    la régularité du trafic actuel.
+    L'enjeu est une amélioration du déplacement de Sapiens en lui permettant
+    d'appréhender d'une façon révolutionnaire son environnement.
 }
 
 
@@ -63,7 +65,7 @@
 %\date{\today} % Pour la date de compilation
 \date{2038-01-19}
 
-\author{{\sc MARTIN} Azaël
+\author{{\sc TARGARYEN} Daemeon
 % \and
 % {\sc Nom} Prénom
 % \break
@@ -75,10 +77,10 @@
 }
 
 % Texte affiché sur le carré bleu
-\newcommand{\jobposition}{Ingénieur Télécom}
+\newcommand{\jobposition}{Ingénieur R\&D}
 %\title{Vous êtes probablement assez bon pour travailler dans cette entreprise pour laquelle vous pensez ne pas être assez bon.}
 
-\title{Etude de la propagation de la Covid-19 \\ à l'aide du standard 5G}
+\title{Aide à la réalisation d'un dispositif à effet tunnel quantique}
 
 %%%%%%% Pour les métadonnées
 % Fonctionne, seulement il y a un warning à cause des "\\" dans le title
@@ -87,8 +89,7 @@
 \hypersetup{
     pdfauthor = {\theauthor}, % Auteur : pdfauthor = {\theauthor}
     pdftitle = {\thetitle}, % Titre : pdftitle = {Titre du document}
-    pdfsubject = {Propagation de la Covid-19}, % Sujet : pdfsubject = {Sujet du document}
-    pdfkeywords = {\theKone, \theKtwo, \theKthree, \theKfourth, mot clé}
+    pdfkeywords = {\theKone, \theKtwo, \theKthree, \theKfourth}
 }
 
 %%%%%%%
@@ -115,35 +116,68 @@
 
 
     \pagenumbering{gobble} % on n'affiche pas les numéros de page
-    \import{src/parts/}{Remerciements.tex} % Toujours avant le sommaire !
+    \import{latex-files/}{remerciements.tex} % Toujours avant le sommaire !
 
     \clearpage
 
-    % Le Sommaire
-    % https://www.overleaf.com/learn/latex/Sections_and_chapters
-    \shorttoc{Sommaire}{1}
+    %%%%%%%%%%%%%%%%%%%%%%
+    %% Sommaire
+    %%%%%%%%%%%%%%%%%%%%%%
+
+    {
+        \setcounter{tocdepth}{1}
+        \renewcommand{\contentsname}{Sommaire}
+        \tableofcontents
+    }
+
+    \clearpage
+
+    {
+        % Tableaux et figures
+        \markboth{}{Tableaux et figures}
+        \phantomsection
+
+        \listoffigures
+        \addcontentsline{toc}{chapter}{\listfigurename}
+
+        \listoftables
+        \addcontentsline{toc}{chapter}{\listtablename}
+    }
+
+    % \setglossarystyle{listhypergroup}
+    % \printglossary[type=\acronymtype, title={Liste des acronymes}, toctitle={Liste des acronymes}]
+    % \printglossary[title={Glossaire}, toctitle={Glossaire}]
 
     \clearpage
 
     \pagenumbering{arabic}
 
-    \import{src/parts/}{Introduction.tex}
+    \import{latex-files/}{introduction.tex}
 
     \clearpage
 
-    \import{src/parts/}{firstPart.tex}
+    \import{latex-files/}{presentation.tex}
+    \import{latex-files/}{one.tex}
+    \import{latex-files/}{two.tex}
+    \import{latex-files/}{three.tex}
 
     \clearpage
 
-    \import{src/parts/}{secondPart.tex}
+    \import{latex-files/}{conclusion.tex}
+    \label{LastPage}
 
     \clearpage
 
-    \import{src/parts/}{thirdPart.tex}
-
-    \clearpage
-
-    \import{src/parts/}{scienticPart.tex}
+    % Bibliographie !
+    {
+        \pagenumbering{gobble} % On n'affiche pas les numéros de page
+        \phantomsection % hyperlinks will target the correct page
+        \markboth{Bibliographie}{}
+        \raggedright % pour éviter certaines erreurs rares d'affichage
+        \sloppy
+        \nocite{*} % pour faire apparaître tout du fichier bib
+        \printbibliography[title={Bibliographie},heading=bibintoc]
+    }
 
     \clearpage
 
@@ -151,35 +185,12 @@
     \pagenumbering{Roman} % On numérote en romain pour les annexes
 
     % Annexes !
-    \import{src/parts/Annexes/}{Annexes.tex}
+    \import{latex-files/annexes/}{annexes.tex}
 
     \clearpage
-
-    % Bibliographie !
-
-    {
-    \pagenumbering{gobble} % On n'affiche pas les numéros de page
-    \phantomsection % hyperlinks will target the correct page
-    \markboth{Bibliographie}{}
-    \raggedright % pour éviter certaines erreurs rares d'affichage
-    \sloppy
-    \nocite{*} % pour faire apparaître tout du fichier bib
-    \printbibliography[title={Bibliographie},heading=bibintoc]
-
-    \clearpage
-    \listoffigures
-    \addcontentsline{toc}{section}{\listfigurename}
-    \listoftables
-    \addcontentsline{toc}{section}{\listtablename}
-    }
-    \clearpage
-    % Toujours avoir la table des matières en dernier !
-    % Ici figure tout, même les annexes
+    % Toujours avoir la table des matières en dernier ! Ici figure tout, même les annexes
     % Commenter/supprimer pour enlever la table des matières
-    \thispagestyle{empty}
-    \setcounter{tocdepth}{10} % Profondeur de la table des matières
-    \tableofcontents
-
+    \myfinaltoc
     % On laisse une page blanche à la fin pour l'impression, c'est plus joli
     \clearpage
     \myemptypage

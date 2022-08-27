@@ -1,10 +1,10 @@
 \begin{titlepage}
     \thispagestyle{empty}
 
-    \input{src/packages/overlay_STB.tikz}
+    \input{packages/overlay_STB.tikz}
 
     % L'intitulé du stage
-    \begin{textblock*}{15cm}(3cm,1.75cm)
+    \begin{textblock*}{12cm}(4.5cm,2.5cm)
         \begin{LARGE}
             \makeatletter
             \justifying
@@ -20,29 +20,29 @@
     \end{textblock*}
 
     % Nom Prénom
-    \begin{textblock*}{10cm}(1cm,7cm)
+    \begin{textblock*}{10cm}(2.5cm, 7.5cm)
         \raggedright
         \large
-        \textbf{\textcolor{white}{NOM Prénom :}}
+        \textbf{\textcolor{white}{NOM Prénom}}
         \\
         \textbf{\textcolor{white}{\theauthor}}
     \end{textblock*}
 
     % Responsable Pédagogique
-    \begin{textblock*}{10cm}(1cm,9cm)
+    \begin{textblock*}{10cm}(2.5cm, 9.5cm)
         \raggedright
         \large
-        \textbf{\textcolor{white}{Responsable Pédagogique :}}
+        \textbf{\textcolor{white}{Responsable Pédagogique}}
         \\
         \textbf{\textcolor{white}{\theRPeda}}
     \end{textblock*}
 
 
     % Branche
-    \begin{textblock*}{10cm}(12cm,7cm)
+    \begin{textblock*}{10cm}(12cm,7.5cm)
         \raggedright
         \large
-        \textbf{\textcolor{white}{Branche :}}
+        \textbf{\textcolor{white}{Branche}}
         \\
         \begin{raggedleft}
             \textcolor{white}{\theUE}
@@ -50,10 +50,10 @@
     \end{textblock*}
 
     % Semestre
-    \begin{textblock*}{10cm}(12cm,9cm)
+    \begin{textblock*}{10cm}(12cm,9.5cm)
         \large
         \raggedright
-        \textbf{\textcolor{white}{Semestre :}}
+        \textbf{\textcolor{white}{Semestre}}
         \\
         \textcolor{white}{\theSemestre}
     \end{textblock*}
@@ -67,7 +67,7 @@
     \end{textblock*}
 
     % Résumé du stage
-    \begin{textblock*}{18cm}(1.5cm,12.5cm)
+    \begin{textblock*}{16cm}(2.54cm,13cm)
         {
             \normalsize
             \makeatletter
@@ -77,13 +77,13 @@
     \end{textblock*}
 
     % Mots clés (Thésaurus)
-    \begin{textblock*}{9cm}(11cm,22.5cm)
+    \begin{textblock*}{9cm}(10cm,21.75cm)
         \normalsize
         \centering
-        \textbf{\textcolor{white}{Mots clés (cf Thésaurus) :}}
+        \textbf{\textcolor{white}{Mots clés (cf Thésaurus)}}
     \end{textblock*}
 
-    \begin{textblock*}{10cm}(10.5cm,22.5cm)
+    \begin{textblock*}{10cm}(9.5cm,21.75cm)
         \small
         \textcolor{white}{
             \begin{itemize}[label=\textcolor{white}{\textbullet}]
@@ -96,22 +96,22 @@
     \end{textblock*}
 
     % Entreprise / Lieu / Responsable
-    \begin{textblock*}{8.5cm}(0.75cm,21.75cm)
-        \normalsize
+    \begin{textblock*}{6.5cm}(2.5cm,21cm)
+        \small
         \raggedright
         \justify
         \textbf{\textcolor{bleuRoiUTT}{Entreprise :} \theEntreprise}
     \end{textblock*}
 
-    \begin{textblock*}{8.5cm}(0.75cm,22.75cm)
-        \normalsize
+    \begin{textblock*}{6.5cm}(2.5cm,22cm)
+        \small
         \raggedright
         \justify
         \textbf{\textcolor{bleuRoiUTT}{Lieu :} \textit{\mapAddr{\theLieu}}}
     \end{textblock*}
 
-    \begin{textblock*}{8.5cm}(0.75cm,23.75cm)
-        \normalsize
+    \begin{textblock*}{6.5cm}(2.5cm, 23cm)
+        \small
         \raggedright
         \justify
         \textbf{\textcolor{bleuRoiUTT}{Responsable :} \theREntre}

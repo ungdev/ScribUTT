@@ -1,42 +1,42 @@
 \begin{tikzpicture}[remember picture,overlay]
 
     % Fond UTT
-    \coordinate [right=10mm, below=2mm] (uttbackground_anchor) at (current page.north);
+    \coordinate [right=2.54cm, below=1cm] (uttbackground_anchor) at (current page.north);
     \node [name=uttsquare,
     anchor=north
     ] at (uttbackground_anchor){
-    \includegraphics[width=20cm,keepaspectratio]{Ressources-graphiques/Pdg_corner.png}};
+    \includegraphics[width=18cm,keepaspectratio]{ressources-graphiques/Pdg_corner.png}};
 
     % Logo UTT
-    \coordinate (uttlogo_anchor) at ($(current page.south west)+(6mm,1.25cm)$);
+    \coordinate (uttlogo_anchor) at ($(current page.south west)+(2cm,1.25cm)$);
     \node [
         name=uttlogo,
         anchor=south west,
         inner sep=0pt, %pas de marge
         outer sep=0pt, %pas de marge
     ] at (uttlogo_anchor){
-        \includegraphics[width=6cm]{Ressources-graphiques/logos/UTT.eps}
+        \includegraphics[height=2.5cm]{ressources-graphiques/logos/UTT.eps}
     };
 
     % Logo company
-    \coordinate (companylogo_anchor) at ($(current page.south east)+(-6mm,1.25cm)$);
+    \coordinate (companylogo_anchor) at ($(current page.south east)+(-2cm,1.25cm)$);
     \node [name=companylogo,
     anchor=south east,
     inner sep=0pt, %pas de marge
     outer sep=0pt, %pas de marge
     ] at (companylogo_anchor){
-    \includegraphics[width=6cm]{Ressources-graphiques/logos/entreprise.png}};
+    \includegraphics[height=2.5cm]{ressources-graphiques/logos/entreprise.png}};
 
     % keywords panel
-    \coordinate (keywords_panel_anchor) at ($(current page.south east)+(-6mm,4cm)$);
+    \coordinate (keywords_panel_anchor) at ($(current page.south east)+(-2cm,5cm)$);
     \node [name=keywords_panel,
     anchor=south east,
     inner sep=0pt, %pas de marge
     outer sep=0pt, %pas de marge
     ] at (keywords_panel_anchor){
-    \includegraphics[width=9cm]{Ressources-graphiques/keywords-panel.png}};
+    \includegraphics[width=9cm]{ressources-graphiques/keywords-panel.png}};
 
     % square         (depuis bord gauche, depuis en haut)           (depuis bord droit, depuis en bas)
-    \draw ($(current page.north west)+(6mm,-22.25cm)$) rectangle  ($(current page.south east)+(-11.5cm,4cm)$) ;
+    \draw ($(current page.north west)+(2cm,-21.25cm)$) rectangle  ($(current page.south east)+(-11.5cm,5cm)$) ;
 
 \end{tikzpicture}

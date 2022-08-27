@@ -4,21 +4,24 @@
 
 `ScribUTT`: Template LaTeX **perfectionniste** au format [UTT](https://www.utt.fr/) pour la rédaction de vos rapports de TPs / TDs / Projets mais aussi pour les stages (ST05,ST09,ST10,ST30). Parce qu'un ingénieur ne devrait pas avoir à se soucier de la forme de son rapport :bangbang:
 
+![GitHub forks](https://img.shields.io/github/forks/n3rada/ScribUTT) ![GitHub issues](https://img.shields.io/github/issues/n3rada/ScribUTT)
+
 ---
 
 Pour que les gens qui lisent vos rapports puissent réagir ainsi :
 <p align="center">
-  <img src="languageOfGods.jpg"/>
+  <img src="assets/img/languageOfGods.jpg"/>
 </p>
 
 :star: Laissez une étoile sur ce projet s'il vous a servi ! :arrow_right: ![GitHub stars](https://img.shields.io/github/stars/n3rada/ScribUTT) :arrow_left:
 
 ---
 
-Le pdf d'exemple généré est disponible [ici](rapportUTT.pdf).
+Le pdf d'exemple généré est disponible [ici](rapportUTT.pdf). Voici la couverture que vous obtiendrez en utilisant ce projet :
 
-![GitHub forks](https://img.shields.io/github/forks/n3rada/ScribUTT) ![GitHub issues](https://img.shields.io/github/issues/n3rada/ScribUTT)
-
+<p align="center">
+  <img src="assets/img/exampleSTB.png"/>
+</p>
 
 # Table des matières
 
@@ -30,7 +33,6 @@ Générée avec l'outil en ligne : https://ecotrust-canada.github.io/markdown-to
   * [Architecture de votre projet](#architecture-de-votre-projet)
     + [Sommaire et Table des matières](#sommaire-et-table-des-mati-res)
   * [Commandes en plus](#commandes-en-plus)
-- [Prévisualisation](#pr-visualisation)
 - [Comment gerer un gros projet en LaTeX](#comment-gerer-un-gros-projet-en-latex)
   * [Comment incorpore-t-on d'autres fichiers ?](#comment-incorpore-t-on-d-autres-fichiers--)
     + [Le package `import`](#le-package--import-)
@@ -38,6 +40,8 @@ Générée avec l'outil en ligne : https://ecotrust-canada.github.io/markdown-to
   * [Biber et BibTex](#biber-et-bibtex)
 - [Des liens utiles](#des-liens-utiles)
 - [Installation](#installation)
+  * [Dépendance Python](#d-pendance-python)
+  * [openSUSE](#opensuse)
 - [Petits soucis](#petits-soucis)
 - [Licence](#licence)
 - [Contribution](#contribution)
@@ -48,13 +52,13 @@ Téléchargez l'archive prête à être utilisée : [ici](deploy/latex-rapport-U
 
 ## Bivalence
 * Ce projet vous permet de rédiger **tous** vos rapports UTT !
-En ouvrant le [rapportUTT.tex](rapportUTT.tex), vous verrez que j'ai tout commenté pour que vous sachiez quoi remplir en fonction. J'ai aussi mis à disposition sur ce git le [Thésaurus de l'UTT](Ressources-graphiques/Thésaurus.pdf) de 2021 qui je pense, ne bougera que très peu dans le temps.
+En ouvrant le [rapportUTT.tex](rapportUTT.tex), vous verrez que j'ai tout commenté pour que vous sachiez quoi remplir en fonction. J'ai aussi mis à disposition sur ce git le [Thésaurus de l'UTT](ressources-graphiques/Thésaurus.pdf) de 2021 qui je pense, ne bougera que très peu dans le temps.
 
 Pour passer d'une page de garde à l'autre, veillez à bien commenter / dé-commenter le bon appel de la page de garde correspondante (dans [rapportUTT.tex](rapportUTT.tex)).
 
 
 
-* Si jamais vous souhaitez modifier la langue du rapport de stage, pour éviter de créer deux fichiers .tex, je vous conseille juste de vous rendre dans [frontpage_ST.tex](src/packages/frontpage_ST.tex) et de remplacer les variables adéquates.
+* Si jamais vous souhaitez modifier la langue du rapport de stage, pour éviter de créer deux fichiers .tex, je vous conseille juste de vous rendre dans [frontpage_ST.tex](packages/frontpage_ST.tex) et de remplacer les variables adéquates.
 
 ## Utilisation du make
 Sous un environnement Unix, vous pouvez utiliser le `MAKEFILE` pour :
@@ -67,12 +71,8 @@ Sous un environnement Unix, vous pouvez utiliser le `MAKEFILE` pour :
 * La classe [rUTT](rUTT.cls) est la classe mère dans laquelle est défini toutes les subtilités tel que les paramètres de [`minted`](https://ctan.org/pkg/minted?lang=en), les mises en forme du bas de page etc.
 
 * Le fichier [rapportUTT.tex](rapportUTT.tex) est la racine de votre projet, c'est ici que vous allez renseigner le titre, votre UE, les auteurs etc. **Le corps de ce document a été conçu pour aller au plus simple**, vous n'avez qu'à changer l'ordre d'import de vos parties, sauter des pages (ou non) entre chacune d'elle etc.
-
-Ensuite, on part dans la branche [src](src) :
-
-* On placera dans le dossier [contents](src/contents) toutes les images que l'on souhaite incorporer à notre document.
-* Le dossier [packages](src/packages) contient les ajouts de commandes les plus usées ["commands.sty"](src/packages/commands.sty), les couleurs de l'UTT [ici](src/packages/couleurs_UTT.sty) mais aussi et surtout la conception de la page de garde avec l'*overlay* et [la disposition des éléments](src/packages/frontpage.tex). **C'est ici qu'il faut ajouter vos modules perso**. N'hésitez pas à proposer un module que vous jugez essentiel !
-* S'en suit la branche ["parts"](src/parts) dans laquelle j'ai réservé un emplacement exprès pour placer les [codes sources](src/parts/code) à afficher dans votre rapport. Ainsi que toutes les parties de votre document (e.g., ["firstPart"](src/parts/firstPart.tex)) et les [annexes](src/parts/Annexes/)!
+* On placera dans le dossier [assets/img](assets/img) toutes les images que l'on souhaite incorporer à notre document.
+* Le dossier [packages](packages) contient les ajouts de commandes les plus usées ["commands.sty"](packages/commands.sty), les couleurs de l'UTT [ici](packages/couleurs_UTT.sty) mais aussi et surtout la conception de la page de garde avec l'*overlay* et [la disposition des éléments](packages/frontpage.tex). **C'est ici qu'il faut ajouter vos modules perso**. N'hésitez pas à proposer un module que vous jugez essentiel !
 
 ### Sommaire et Table des matières
 Selon les règles d'organisation d'un document en français, un sommaire et une table des matières sont **deux choses bien différentes**.
@@ -87,28 +87,7 @@ Selon les règles d'organisation d'un document en français, un sommaire et une 
 ```
 C'est utilisé pour la section "Lieu" de votre rapport de stage !
 
-* Beaucoup de commandes très utilisées sont mises dans le package [commands.sty](src/packages/commands.sty). N'hésitez pas à m'en fournir d'autres que vous souhaiteriez voir apparaitre !
-# Prévisualisation
-La page de garde des rapports (TPs,TDs,projets) a été configurée pour s'afficher ainsi :
-<p align="center">
-  <img src="examplesPNG/pdgR.png"/>
-</p>
-Celle pour les rapports de stage :
-<p align="center">
-  <img src="examplesPNG/pdgST_FR.png"/>
-</p>
-
-Voici un exemple d'une mise en page contenant un énoncé de théorème :
-<p align="center">
-  <img src="examplesPNG/page.png"/>
-</p>
-
-Et un exemple d'une page comportant une censure (avec le texte réellement caché, ce n'est pas qu'un carré noir) pour les rapports confidentiels :
-<p align="center">
-  <img src="examplesPNG/censure.png"/>
-</p>
-
-Je vous laisse découvrir le reste dans le [pdf de présentation](rapportUTT.pdf).
+* Beaucoup de commandes très utilisées sont mises dans le package [commands.sty](packages/commands.sty). N'hésitez pas à m'en fournir d'autres que vous souhaiteriez voir apparaitre !
 
 # Comment gerer un gros projet en LaTeX
 ## Comment incorpore-t-on d'autres fichiers ?
@@ -195,6 +174,8 @@ Merci de faire parvenir via une pull-request ou en envoyant un message privé le
 
 * L'erreur `minted Error: You must invoke LaTeX with the `-shell-escape` flag`
 > Ce souci est présent sur TeXStudio et est résolvable en faisant les changements indiqués [ici](https://tex.stackexchange.com/questions/99475/how-to-invoke-latex-with-the-shell-escape-flag-in-texstudio-former-texmakerx), où pour les plus pressés, rendez-vous dans `Options > Configure TeXStudio > Build` et dans la boite de dialogue **User Commands** cliquez sur `+Add` et nommé votre commande puis mettez respectivement `user:graphviz-pdflatex` et `txs:///pdflatex/[--shell-escape]`.
+* Lors de l'impression, le pdf ne sort pas comme il était sur mon lecteur !
+> Pour réparer ce souci qui n'en est pas un, je te conseille d'imprimer en **taille réelle** ou 100% sur les paramètres de ton imprimante. J'ai laissé les marges nécessaires.
 # Licence
 Ce contenu est distribué sous licence BSD-3. **Attention l'archive dont nous parlons au-dessus contient des éléments graphiques dont certains sont de la propriété de l'[Université de Technologie de Troyes](https://www.utt.fr/).**
 

@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{rUTT} % pour dire quelle classe on fournit
 
-\LoadClass[a4paper,12pt]{report}
+\LoadClass[a4paper,11pt]{report}
 % Il serait intéressant de regarder ce package un jour : https://ctan.org/pkg/memoir
 
 \usepackage{emptypage}
@@ -11,10 +11,11 @@
 % car un "line skip" a un facteur de 1.2 donc 1.2*1.25=1.5
 %\linespread{1.25}
 
-\usepackage{src/packages/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
+\usepackage{packages/couleurs_UTT} %Couleurs définies dans la charte graphique de l'UTT
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{censor}
+
 
 % Package babel pour le français et l'anglais,
 % main = language pour tout ce qui est titre etc
@@ -46,6 +47,8 @@
     naturalnames=true, % use LATEX-computed names for links
     pdfcreator={Scrib'UTT}, % creator of the pdf file
 }
+
+\providecommand\phantomsection{}
 
 %%%%%%%%
 
@@ -88,6 +91,20 @@
     \addtocounter{page}{-1}
     \newpage
 }
+
+\newcommand\myfinaltoc{
+  \null
+  \fancyhead[R]{}
+  \setlength{\cftbeforetoctitleskip}{-1em}
+  \setlength{\cftaftertoctitleskip}{1em}
+  \pagenumbering{gobble} % on n'affiche pas les numéros de page
+  \setcounter{tocdepth}{10}
+  \tableofcontents
+
+  \addtocounter{page}{-1}
+  \newpage
+}
+
 \newcommand\myILB{
     \null
     \thispagestyle{ILB}
@@ -98,7 +115,7 @@
 \usepackage{blindtext} % Pour générer des textes de test
 
 \usepackage{graphicx} % pour les images
-\graphicspath{ {src/contents/pics/} }
+\graphicspath{ {assets/img} }
 \usepackage{placeins} % pour bien positionner lesdites images
 \usepackage[export]{adjustbox} % pour le ratio
 
@@ -106,19 +123,16 @@
 \usepackage{textcomp}
 \usepackage{lmodern}        % Pour avoir de bonnes polices en pdf
 \usepackage{graphicx, animate}       % Indispensable pour les figures
+\usepackage{wrapfig}
 \usepackage{amsmath}        % Environnement pour les maths, permet du mettre du texte dans les équations
 
 \usepackage{xcolor} % pour colorer
 \usepackage[normalem]{ulem} % pour surligner
 % On charge "normalem" pour éviter de changer l'emphasize des bibliographies par exemple !
 
-%%%%%% On définit des modes pour surligner
-\definecolor{bluelight}{cmyk}{0.15,0.01,0.01,0.0}
-\definecolor{pinklight}{cmyk}{0.12,0.15,0.0,0.0}
-\definecolor{greenlight}{cmyk}{0.10,0.01,0.29,0.0}
 
 \newcommand*\highlightdp{-.8ex}
-\newcommand*\highlightwd{0.1ex} % Largeur surlignage
+\newcommand*\highlightwd{0.01ex} % Largeur surlignage
 \newcommand*\highlightht{2.8ex} % Hauteur du surlignage
 
 \newcommand\highlightcommon[1]{\bgroup\markoverwith{\textcolor{#1}{\smash{\rule[\highlightdp]{\highlightwd}{\highlightht}}}}\ULon}
@@ -127,15 +141,10 @@
 \def\bluehl{\highlightcommon{bluelight}}
 \def\greenhl{\highlightcommon{greenlight}}
 \def\pinkhl{\highlightcommon{pinklight}}
-\def\greyhl{\highlightcommon{lightgray}}
 \def\yellowhl{\highlightcommon{yellow}}
 
 
-\newcommand{\incode}[1]{{\textcolor{red}{\greyhl{#1}}}}
-
 %%%
-
-
 \usepackage{multicol}		% Pour les colonnes
 \usepackage{multirow}       % Pour des tableaux fun
 \usepackage{longtable} % pour les longs tableaux
@@ -192,7 +201,7 @@
   sorting=nty % Sorting by name, title and years
 ]{biblatex}
 
-\addbibresource{src/parts/bibliography.bib}
+\addbibresource{latex-files/bibliography.bib}
 
 %\usepackage[nottoc,numbib]{tocbibind} % pour inclure la biblio directement dans le sommaire
 
@@ -204,6 +213,13 @@
 % Text pos to position texts in absolute coords for the first page.
 \usepackage[absolute,overlay]{textpos}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Glossaire
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[acronym, toc, xindy, ucmark]{glossaries}
+\makeglossaries
+
+
 %%%%%%%%%%%%%
 % Si vous autorisez un étirement (ragged) arbitraire,
 % vous pouvez obtenir un texte très irrégulier qui peut généralement être amélioré en limitant l'irrégularité.
@@ -212,10 +228,19 @@
 %%%%%%%%%%%%
 
 \usepackage{caption}
-\usepackage{dialogue} %pour les... dialogues
+\usepackage{dialogue} % pour les dialogues
 
 \usepackage[font=itshape]{quoting} % pour les citations
-\usepackage{epigraph}
+\usepackage{epigraph, varwidth}
+
+
+% Adjust epigraphs
+\renewcommand{\epigraphsize}{\small\itshape}
+\renewcommand{\epigraphflush}{flushright}
+\renewcommand{\textflush}{justify}
+\setlength{\epigraphwidth}{0.5\textwidth}
+
+
 
 % incorporer une citation dans une ligne
 \newcommand{\inlinequote}[1]{\textit{``#1``}}  % Sans référence bibliographique
@@ -224,30 +249,18 @@
 % pour séparer les idées
 \newcommand{\ideaEnd}{\[ \star \]}
 \newcommand{\tripleS}{\[ \star \quad \star \quad \star \] \\}
+
 % pour le code
 \usepackage[cache=false]{minted}        % Utilisé pour les scripts
-\usepackage[skins,minted,breakable]{tcolorbox}
-\tcbuselibrary{minted,skins}
 
+% Box de couleur
+\usepackage[skins,breakable, most]{tcolorbox}
 
-% Pour configurer l'affichage global de nos codes
-\setminted{
-  linenos=true,
-  autogobble, %remove leading whitespace from code
-  bgcolor=doreeFondationUTT-clair,
-  fontsize=\scriptsize,
-  fontfamily=jkptt,
-  baselinestretch=1.0,
-  style=vs,
-  frame=lines,
-  breaklines, % Pour empêcher les lignes de dépasser
-  breakanywhere, % Pour couper partout
-  breakautoindent,
-  framesep=2mm,
-  curlyquotes=true,
-  tabsize=4,
-  stripall=true
+\tcbset{on line,
+boxsep=4pt, left=0pt,right=0pt,top=0pt,bottom=0pt,colframe=white,colback=lightgray,highlight math style={enhanced}
 }
+
+\newcommand{\code}[1]{\tcbox{\texttt{\textcolor{red}{#1}}}}
 
 % "When using babel or polyglossia with biblatex, loading csquotes is recommended to ensure that quoted texts are typeset according to the rules of your main language.'
 % load csquotes AFTER minted
@@ -267,7 +280,6 @@
  framesep=2em, % separation between frame and text
  rulecolor=\color{gray},
  %
- label=\fbox{\color{black}data.txt},
  labelposition=topline,
  %
  commandchars=\|\(\), % escape character and argument delimiters for
@@ -277,64 +289,56 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%- mdframed
+%%%%%%%%%%%%%%%%%%%- lstlisting
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[framemethod=TikZ]{mdframed} % pour de jolis "boites"
+\usepackage{listings}
 
+\lstdefinestyle{codestyle}{ %
+  inputencoding=utf8,
+  extendedchars=true,
+  literate={é}{{\'e}}1 {è}{{\`e}}1 {ç}{{\c c}}1,
+  backgroundcolor=\color{codebg!10},   % choose the background color
+  basicstyle=\ttfamily\scriptsize,        % size of fonts used for the code
+  breaklines=true,                 % automatic line breaking only at whitespace
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{codecomment},    % comment style
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  moredelim=**[is][\color{red}]{@red}{@red}, % to set something in red, @red i'm in red @red
+  keywordstyle=\color{codekeyword},       % keyword style
+  stringstyle=\color{codepurple},     % string literal style,
+  breakatwhitespace=false,
+  keepspaces=true,
+  columns=fullflexible,
+  title=\lstname,
+  xleftmargin=0.8cm,
+  rulecolor=\color{black!80},
+  framesep=0.5em,
+  frame=tlrb,
+  %frameshape={RYR}{Y}{Y}{RVR},
+  numberstyle=\tiny,
+  numbersep=2em,
+  numbers=left,
+  showspaces=false,
+  showstringspaces=true,
+  morekeywords={None,}
+  showtabs=false,
+  tabsize=4,
+  belowskip=0em,
+  aboveskip=1em,
+}
 
-% Pour un rounded corner et un fond gris
-\newmdenv[
-  innerlinewidth=0.5pt,
-  roundcorner=4pt,
-  linecolor=bg,
-  backgroundcolor=bg,
-  innerleftmargin=6pt,
-  innerrightmargin=6pt,
-  innertopmargin=6pt,
-  innerbottommargin=6pt
-]{mycodebox}
+\lstset{style=codestyle}
 
-\newmdenv[
-    linecolor=bleuRoiUTT,
-    outerlinewidth=2pt,
-    %roundcorner=20pt,
-    innertopmargin=4pt,
-    innerbottommargin=4pt,
-    innerrightmargin=4pt,
-    innerleftmargin=4pt,
-    leftmargin = 4pt,
-    rightmargin = 4pt
-    %backgroundcolor=gray!50!white}
-]{myboxedtext}
-
-\definecolor{blockquote-border}{RGB}{221,221,221}
-\definecolor{blockquote-text}{RGB}{119,119,119}
-
-\newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,linecolor=blockquote-border,skipabove=\parskip]{customblockquote}
-
-\newenvironment{quoted}{
-  \vspace{0.5cm}
-  \begin{customblockquote}
-    \list{}{
-      \rightmargin=0em\leftmargin=0em
-      }
-    \item
-    \relax
-    \color{blockquote-text}
-    \ignorespaces
-}{
-  \unskip\unskip\endlist\end{customblockquote}
-  }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Import custom commands
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{src/packages/commands}
+\usepackage{packages/commands}
 
-\newcommand{\frontpagereports}{\import{src/packages/}{frontpage_reports.tex}}
-\newcommand{\frontpageSTB}{\import{src/packages/}{frontpage_STB.tex}}
-\newcommand{\frontpageSTC}{\import{src/packages/}{frontpage_STC.tex}}
+\newcommand{\frontpagereports}{\import{packages/}{frontpage_reports.tex}}
+\newcommand{\frontpageSTB}{\import{packages/}{frontpage_STB.tex}}
+\newcommand{\frontpageSTC}{\import{packages/}{frontpage_STC.tex}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\if@noUTTcolors\@noUTTcolorsfalse
@@ -367,12 +371,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Gestion des titres
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% Pour changer les titres en I/ et en A/
-\renewcommand{\thesection}{\Roman{section}}
-\renewcommand{\thesubsection}{\Alph{subsection}}
-
 \usepackage[
   sf, % Serif text
   sl, % Slanted text
@@ -380,82 +378,69 @@
   explicit % Permet de choisir on l'on place l'argument
 ]{titlesec}
 
-%%% Chapter
+%%% Chapter ( Niveau 1 )
 % https://borntocode.fr/latex-personnaliser-les-titres-chapter/ => ?
+
+% APA : Centré gras
 \titleformat{\chapter} % command
-[hang] % shape (hang is normal shape, it was just for remember)
-{\normalfont\Huge\bfseries\raggedright\color{bleuRoiUTT}} % format
-{\thechapter} % label
+[block] % shape (hang is normal shape, it was just for remember)
+{\normalfont\LARGE\bfseries\centering\color{bleuRoiUTT}} % format
+{\FR{Chapitre}\EN{Chapter} \thechapter} % label
 {0.5em} % Spacing between label and title
-{\uline{#1}} % before code
+{\\#1} % before code
 
 \titlespacing{\chapter} % Set the spacing around the title
-{0pt}                  % Left
-{18pt}                  % Above
-{6pt}                  % Below\ŧit
+{0em}                  % Left
+{0em}                  % Above
+{1em}                  % Below\ŧit
 
 
-
-%%% Section
+%%% Section ( Niveau 2 )
+% APA : Aligné à gauche, gras
 \titleformat{\section} % command
-[hang] % shape (hang is normal shape, it was just for remember)
-{\normalfont\LARGE\bfseries\raggedright\color{bleuRoiUTT}} % format
+[block] % shape (hang is normal shape, it was just for remember)
+{\normalfont\Large\bfseries\raggedright\color{bleuRoiUTT}} % format
 {\thesection} % label
 {0.5em} % Spacing between label and title
-{\uline{#1}} % before code
+{#1} % before code
 
-\titlespacing{\section} % Set the spacing around the title
-{0pt}                  % Left
-{18pt}                  % Above
-{6pt}                  % Below
-
-%%% Subsection
+%%% Subsection ( Niveau 3 )
 \titleformat{\subsection} % command
-{\normalfont\Large\bfseries\raggedright\color{bleuCielUTT}} % format
+[block] % shape
+{\normalfont\large\bfseries\itshape\raggedright\color{bleuCielUTT}} % format
 {\thesubsection} % label
 {0.5em} % Spacing between label and title
 {#1} % before code
 
-\titlespacing{\subsection} % Set the spacing around the title
-{0pt}                  % Left
-{18pt}                  % Above
-{6pt}                  % Below
 
-%%% Subsubsection
+%%% Subsubsection ( Niveau 4 )
 \titleformat{\subsubsection} % command
-{\normalfont\large\bfseries\raggedright\color{grisUTT}} % format
+[block]
+{\hspace{1.27cm}\normalfont\large\bfseries\raggedright\color{grisUTT}} % format
 {\thesubsubsection} % label
 {0.5em} % Spacing between label and title
 {#1} % before code
 
-\titlespacing{\subsubsection} % Set the spacing around the title
-{0pt}                  % Left
-{18pt}                  % Above
-{6pt}                  % Below
-
-%%% paragraph
+%%% paragraph ( Niveau 5 )
 \titleformat{\paragraph} % command
-{\normalfont\large\bfseries\raggedright\color{bleuRoiUTT}} % format
+[block]
+{\hspace{1.27cm}\normalfont\large\bfseries\itshape\raggedright\color{bleuRoiUTT}} % format
 {\theparagraph} % label
 {0.5em} % Spacing between label and title
 {#1} % before code
 
 \titlespacing{\paragraph} % Set the spacing around the title
 {0pt}                  % Left
-{18pt}                  % Above
-{6pt}                  % Below
+{0pt}                 % Above
+{0pt}                  % Below
 
 %%% subparagraph
 \titleformat{\subparagraph} % command
+[block]
 {\normalfont\bfseries\raggedright\color{bleuRoiUTT}} % format
 {\thesubparagraph} % label
 {0.5em} % Spacing between label and title
 {#1} % before code
-
-\titlespacing{\subparagraph} % Set the spacing around the title
-{0pt}                  % Left
-{18pt}                  % Above
-{6pt}                  % Below
 
 % Pour le titre de l'Abstract
 \newenvironment{myabstract}{%
@@ -473,33 +458,38 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Gestion des TOC / LOF / LOT (Table Of Contents, List Of Figures, List Of Tables )
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[page,header]{appendix}
+\usepackage[toc, page, header]{appendix}
+
+\renewcommand{\appendixpagename}{Annexes}
+\renewcommand{\appendixtocname}{Annexes}
 
 %%
 \usepackage{tocloft}
 
-% On définit le style des titres pour les Z
+% On définit le style des titres
 \renewcommand{\cfttoctitlefont}{\color{bleuRoiUTT}\Large\bfseries}
 \renewcommand{\cftloftitlefont}{\color{bleuRoiUTT}\Large\bfseries}
 \renewcommand{\cftlottitlefont}{\color{bleuRoiUTT}\Large\bfseries}
-
 
 % On paramètre ce qui se passe après
 %\renewcommand{\cftaftertoctitle}{\markboth{TOC}{}}
 %\renewcommand{\cftafterloftitle}{\markboth{LOT}{}}
 %\renewcommand{\cftafterlottitle}{\markboth{LOF}{}}
-%%
+%
 
 \usepackage{etoc} % Pour avoir des tables de matières personnalisées
-\usepackage{shorttoc} % pour faire des sommaires
 
-\setlength\cftsecnumwidth{2em} % Espace entre numéro de section et titre dans la toc
+% Parametrer la profondeur de la numérotation des titres
+\setcounter{secnumdepth}{3}
+
+% Espace entre numéro de section et titre dans la toc
+\setlength\cftsecnumwidth{2em}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %En-tête et pied de page
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% Marges de 2.54cm (norme APA)
 \usepackage[
   a4paper,
   %showframe, % show the page layout
@@ -507,11 +497,11 @@
   textwidth=16cm,
   headheight=8cm,
   headsep=0.5cm,
-  top=3.5cm,
-  bottom=3cm,
+  top=2.54cm,
+  bottom=2.54cm,
   left=2.54cm,
   right=2.54cm,
-  footskip=1cm
+  footskip=1.25cm
 ]{geometry}   % Utilisé pour les marges
 
 \usepackage{fancyhdr}		% Pour l'entête et les pieds de page
@@ -534,16 +524,17 @@
     \textsc{
       \minipage[b]{.8\linewidth}
         \footnotesize
-        % \leftmark % Contient le nom du haut niveau (chapitre)
-        \rightmark % Contient le nom du bas niveau (section)
+        \leftmark % Contient le nom du haut niveau (chapitre)
+        % \rightmark % Contient le nom du bas niveau (section)
       \endminipage
       }
   } %Section actuelle à gauche de l'en-tête
 
-  \fancyhead[C]{
-    \includegraphics[width=5cm]{Ressources-graphiques/logos/UTT.eps}
-    \vspace{0.7cm}
-  } %Sigle de l'UTT au centre de l'en-tête
+  % \fancyhead[C]{
+  %   \vspace{5cm}
+  %   \includegraphics[width=3cm]{ressources-graphiques/logos/UTT.eps}
+  %   \vspace{0.7cm}
+  % } %Sigle de l'UTT au centre de l'en-tête
 
   \fancyhead[R]{ %en-tête droite
     \small
@@ -569,9 +560,11 @@
 
 % New fancy page style
 \fancypagestyle{noTitledHeader}{
+  \fancyhf{} % Clear header/footer
   \pagestyle{UTT}% Duplicate plain page style
   \fancyhead[L]{ ~ }
 }
+
 
 % New page style for ILB
 \fancypagestyle{ILB}{
@@ -591,7 +584,7 @@
 %%%%%%%%%%%%%%%%%%%%
 
 \usepackage[bottom]{footmisc} % Pour éviter que les notes de bas de page soient "collées" à notre texte
-\addtolength{\skip\footins}{0.5cm} % pour ajouter un espace en bas
+\addtolength{\skip\footins}{6pt} % pour ajouter un espace en bas
 \interfootnotelinepenalty=10000 % Pour éviter que les notes de bas de pages se propagent
 \renewcommand{\thefootnote}{\arabic{footnote}} % notes de bas de page en arabe
 

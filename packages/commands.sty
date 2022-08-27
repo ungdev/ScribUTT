@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{src/packages/commands}
+\ProvidesPackage{packages/commands}
 
 % Taking derivatives
 \newcommand { \dd } [ 2 ] { \dfrac { d #1 } { d #2 } }
@@ -80,6 +80,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Fancy boxes for theorem lemma and proof and codes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{mdframed}
 
 
 \newcounter{theo}[section]\setcounter{theo}{0}
