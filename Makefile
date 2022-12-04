@@ -9,8 +9,7 @@
 # missing file reference and interactively asking you for an alternative.
 default:
 	@echo "Building pdf file's !"
-	latexmk -pdf rapportUTT.tex -quiet
-	latexmk -c -pdf rapportUTT.tex -quiet
+	latexmk -f -c -pdf rapportUTT.tex -quiet
 
 # On prépare l'archive utilisable sur Overleaf (par exemple)
 archive:

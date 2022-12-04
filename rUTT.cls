@@ -217,7 +217,8 @@
 %%% Glossaire
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[acronym, toc, xindy, ucmark]{glossaries}
-\makeglossaries
+% Uncomment this if you want to make glossary
+% \makeglossaries
 
 
 %%%%%%%%%%%%%
