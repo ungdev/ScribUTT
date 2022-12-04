@@ -19,9 +19,9 @@ archive:
 	mkdir build
 
 	cp rUTT.cls rapportUTT.tex .latexmkrc Makefile build/
-	cp -r latex-files ressources-graphiques build/
+	cp -r latex-files ressources-graphiques packages build/
 
-	cd build &&	zip -r ../latex-rapport-UTT.zip ./
+	cd build && zip -r ../latex-rapport-UTT.zip ./
 
 	@echo "Archive's ready !"
 
