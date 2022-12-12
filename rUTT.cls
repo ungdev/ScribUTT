@@ -115,16 +115,15 @@
 \usepackage{blindtext} % Pour générer des textes de test
 
 \usepackage{graphicx} % pour les images
-\graphicspath{ {assets/img} }
+\graphicspath{{assets/img}}
 \usepackage{placeins} % pour bien positionner lesdites images
 \usepackage[export]{adjustbox} % pour le ratio
-
 \usepackage{subfiles}
 \usepackage{textcomp}
-\usepackage{lmodern}        % Pour avoir de bonnes polices en pdf
-\usepackage{graphicx, animate}       % Indispensable pour les figures
+\usepackage{lmodern} % Pour avoir de bonnes polices en pdf
+\usepackage{graphicx, animate} % Indispensable pour les figures
 \usepackage{wrapfig}
-\usepackage{amsmath}        % Environnement pour les maths, permet du mettre du texte dans les équations
+\usepackage{amsmath} % Environnement pour les maths, permet du mettre du texte dans les équations
 
 \usepackage{xcolor} % pour colorer
 \usepackage[normalem]{ulem} % pour surligner

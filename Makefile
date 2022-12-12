@@ -9,7 +9,7 @@
 # missing file reference and interactively asking you for an alternative.
 default:
 	@echo "Building pdf file's !"
-	latexmk -f -c -pdf rapportUTT.tex -quiet
+	latexmk -f -pdf rapportUTT.tex -quiet
 
 # On prépare l'archive utilisable sur Overleaf (par exemple)
 archive:
@@ -18,7 +18,7 @@ archive:
 	mkdir build
 
 	cp rUTT.cls rapportUTT.tex .latexmkrc Makefile build/
-	cp -r latex-files ressources-graphiques packages build/
+	cp -r assets latex-files ressources-graphiques packages build/
 
 	cd build && zip -r ../latex-rapport-UTT.zip ./
 
