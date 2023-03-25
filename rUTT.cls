@@ -494,13 +494,9 @@ boxsep=4pt, left=0pt,right=0pt,top=0pt,bottom=0pt,colframe=white,colback=lightgr
   a4paper,
   %showframe, % show the page layout
   %includeheadfoot, % la zone de texte inclut le header et le footer
-  textwidth=16cm,
   headheight=8cm,
   headsep=0.5cm,
-  top=2.54cm,
-  bottom=2.54cm,
-  left=2.54cm,
-  right=2.54cm,
+  margin=2.54cm,
   footskip=1.25cm
 ]{geometry}   % Utilisé pour les marges
 
