@@ -25,7 +25,7 @@ archive:
 	@echo "Archive's ready !"
 
 # Prepare folder
-deploy: default archive
+deploy: default archive clean
 	@echo "Preparing deployment !"
 	rm -rf deploy
 	mkdir deploy
@@ -33,8 +33,6 @@ deploy: default archive
 	cp rapportUTT.pdf deploy/
 	mv latex-rapport-UTT.zip deploy/
 	@echo "Deployment completed."
-	make clean
-
 
 cleanall:
 	@echo "Cleaning ALL ..."

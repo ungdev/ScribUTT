@@ -1,3 +1,4 @@
+# Scrib'UTT
 <p align="center">
   <img src="Logo.png"/>
 </p>
@@ -17,40 +18,17 @@ Pour que les gens qui lisent vos rapports puissent réagir ainsi :
 
 ---
 
-Le pdf d'exemple généré est disponible [ici](rapportUTT.pdf). Voici la couverture que vous obtiendrez en utilisant ce projet :
+Voici la couverture que vous obtiendrez en utilisant ce projet :
 
 <p align="center">
   <img src="assets/img/exampleSTB.png"/>
 </p>
 
-# Table des matières
-
-Générée avec l'outil en ligne : https://ecotrust-canada.github.io/markdown-toc/
-
-- [Utilisation](#utilisation)
-  * [Bivalence](#bivalence)
-  * [Utilisation du make](#utilisation-du-make)
-  * [Architecture de votre projet](#architecture-de-votre-projet)
-    + [Sommaire et Table des matières](#sommaire-et-table-des-mati-res)
-  * [Commandes en plus](#commandes-en-plus)
-- [Comment gerer un gros projet en LaTeX](#comment-gerer-un-gros-projet-en-latex)
-  * [Comment incorpore-t-on d'autres fichiers ?](#comment-incorpore-t-on-d-autres-fichiers--)
-    + [Le package `import`](#le-package--import-)
-- [Bibliographie](#bibliographie)
-  * [Biber et BibTex](#biber-et-bibtex)
-- [Des liens utiles](#des-liens-utiles)
-- [Installation](#installation)
-  * [Dépendance Python](#d-pendance-python)
-  * [openSUSE](#opensuse)
-- [Petits soucis](#petits-soucis)
-- [Licence](#licence)
-- [Contribution](#contribution)
-
-# Utilisation
+## Utilisation
 **Pour une utilisation simple, ne téléchargez pas directement tout le repository !**
 Téléchargez l'archive prête à être utilisée : [ici](deploy/latex-rapport-UTT.zip) :red_circle:
 
-## Bivalence
+### Bivalence
 * Ce projet vous permet de rédiger **tous** vos rapports UTT !
 En ouvrant le [rapportUTT.tex](rapportUTT.tex), vous verrez que j'ai tout commenté pour que vous sachiez quoi remplir en fonction. J'ai aussi mis à disposition sur ce git le [Thésaurus de l'UTT](ressources-graphiques/Thésaurus.pdf) de 2021 qui je pense, ne bougera que très peu dans le temps.
 
@@ -60,27 +38,27 @@ Pour passer d'une page de garde à l'autre, veillez à bien commenter / dé-comm
 
 * Si jamais vous souhaitez modifier la langue du rapport de stage, pour éviter de créer deux fichiers .tex, je vous conseille juste de vous rendre dans [frontpage_ST.tex](packages/frontpage_ST.tex) et de remplacer les variables adéquates.
 
-## Utilisation du make
+### Utilisation du make
 Sous un environnement Unix, vous pouvez utiliser le `MAKEFILE` pour :
 
 * Construire le pdf de votre projet avec `make`
 * Déployer votre rapport sous une forme dite "propre" (i.e. le pdf et un zip propre de vos ressources) avec `make deploy`. Notez qu'il invoque par lui même la construction du pdf.
 * Nettoyer votre espace de projet avec `make clean` et/ou `make clean all`.
 
-## Architecture de votre projet
+### Architecture de votre projet
 * La classe [rUTT](rUTT.cls) est la classe mère dans laquelle est défini toutes les subtilités tel que les paramètres de [`minted`](https://ctan.org/pkg/minted?lang=en), les mises en forme du bas de page etc.
 
 * Le fichier [rapportUTT.tex](rapportUTT.tex) est la racine de votre projet, c'est ici que vous allez renseigner le titre, votre UE, les auteurs etc. **Le corps de ce document a été conçu pour aller au plus simple**, vous n'avez qu'à changer l'ordre d'import de vos parties, sauter des pages (ou non) entre chacune d'elle etc.
 * On placera dans le dossier [assets/img](assets/img) toutes les images que l'on souhaite incorporer à notre document.
 * Le dossier [packages](packages) contient les ajouts de commandes les plus usées ["commands.sty"](packages/commands.sty), les couleurs de l'UTT [ici](packages/couleurs_UTT.sty) mais aussi et surtout la conception de la page de garde avec l'*overlay* et [la disposition des éléments](packages/frontpage.tex). **C'est ici qu'il faut ajouter vos modules perso**. N'hésitez pas à proposer un module que vous jugez essentiel !
 
-### Sommaire et Table des matières
+#### Sommaire et Table des matières
 Selon les règles d'organisation d'un document en français, un sommaire et une table des matières sont **deux choses bien différentes**.
 * La Table des matières donne **le détail de tous les chapitres, sections, sous-sections, etc.** Elle se place **en toute fin de document (après la bibliographie)** pour être facilement accessible. C'est elle qui **porte les numéros de pages et mentionne ce qu'on appelle l'appareil de référence (annexes, tables, index, bibliographie, etc.)**
 
 * Le Sommaire quant à lui se place juste avant le début du texte principal et ne **donne** que **des informations sommaires, à savoir les parties, chapitres et grandes subdivisions du mémoire ou rapport (de stage)**. Le sommaire doit apparaître après votre résumé ou vos remerciements, mais avant vos listes des illustrations/abréviations et le glossaire, ou juste avant l'introduction.
 
-## Commandes en plus
+### Commandes en plus
 * J'ai ajouté une commande permettant d'afficher une adresse en hyperlink, permettant de cliquer directement dessus pour afficher sur une carte openstreetmap.
 ```
 \newcommand{\mapAddr}[1]{\href{https://www.openstreetmap.org/search?query=#1}{#1}}
@@ -89,8 +67,8 @@ C'est utilisé pour la section "Lieu" de votre rapport de stage !
 
 * Beaucoup de commandes très utilisées sont mises dans le package [commands.sty](packages/commands.sty). N'hésitez pas à m'en fournir d'autres que vous souhaiteriez voir apparaitre !
 
-# Comment gerer un gros projet en LaTeX
-## Comment incorpore-t-on d'autres fichiers ?
+## Comment gerer un gros projet en LaTeX
+### Comment incorpore-t-on d'autres fichiers ?
 
 `\input{nom_de_fichier}` importe les commandes de `nom_de_fichier.tex` dans le fichier cible -cela équivaut à taper toutes les commandes de `nom_de_fichier.tex` directement dans le fichier courant à l'endroit de la ligne `\input`.
 
@@ -108,13 +86,13 @@ On ne peut pas "précompiler" des parties. Néanmoins, on peut utiliser `\includ
 
 ---
 
-### Le package `import`
+#### Le package `import`
 
 Bon, c'est vrai, `\input` et `\include` sont les outils de base pour incorporer d'autres fichiers `LaTeX` dans un autre. Sauf qu'il existe un package qui permet d'éviter bon nombre d'erreurs dû à ces derniers.
 
 Le `\clearpage` est à faire manuellement ici !
 
-# Bibliographie
+## Bibliographie
 
 On ne peut pas utiliser et `thebibliography` et `biblatex` en même temps. `thebibliography` nous donne un contrôle **total** sur l'ensemble de la bibliographie mais il faut tout faire manuellement. Tandis que `biblatex` peut créer automatiquement la bibliographie pour nous si on lui fournit un fichier `.bib` !
 
@@ -139,7 +117,7 @@ Si vous souhaitez vous plonger là-dedans, il y a un très bon pdf téléchargea
     Il est compris de base dans l'extension LaTeX de VsCode. Sinon, voici la documentaiton pour tout autre système : [https://mg.readthedocs.io/latexmk.html](https://mg.readthedocs.io/latexmk.html)
 
 
-# Des liens utiles
+## Des liens utiles
 * Pour écrire des maths en LaTeX: [ici](https://fr.wikibooks.org/wiki/LaTeX/%C3%89crire_des_math%C3%A9matiques)
 * Pour mettre en forme du code avec [minted](https://github.com/gpoore/minted): [ici](https://github.com/gpoore/minted/raw/master/source/minted.pdf)
 * Un pdf très complet écrit par Monsieur Bouzygues Adrien est téléchargeable [ici](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwibkNn4ndXvAhUIlxQKHXU8CMYQFjAMegQIIBAD&url=http%3A%2F%2Ftug.ctan.org%2Finfo%2Fguide-latex-fr%2Fguide-latex-fr.pdf&usg=AOvVaw0BYYptHIaSenpCbfa5-vLy)
@@ -148,15 +126,21 @@ Si vous souhaitez vous plonger là-dedans, il y a un très bon pdf téléchargea
 * Pour bien intégrer des liens aussi bien vers vos fichiers que vers des URLs : [ici](https://en.wikibooks.org/wiki/LaTeX/Hyperlinks)
 * Si vous préférez coller votre code sous forme d'image, il y a ce cite qui est excellent: https://carbon.now.sh/
 
-# Installation
+## Installation
 On essaie de regrouper ici toutes les installations au propre pour chaque cas.
 Merci de faire parvenir via une pull-request ou en envoyant un message privé les erreurs ou ajouts.
 
-## Dépendance Python
+### Dépendances Python
 * Pour éviter l'erreur : ```! Package minted Error: You must have `pygmentize' installed to use this package.```
 > On ouvre une invite de commande et on lance: `pip3 install Pygments`
 
-## openSUSE
+### Linux
+
+```bash
+sudo apt update && sudo apt install texlive texlive-science texlive-latex-extra latexm texlive-lang-french texlive-bibtex-extra biber -y
+```
+
+#### openSUSE
 
 1. On utilise `zypper` avec l'option `--no-recommends` pour installer le moins de dépendances possible.
 2. On crée un lien symbolique pour `Pygments`: `sudo ln -sf /usr/bin/python3.8 /usr/bin/python`
@@ -168,7 +152,7 @@ Merci de faire parvenir via une pull-request ou en envoyant un message privé le
   * On installe `texlive-texcount` pour compter le nombres de mots avec le plugin [VimTeX](https://github.com/lervag/vimtex)
   * On peut aussi installer `texlive-chktex` pour des diagnostiques LSP en utilisant le plugin [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim) (`neovim` seulement)
 
-# Petits soucis
+## Petits soucis
 * "J'ai un problème, mon compilateur me dit : ```! LaTeX Error: File `algorithm2e.sty' not found.``` !"
 > Veillez à avoir le package `algorithm2e.sty` provenant de `texlive-science`. <br/>
 
@@ -176,8 +160,8 @@ Merci de faire parvenir via une pull-request ou en envoyant un message privé le
 > Ce souci est présent sur TeXStudio et est résolvable en faisant les changements indiqués [ici](https://tex.stackexchange.com/questions/99475/how-to-invoke-latex-with-the-shell-escape-flag-in-texstudio-former-texmakerx), où pour les plus pressés, rendez-vous dans `Options > Configure TeXStudio > Build` et dans la boite de dialogue **User Commands** cliquez sur `+Add` et nommé votre commande puis mettez respectivement `user:graphviz-pdflatex` et `txs:///pdflatex/[--shell-escape]`.
 * Lors de l'impression, le pdf ne sort pas comme il était sur mon lecteur !
 > Pour réparer ce souci qui n'en est pas un, je te conseille d'imprimer en **taille réelle** ou 100% sur les paramètres de ton imprimante. J'ai laissé les marges nécessaires.
-# Licence
+## Licence
 Ce contenu est distribué sous licence BSD-3. **Attention l'archive dont nous parlons au-dessus contient des éléments graphiques dont certains sont de la propriété de l'[Université de Technologie de Troyes](https://www.utt.fr/).**
 
-# Contribution
+## Contribution
 Toute contribution est la bienvenue.
