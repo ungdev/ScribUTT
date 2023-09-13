@@ -137,7 +137,7 @@ Merci de faire parvenir via une pull-request ou en envoyant un message privé le
 ### Linux
 
 ```bash
-sudo apt update && sudo apt install texlive texlive-science texlive-latex-extra latexm texlive-lang-french texlive-bibtex-extra biber -y
+sudo apt update && sudo apt install texlive texlive-science texlive-latex-extra latexmk texlive-lang-french texlive-bibtex-extra biber -y
 ```
 
 #### openSUSE
