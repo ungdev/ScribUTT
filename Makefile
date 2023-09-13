@@ -34,6 +34,10 @@ deploy: default archive clean
 	mv latex-rapport-UTT.zip deploy/
 	@echo "Deployment completed."
 
+docker:
+	docker build -t scributt .
+	docker run --rm -v .:/home scributt make -C /home
+
 cleanall:
 	@echo "Cleaning ALL ..."
 	latexmk -C -bibtex
