@@ -164,7 +164,7 @@
 % https://tex.stackexchange.com/questions/300340/topsep-itemsep-partopsep-parsep-what-do-they-each-mean-and-what-about
 
 \setlist{
-  %noitemsep,
+  itemsep=2pt,
   topsep=0pt,
   parsep=0pt,
   partopsep=0pt,
