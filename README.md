@@ -24,11 +24,8 @@ Voici la couverture que vous obtiendrez en utilisant ce projet :
   <img src="assets/img/exampleSTB.png"/>
 </p>
 
-## Utilisation
-**Pour une utilisation simple, ne téléchargez pas directement tout le repository !**
-Téléchargez l'archive prête à être utilisée : [ici](deploy/latex-rapport-UTT.zip) :red_circle:
 
-### Bivalence
+## Bivalence
 * Ce projet vous permet de rédiger **tous** vos rapports UTT !
 En ouvrant le [rapportUTT.tex](rapportUTT.tex), vous verrez que j'ai tout commenté pour que vous sachiez quoi remplir en fonction. J'ai aussi mis à disposition sur ce git le [Thésaurus de l'UTT](ressources-graphiques/Thésaurus.pdf) de 2021 qui je pense, ne bougera que très peu dans le temps.
 
@@ -38,27 +35,27 @@ Pour passer d'une page de garde à l'autre, veillez à bien commenter / dé-comm
 
 * Si jamais vous souhaitez modifier la langue du rapport de stage, pour éviter de créer deux fichiers .tex, je vous conseille juste de vous rendre dans [frontpage_ST.tex](packages/frontpage_ST.tex) et de remplacer les variables adéquates.
 
-### Utilisation du make
+## Utilisation du make
 Sous un environnement Unix, vous pouvez utiliser le `MAKEFILE` pour :
 
 * Construire le pdf de votre projet avec `make`
 * Déployer votre rapport sous une forme dite "propre" (i.e. le pdf et un zip propre de vos ressources) avec `make deploy`. Notez qu'il invoque par lui même la construction du pdf.
 * Nettoyer votre espace de projet avec `make clean` et/ou `make clean all`.
 
-### Architecture de votre projet
+## Architecture de votre projet
 * La classe [rUTT](rUTT.cls) est la classe mère dans laquelle est défini toutes les subtilités tel que les paramètres de [`minted`](https://ctan.org/pkg/minted?lang=en), les mises en forme du bas de page etc.
 
 * Le fichier [rapportUTT.tex](rapportUTT.tex) est la racine de votre projet, c'est ici que vous allez renseigner le titre, votre UE, les auteurs etc. **Le corps de ce document a été conçu pour aller au plus simple**, vous n'avez qu'à changer l'ordre d'import de vos parties, sauter des pages (ou non) entre chacune d'elle etc.
 * On placera dans le dossier [assets/img](assets/img) toutes les images que l'on souhaite incorporer à notre document.
 * Le dossier [packages](packages) contient les ajouts de commandes les plus usées ["commands.sty"](packages/commands.sty), les couleurs de l'UTT [ici](packages/couleurs_UTT.sty) mais aussi et surtout la conception de la page de garde avec l'*overlay* et [la disposition des éléments](packages/frontpage.tex). **C'est ici qu'il faut ajouter vos modules perso**. N'hésitez pas à proposer un module que vous jugez essentiel !
 
-#### Sommaire et Table des matières
+### Sommaire et Table des matières
 Selon les règles d'organisation d'un document en français, un sommaire et une table des matières sont **deux choses bien différentes**.
 * La Table des matières donne **le détail de tous les chapitres, sections, sous-sections, etc.** Elle se place **en toute fin de document (après la bibliographie)** pour être facilement accessible. C'est elle qui **porte les numéros de pages et mentionne ce qu'on appelle l'appareil de référence (annexes, tables, index, bibliographie, etc.)**
 
 * Le Sommaire quant à lui se place juste avant le début du texte principal et ne **donne** que **des informations sommaires, à savoir les parties, chapitres et grandes subdivisions du mémoire ou rapport (de stage)**. Le sommaire doit apparaître après votre résumé ou vos remerciements, mais avant vos listes des illustrations/abréviations et le glossaire, ou juste avant l'introduction.
 
-### Commandes en plus
+## Commandes en plus
 * J'ai ajouté une commande permettant d'afficher une adresse en hyperlink, permettant de cliquer directement dessus pour afficher sur une carte openstreetmap.
 ```
 \newcommand{\mapAddr}[1]{\href{https://www.openstreetmap.org/search?query=#1}{#1}}
