@@ -22,6 +22,10 @@ Voici la couverture que vous obtiendrez en utilisant ce projet :
   <img src="assets/img/exampleSTB.png"/>
 </p>
 
+## Utilisation
+
+**Pour une utilisation simple, ne téléchargez pas directement tout le repository !**
+Téléchargez [l'archive prête à être utilisée](https://nightly.link/n3rada/ScribUTT/workflows/deploy.yaml/main/deploy.zip).
 
 ## Bivalence
 * Ce projet vous permet de rédiger **tous** vos rapports UTT !
