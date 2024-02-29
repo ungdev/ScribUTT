@@ -3,9 +3,7 @@
   <img src="Logo.png"/>
 </p>
 
-`ScribUTT`: Template LaTeX **perfectionniste** au format [UTT](https://www.utt.fr/) pour la rédaction de vos rapports de TPs / TDs / Projets mais aussi pour les stages (ST05,ST09,ST10,ST30). Parce qu'un ingénieur ne devrait pas avoir à se soucier de la forme de son rapport :bangbang:
-
-![GitHub forks](https://img.shields.io/github/forks/n3rada/ScribUTT) ![GitHub issues](https://img.shields.io/github/issues/n3rada/ScribUTT)
+`ScribUTT`: Template LaTeX **perfectionniste** au format [UTT](https://www.utt.fr/) pour la rédaction de vos rapports de TPs / TDs / Projets mais aussi pour les stages (ST05,ST09,ST10,ST30). Parce qu'un ingénieur ne devrait pas avoir à se soucier de la forme de son rapport.
 
 ---
 
