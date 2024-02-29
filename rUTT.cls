@@ -503,6 +503,7 @@ boxsep=4pt, left=0pt,right=0pt,top=0pt,bottom=0pt,colframe=white,colback=lightgr
 \usepackage{fancyhdr}		% Pour l'entête et les pieds de page
 \renewcommand{\headrulewidth}{0pt} % pas de tiret en haut de page
 
+\newcommand{\markleft}[1]{\markboth{\MakeUppercase{#1}}{}}
 
 %%% Définition des entêtes et pieds de page
 \fancypagestyle{UTT}{
