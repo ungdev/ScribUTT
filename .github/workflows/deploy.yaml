@@ -21,12 +21,3 @@ jobs:
                         Makefile
                         rapportUTT.tex
                         rUTT.cls
-            -   name: Compile LaTeX
-                uses: xu-cheng/latex-action@v3
-                with:
-                    root_file: rapportUTT.tex
-            -   name: Upload PDF
-                uses: actions/upload-artifact@v4
-                with:
-                    name: rapportUTT
-                    path: rapportUTT.pdf
