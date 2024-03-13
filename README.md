@@ -14,7 +14,7 @@ Pour que les gens qui lisent vos rapports puissent réagir ainsi :
   <img alt="He is speaking the language of gods." src="assets/img/languageOfGods.jpg"/>
 </p>
 
-:star: Laissez une étoile sur ce projet s'il vous a servi ! :arrow_right: ![GitHub stars](https://img.shields.io/github/stars/n3rada/ScribUTT) :arrow_left:
+![GitHub stars](https://img.shields.io/github/stars/n3rada/ScribUTT)
 
 ---
 
