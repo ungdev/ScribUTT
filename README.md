@@ -27,7 +27,7 @@ Voici la couverture que vous obtiendrez en utilisant ce projet :
 ## Utilisation
 
 **Pour une utilisation simple, ne téléchargez pas directement tout le repository !**
-Téléchargez [l'archive prête à être utilisée](https://nightly.link/n3rada/ScribUTT/workflows/deploy.yaml/main/deploy.zip).
+Téléchargez [l'archive prête à être utilisée](https://github.com/n3rada/ScribUTT/releases/latest/download/deploy.zip).
 
 ## Bivalence
 
