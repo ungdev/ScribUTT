@@ -297,7 +297,7 @@ boxsep=4pt, left=0pt,right=0pt,top=0pt,bottom=0pt,colframe=white,colback=lightgr
 \lstdefinestyle{codestyle}{ %
   inputencoding=utf8,
   extendedchars=true,
-  literate={é}{{\'e}}1 {è}{{\`e}}1 {ç}{{\c c}}1,
+  literate={é}{{\'e}}1 {è}{{\`e}}1 {ç}{{\c c}}1 {à}{{\`a}}1 {ê}{{\^e}}1 {ô}{{\^o}}1,
   backgroundcolor=\color{codebg!10},   % choose the background color
   basicstyle=\ttfamily\scriptsize,        % size of fonts used for the code
   breaklines=true,                 % automatic line breaking only at whitespace
