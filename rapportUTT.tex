@@ -134,14 +134,15 @@
 
     {
         % Tableaux et figures
-        \markboth{}{Tableaux et figures}
         \phantomsection
+
+        \listoftables
+        \addcontentsline{toc}{chapter}{\listtablename}
 
         \listoffigures
         \addcontentsline{toc}{chapter}{\listfigurename}
 
-        \listoftables
-        \addcontentsline{toc}{chapter}{\listtablename}
+        \markleft{Tableaux et figures}
     }
 
     % \setglossarystyle{listhypergroup}
