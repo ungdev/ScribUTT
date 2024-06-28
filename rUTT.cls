@@ -295,38 +295,46 @@ boxsep=4pt, left=0pt,right=0pt,top=0pt,bottom=0pt,colframe=white,colback=lightgr
 \usepackage{listings}
 
 \lstdefinestyle{codestyle}{ %
-  inputencoding=utf8,
-  extendedchars=true,
-  literate={é}{{\'e}}1 {è}{{\`e}}1 {ç}{{\c c}}1 {à}{{\`a}}1 {ê}{{\^e}}1 {ô}{{\^o}}1,
-  backgroundcolor=\color{codebg!10},   % choose the background color
-  basicstyle=\ttfamily\scriptsize,        % size of fonts used for the code
-  breaklines=true,                 % automatic line breaking only at whitespace
-  captionpos=b,                    % sets the caption-position to bottom
-  commentstyle=\color{codecomment},    % comment style
-  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
-  moredelim=**[is][\color{red}]{@red}{@red}, % to set something in red, @red i'm in red @red
-  keywordstyle=\color{codekeyword},       % keyword style
-  stringstyle=\color{codepurple},     % string literal style,
-  breakatwhitespace=false,
-  keepspaces=true,
-  columns=fullflexible,
-  title=\lstname,
-  xleftmargin=0.8cm,
-  rulecolor=\color{black!80},
-  framesep=0.5em,
-  frame=tlrb,
-  %frameshape={RYR}{Y}{Y}{RVR},
-  numberstyle=\tiny,
-  numbersep=2em,
-  numbers=left,
-  showspaces=false,
-  showstringspaces=true,
-  morekeywords={None,}
-  showtabs=false,
-  tabsize=4,
-  belowskip=0em,
-  aboveskip=1em,
+  inputencoding=utf8,                 % Use UTF-8 encoding
+  extendedchars=true,                 % Allow extended characters
+  literate={á}{{\'a}}1 {à}{{\`a}}1 {â}{{\^a}}1 {ä}{{\"a}}1 {ã}{{\~a}}1 {å}{{\r a}}1 {æ}{{\ae}}1
+           {ç}{{\c c}}1 {é}{{\'e}}1 {è}{{\`e}}1 {ê}{{\^e}}1 {ë}{{\"e}}1 {í}{{\'i}}1 {ì}{{\`i}}1
+           {î}{{\^i}}1 {ï}{{\"i}}1 {ñ}{{\~n}}1 {ó}{{\'o}}1 {ò}{{\`o}}1 {ô}{{\^o}}1 {ö}{{\"o}}1
+           {õ}{{\~o}}1 {ø}{{\o}}1 {œ}{{\oe}}1 {ú}{{\'u}}1 {ù}{{\`u}}1 {û}{{\^u}}1 {ü}{{\"u}}1
+           {ý}{{\'y}}1 {ÿ}{{\"y}}1 {Á}{{\'A}}1 {À}{{\`A}}1 {Â}{{\^A}}1 {Ä}{{\"A}}1 {Ã}{{\~A}}1
+           {Å}{{\r A}}1 {Æ}{{\AE}}1 {Ç}{{\c C}}1 {É}{{\'E}}1 {È}{{\`E}}1 {Ê}{{\^E}}1 {Ë}{{\"E}}1
+           {Í}{{\'I}}1 {Ì}{{\`I}}1 {Î}{{\^I}}1 {Ï}{{\"I}}1 {Ñ}{{\~N}}1 {Ó}{{\'O}}1 {Ò}{{\`O}}1
+           {Ô}{{\^O}}1 {Ö}{{\"O}}1 {Õ}{{\~O}}1 {Ø}{{\O}}1 {Œ}{{\OE}}1 {Ú}{{\'U}}1 {Ù}{{\`U}}1
+           {Û}{{\^U}}1 {Ü}{{\"U}}1 {Ý}{{\'Y}}1 {ß}{{\ss}}1,  % Handle accented characters
+  backgroundcolor=\color{codebg!10},  % Set background color
+  basicstyle=\ttfamily\scriptsize,    % Set font size for code
+  breaklines=true,                    % Enable line breaking at whitespace
+  captionpos=b,                       % Set caption position to bottom
+  commentstyle=\color{codecomment},   % Set comment style color
+  escapeinside={\%*}{*)},             % Allow LaTeX inside code
+  moredelim=**[is][\color{red}]{@red}{@red}, % Set custom delimiter for red text
+  keywordstyle=\color{codekeyword},   % Set keyword style color
+  stringstyle=\color{codepurple},     % Set string literal style color
+  breakatwhitespace=false,            % Do not break lines at whitespace
+  keepspaces=true,                    % Keep spaces in code
+  columns=fullflexible,               % Flexible column alignment
+  title=\lstname,                     % Use listing name as title
+  xleftmargin=0.8cm,                  % Set left margin
+  rulecolor=\color{black!80},         % Set rule (frame) color
+  framesep=0.5em,                     % Set frame separation
+  frame=tlrb,                         % Set frame type (top, left, right, bottom)
+  numberstyle=\tiny,                  % Set line number style
+  numbersep=2em,                      % Set separation of line numbers
+  numbers=left,                       % Display line numbers on the left
+  showspaces=false,                   % Do not show spaces
+  showstringspaces=true,              % Show spaces in strings
+  morekeywords={None,},               % Add custom keywords
+  showtabs=false,                     % Do not show tabs
+  tabsize=4,                          % Set tab size
+  belowskip=0em,                      % Set space below code block
+  aboveskip=1em,                      % Set space above code block
 }
+
 
 \lstset{style=codestyle}
 
