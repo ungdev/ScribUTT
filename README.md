@@ -174,8 +174,12 @@ Merci de faire parvenir via une pull-request ou en envoyant un message privé le
 
 ### Linux
 
+Si vous souhaitez faire un glossaire et/ou une liste des acronymes, veillez à installer le package `xindy`.
+
+#### Debian/Ubuntu
+
 ```bash
-sudo apt update && sudo apt install texlive texlive-science texlive-latex-extra latexmk texlive-lang-french texlive-bibtex-extra biber -y
+sudo apt update && sudo apt install texlive texlive-science texlive-latex-extra latexmk texlive-lang-french biber -y
 ```
 
 #### openSUSE
