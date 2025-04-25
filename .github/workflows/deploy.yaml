@@ -12,14 +12,12 @@ jobs:
             -   name: Checkout repo
                 uses: actions/checkout@v4
             -   name: Create zip
-                run: |
-                    make archive && \
-                    cd build/
+                run: make archive
             -   name: Upload artifact
                 uses: actions/upload-artifact@v4
                 with:
                     name: deploy
-                    path: .
+                    path: build/
             -   name: Create draft release
                 env:
                     GH_TOKEN: ${{ github.token }}
@@ -30,4 +28,4 @@ jobs:
                     for TAG in $(gh release list --exclude-drafts --limit 100 | awk '{print $1}'); do \
                         case "$TAG" in v"$YEAR_MONTH".*) COUNT=$((COUNT + 1));; esac; \
                     done; RELEASE_NUMBER=$((COUNT + 1)); \
-                    gh release create --draft --generate-notes "v$YEAR_MONTH.$RELEASE_NUMBER" ../deploy.zip
+                    gh release create --draft --generate-notes "v$YEAR_MONTH.$RELEASE_NUMBER" deploy.zip
