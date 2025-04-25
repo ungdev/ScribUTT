@@ -17,22 +17,12 @@ archive:
 	rm -rf build
 	mkdir build
 
-	cp rUTT.cls rapportUTT.tex .latexmkrc Makefile build/
-	cp -r assets latex-files ressources-graphiques packages build/
+	cp .latexmkrc Makefile rapportUTT.tex rUTT.cls build/
+	cp -r assets/ latex-files/ packages/ ressources-graphiques/ build/
 
-	cd build && zip -r ../latex-rapport-UTT.zip ./
+	cd build/ && zip -qr ../deploy.zip .
 
 	@echo "Archive's ready !"
-
-# Prepare folder
-deploy: default archive clean
-	@echo "Preparing deployment !"
-	rm -rf deploy
-	mkdir deploy
-
-	cp rapportUTT.pdf deploy/
-	mv latex-rapport-UTT.zip deploy/
-	@echo "Deployment completed."
 
 docker:
 	docker build -t scributt .
@@ -41,7 +31,7 @@ docker:
 cleanall:
 	@echo "Cleaning ALL ..."
 	latexmk -C -bibtex
-	rm -rf build deploy *.zip *.run.xml
+	rm -rf build *.zip *.run.xml
 	rm -rf rapportUTT.{aux,bbl,blg,log,out,pdf,toc}
 	find . -name '__latexindent_temp.*' -delete
 	@echo "Cleaned."
