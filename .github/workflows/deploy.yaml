@@ -17,6 +17,7 @@ jobs:
                 uses: actions/upload-artifact@v4
                 with:
                     name: deploy
+                    include-hidden-files: true
                     path: build/
             -   name: Create draft release
                 env:
