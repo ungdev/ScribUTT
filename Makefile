@@ -30,9 +30,9 @@ docker:
 
 cleanall:
 	@echo "Cleaning ALL ..."
-	latexmk -C -bibtex
+	latexmk -c -bibtex
 	rm -rf build *.zip *.run.xml
-	rm -rf rapportUTT.{aux,bbl,blg,log,out,pdf,toc}
+	rm -rf rapportUTT.{aux,bbl,blg,log,out,toc}
 	find . -name '__latexindent_temp.*' -delete
 	@echo "Cleaned."
 
