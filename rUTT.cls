@@ -215,6 +215,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Glossaire
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[lang-warn=false]{datatool-base}
 \usepackage[acronym, toc, xindy, ucmark]{glossaries}
 % Uncomment this if you want to make glossary
 % \makeglossaries
