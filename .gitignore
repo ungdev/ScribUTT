@@ -4,3 +4,5 @@ rapportUTT.*
 !rapportUTT.tex
 !rapportUTT.pdf
 *temp*
+build/
+deploy.zip
